@@ -1,10 +1,9 @@
-@import
-  "layout/root",
-  "layout/body",
-  "layout/nav",
-  "layout/category",
-  "layout/article",
-  "layout/post",
-  "layout/home",
-  "layout/footer",
-  "syntax/base16.solarized.light";
+@use "layout/root";
+@use "layout/body";
+@use "layout/nav";
+@use "layout/category";
+@use "layout/article";
+@use "layout/post";
+@use "layout/home";
+@use "layout/footer";
+@use "syntax/base16.solarized.light";
