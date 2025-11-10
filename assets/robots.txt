@@ -5,4 +5,4 @@ permalink: /robots.txt
 User-agent: *
 Allow: /
 
-Sitemap: https://whitecaffemocha.github.io/sitemap.xml
+Sitemap: https://nothumanity.github.io/sitemap.xml

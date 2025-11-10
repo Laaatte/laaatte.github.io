@@ -1,4 +1,4 @@
-# WhiteCaffeMocha
+# NotHumanity
 My GitHub Pages repository
 
 # Library used
