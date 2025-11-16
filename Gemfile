@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 # Jekyll
-gem "jekyll", "~> 4.4.1"
+gem "jekyll", '~> 4.4', '>= 4.4.1'
 
 # Jekyll plugins
 group :jekyll_plugins do

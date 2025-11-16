@@ -83,7 +83,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll (~> 4.4.1)
+  jekyll (~> 4.4, >= 4.4.1)
   jekyll-paginate (~> 1.1.0)
   tzinfo (~> 2.0, >= 2.0.6)
   tzinfo-data (~> 1.2024, >= 1.2024.2)
