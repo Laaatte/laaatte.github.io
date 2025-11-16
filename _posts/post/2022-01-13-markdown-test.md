@@ -2,7 +2,7 @@
 title: Markdown 테스트
 category: Post
 content: post
-author: WhiteCaffeMocha
+author: NotHumanity
 date: 2022-01-13
 ---
 {% assign author = site.data.author-data %}

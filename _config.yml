@@ -1,7 +1,7 @@
 # Jekyll configuration
 # Site
-url: https://whitecaffemocha.github.io
-title: WhiteCaffeMocha
+url: https://nothumanity.github.io
+title: NotHumanity
 description: Jekyll blog
 timezone: Asia/Seoul
 lang: ko
@@ -21,7 +21,11 @@ plugins:
 
 # Sass config
 sass:
+  sass_dir: _sass
   style: compressed
+  load_paths:
+    - _sass/layout
+    - _sass/syntax
 
 # Markdown, highlighter config
 markdown: kramdown

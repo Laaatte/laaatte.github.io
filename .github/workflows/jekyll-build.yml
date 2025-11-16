@@ -1,0 +1,52 @@
+# Jekyll Build Custom, Generated with GPT
+name: Jekyll Build and Deploy
+permissions:
+  contents: read
+  pull-requests: write
+  
+# Trigger this workflow on push to main branch and on pull request to main
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on push to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Trigger workflow on pull request to 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Checkout the latest repository content
+        
+      # Set up Ruby with the latest version (3.x series)
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # Use Ruby 3.1 (latest stable version)
+
+      # Install dependencies defined in the Gemfile
+      - name: Install dependencies
+        run: |
+          gem install bundler  # Install Bundler (for managing Ruby gems)
+          bundle install  # Install dependencies from Gemfile (Jekyll, plugins, etc.)
+        
+      # Install the latest Dart Sass version using npm
+      - name: Install Sass (latest version)
+        run: |
+          npm install -g sass  # Install the latest version of Dart Sass
+
+      # Build the Jekyll site with the latest Ruby and Sass versions
+      - name: Build the Jekyll site
+        run: |
+          bundle exec jekyll build  # Build the Jekyll site using Bundler and Jekyll
+
+      # Deploy the site to GitHub Pages using the action for deploying to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4  # Deploy to GitHub Pages using the action
+        with:
+          github_token: ${{ secrets.PAGES_BUILD_TOKEN }}  # Use GitHub token for authentication
+          publish_dir: ./_site  # The directory containing the built site (default is _site)
