@@ -50,3 +50,4 @@ jobs:
         with:
           github_token: ${{ secrets.PAGES_BUILD_TOKEN }}  # Use GitHub token for authentication
           publish_dir: ./_site  # The directory containing the built site (default is _site)
+          publish_branch: github-pages
