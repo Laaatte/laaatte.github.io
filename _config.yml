@@ -21,6 +21,7 @@ plugins:
 
 # Sass config
 sass:
+  sass_dir: _sass
   style: compressed
 
 # Markdown, highlighter config
