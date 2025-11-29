@@ -14,7 +14,9 @@ updates:
     reviewers:
       - "nothumanity"
 
-    # optional: immediately create PRs for security or direct dependency updates
+    # optional: allow dependabot to update direct dependencies only
     allow:
       - dependency-type: "direct"
-      - dependency-type: "security"
+
+    # notify immediately for security updates
+    open-pull-requests-limit: 3
