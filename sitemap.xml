@@ -1,62 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
-  
-  
-  
-  <url>
-    <loc>https://nothumanity.github.io/category/dev</loc>
-    
-    <lastmod>2025-11-16T19:53:18+09:00</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nothumanity.github.io/category/post</loc>
-    
-    <lastmod>2025-11-16T19:53:18+09:00</lastmod>
-    
-  </url>
-  
-  
-  
-  
-  <url>
-    <loc>https://nothumanity.github.io/posts/markdown-test</loc>
-    
-    <lastmod>2022-01-13T00:00:00+09:00</lastmod>
-    
-  </url>
-  
-  
-  
-  
-  <url>
-    <loc>https://nothumanity.github.io/tabs/category</loc>
-    
-    <lastmod>2025-11-16T19:53:18+09:00</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nothumanity.github.io/tabs/contact</loc>
-    
-    <lastmod>2025-11-16T19:53:18+09:00</lastmod>
-    
-  </url>
-  
-  
-  
-  
-  
-  <url>
-    <loc>https://nothumanity.github.io/</loc>
-    
-  </url>
-  
-  
-  
-  
-  
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"><url>
+        <loc>https://nothumanity.github.io/category/dev</loc><lastmod>2025-11-29T15:07:50+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/category/post</loc><lastmod>2025-11-29T15:07:50+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-10</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-11</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-12</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-13</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-14</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-15</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-2</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-3</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-4</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-5</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-6</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-7</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-8</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy-9</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test-copy</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/posts/markdown-test</loc><lastmod>2022-01-13T00:00:00+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/tabs/category</loc><lastmod>2025-11-29T15:07:50+09:00</lastmod></url><url>
+        <loc>https://nothumanity.github.io/tabs/contact</loc><lastmod>2025-11-29T15:07:50+09:00</lastmod></url><url>
+      <loc>https://nothumanity.github.io/</loc></url><url>
+      <loc>https://nothumanity.github.io/2/</loc></url><url>
+      <loc>https://nothumanity.github.io/LICENSE.md</loc>
+      <lastmod>2025-11-29T15:07:24+09:00</lastmod>
+    </url><url>
+      <loc>https://nothumanity.github.io/README.md</loc>
+      <lastmod>2025-11-29T15:07:24+09:00</lastmod>
+    </url><url>
+      <loc>https://nothumanity.github.io/assets/js/nav-toggle.js</loc>
+      <lastmod>2025-11-29T15:07:24+09:00</lastmod>
+    </url><url>
+      <loc>https://nothumanity.github.io/assets/js/post-pagination.js</loc>
+      <lastmod>2025-11-29T15:07:24+09:00</lastmod>
+    </url><url>
+      <loc>https://nothumanity.github.io/assets/lib/jquery-3.7.1.slim.js</loc>
+      <lastmod>2025-11-29T15:07:24+09:00</lastmod>
+    </url></urlset>
