@@ -1,13 +1,18 @@
 <head>
-  
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Title -->
-  <title>{% if page.title != null %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  
-  <!-- Og tag -->
+
+  <!-- title -->
+  <title>
+    {% if page.title != null %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <!-- open graph -->
   <meta property="og:url" content="{{ site.url }}">
   <meta property="og:type" content="{{ site.og_type }}">
   <meta property="og:image" content="{{ site.og_image }}">
@@ -15,19 +20,18 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:description" content="{{ site.description }}">
   <meta property="og:locale" content="{{ site.og_locale }}">
-  
-  <!-- Style -->
+
+  <!-- styles -->
   <!-- <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}"> -->
   <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}"> -->
-  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css' | relative_url }}">
-  
-  <!-- Library -->
-  <script type="text/javascript" src="{{ '/assets/lib/jquery-3.7.1.slim.js' | relative_url }}"></script>
-  
-  <!-- Script -->
-  <script type="text/javascript" src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  
-  <!-- Google Analytics -->
-  {% include google-analytics.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
+  <!-- libraries -->
+  <script src="{{ '/assets/lib/jquery-3.7.1.slim.js' | relative_url }}"></script>
+
+  <!-- scripts -->
+  <script src="{{ '/assets/js/nav-toggle.js' | relative_url }}"></script>
+
+  <!-- google analytics -->
+  {% include google-analytics.html %}
 </head>

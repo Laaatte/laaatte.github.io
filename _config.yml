@@ -1,25 +1,26 @@
-# Jekyll configuration
-# Site
+# ----------------------------
+# jekyll configuration
+# ----------------------------
+# site info
 url: https://nothumanity.github.io
 title: NotHumanity
 description: Jekyll blog
-timezone: Asia/Seoul
 lang: ko
+timezone: Asia/Seoul
 
-# Open Graph
-# og_image: 
+# open Graph
 og_type: website
 og_locale: ko_kr
+# og_image: 
 
-# Sitemap by jekyll-sitemap - asset/sitemap.xml
-# Google Analytics
+# google analytics
 google_analytics: G-8Y1W84B2CX
 
-# Jekyll plugins
+# plugins
 plugins:
   - jekyll-paginate
 
-# Sass config
+# sass settings
 sass:
   sass_dir: _sass
   style: compressed
@@ -27,20 +28,20 @@ sass:
     - _sass/layout
     - _sass/syntax
 
-# Markdown, highlighter config
+# markdown & syntax highlighting
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# Page link
+# url structure
 permalink: /:title
 
-# Paginate
+# pagination
 paginate: 10
 paginate_path: /:num
 
-# Add folder to convert
+# collections (tabs, categories)
 collections:
   tabs:
     output: true
@@ -48,7 +49,7 @@ collections:
   category:
     output: true
 
-# Set layout and permalink according to type
+# default front matter
 defaults:
   -
     scope:
@@ -57,12 +58,14 @@ defaults:
       layout: page
       permalink: /:collection/:title
       page_type: post
+
   -
     scope:
       type: tabs
     values:
       layout: page
       permalink: /:collection/:name
+
   -
     scope:
       type: category

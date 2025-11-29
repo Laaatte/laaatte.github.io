@@ -1,12 +1,8 @@
-/* _layoyts/default.html */
+/* content wrapper */
 .body {
-  background-color: #fbf9fa;
-  color: #171516;
-  display: flex;
-  justify-content: center;
-  margin: 6%;
+  max-width: 960px;
+  margin: 6% auto;
   padding: 0;
-  font-size: 1rem;
-  overflow: auto;
-  word-break: break-all;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }

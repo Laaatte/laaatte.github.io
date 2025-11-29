@@ -5,4 +5,4 @@ permalink: /robots.txt
 User-agent: *
 Allow: /
 
-Sitemap: https://nothumanity.github.io/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

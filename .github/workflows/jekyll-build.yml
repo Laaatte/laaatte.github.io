@@ -1,53 +1,54 @@
-# Jekyll Build Custom, Generated with GPT
-name: Jekyll Build and Deploy
+# jekyll build custom, generated with gpt
+name: jekyll build and deploy
+
 permissions:
   contents: read
   pull-requests: write
   
-# Trigger this workflow on push to main branch and on pull request to main
+# trigger workflow on push to main and pull requests targeting main
 on:
   push:
     branches:
-      - main  # Trigger workflow on push to the 'main' branch
+      - main
   pull_request:
     branches:
-      - main  # Trigger workflow on pull request to 'main'
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest  # use latest ubuntu runner
     
     steps:
-      # Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v3  # Checkout the latest repository content
+      # checkout repository
+      - name: checkout repository
+        uses: actions/checkout@v3
         
-      # Set up Ruby with the latest version (3.x series)
-      - name: Set up Ruby
+      # set up ruby
+      - name: set up ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'  # Use Ruby 3.1 (latest stable version)
-
-      # Install dependencies defined in the Gemfile
-      - name: Install dependencies
+          ruby-version: '3.1'  # using ruby 3.1
+          
+      # install ruby dependencies
+      - name: install dependencies
         run: |
-          gem install bundler  # Install Bundler (for managing Ruby gems)
-          bundle install  # Install dependencies from Gemfile (Jekyll, plugins, etc.)
-        
-      # Install the latest Dart Sass version using npm
-      - name: Install Sass (latest version)
-        run: |
-          npm install -g sass  # Install the latest version of Dart Sass
+          gem install bundler      # install bundler
+          bundle install           # install gems
 
-      # Build the Jekyll site with the latest Ruby and Sass versions
-      - name: Build the Jekyll site
+      # install latest dart sass
+      - name: install sass (latest)
         run: |
-          bundle exec jekyll build  # Build the Jekyll site using Bundler and Jekyll
+          npm install -g sass      # install dart sass globally
 
-      # Deploy the site to GitHub Pages using the action for deploying to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4  # Deploy to GitHub Pages using the action
+      # build jekyll site
+      - name: build the jekyll site
+        run: |
+          bundle exec jekyll build
+
+      # deploy to github pages
+      - name: deploy to github pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.PAGES_BUILD_TOKEN }}  # Use GitHub token for authentication
-          publish_dir: ./_site  # The directory containing the built site (default is _site)
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # auth token
+          publish_dir: ./_site      # output directory
           publish_branch: github-pages

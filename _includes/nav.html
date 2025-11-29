@@ -1,33 +1,29 @@
 <header class="header">
-  
   <a class="nav-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
 </header>
 
 <nav class="nav">
-  
   <div class="container">
-    
-    <div class="nav-toggle">
-      
-      <a id ="dropDownMenuOpen" role="button">Menu</a>
-    
-    </div>
-    
-    <div id="nav-collapse" class="nav-collapse">
-      
-      <ul class="navbar">
-        
-        {% for tabs in site.tabs %}
-        {% if tabs.page_type contains "tab" %}
-        <li><a class="navbar-link" href="{{ tabs.url | relative_url }}">{{ tabs.title }}</a></li>
-        {% endif %}
-        {% endfor %}
-      
-      </ul>
-    
-    </div>
-  
-  </div>
 
+    <div class="nav-toggle">
+      <a id="dropDownMenuOpen" role="button">Menu</a>
+    </div>
+
+    <div id="nav-collapse" class="nav-collapse">
+      <ul class="navbar">
+
+        {% for tabs in site.tabs %}
+          {% if tabs.page_type contains "tab" %}
+            <li>
+              <a class="navbar-link" href="{{ tabs.url | relative_url }}">
+                {{ tabs.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+      </ul>
+    </div>
+
+  </div>
 </nav>

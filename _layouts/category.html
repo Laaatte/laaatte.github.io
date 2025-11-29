@@ -1,23 +1,28 @@
 ---
 layout: page
 ---
-<ul class="post-card">
-  
-  {% assign post = page.title %}
-  {% if site.categories[post] != null %}
-  {% for post in site.categories[post] %}
-  <li class="post-link">
-    
-    <a href="{{ post.url | relative_url }}">{{ post.title }} {{ post.date | date_to_string }}</a>
-    <p>{{ post.excerpt | strip_html | truncatewords: 10 }}...</p>
-    
-  </li>
-  {% endfor %}
+<ul id="post-list" class="post-card">
+  {% assign category_name = page.title %}
+  {% assign category_posts = site.categories[category_name] %}
+
+  {% if category_posts %}
+    {% for post in category_posts %}
+      <li class="post-link">
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }} {{ post.date | date_to_string }}
+        </a>
+        <p>{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
+      </li>
+    {% endfor %}
   {% else %}
-  
-  <p>There is no content.</p>
-  
+    <p>There is no content.</p>
   {% endif %}
-
-
 </ul>
+
+<div class="pagination">
+  <a id="prev" class="page-link">Prev</a>
+  <span id="page-numbers"></span>
+  <a id="next" class="page-link">Next</a>
+</div>
+
+<script src="{{ '/assets/js/post-pagination.js' | relative_url }}"></script>

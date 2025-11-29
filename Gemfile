@@ -1,23 +1,24 @@
-# Ruby gem configuration
-# Ruby
+# rubyGems source
 source "https://rubygems.org"
 
-# Jekyll
-gem "jekyll", '~> 4.4', '>= 4.4.1'
+# jekyll
+gem "jekyll", "~> 4.4", ">= 4.4.1"
 
-# Jekyll plugins
+# jekyll Plugins
 group :jekyll_plugins do
-  gem "jekyll-paginate", "~> 1.1.0"
+  gem "jekyll-paginate", "~> 1.1"
+  gem "jekyll-sass-converter", "~> 3.1"
+  gem "sass-embedded", "~> 1.94"
 end
 
-# Library
+# windows-only timezone libraries
 platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", "~> 2.0", ">= 2.0.6"
-  gem "tzinfo-data", "~> 1.2024", ">= 1.2024.2"
+  gem "tzinfo", "~> 2.0"
+  gem "tzinfo-data", "~> 1.2024"
 end
 
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.2.0", :platforms => [:mingw, :x64_mingw, :mswin]
+# windows directory watcher performance booster
+gem "wdm", "~> 0.2", platforms: [:mingw, :x64_mingw, :mswin]
 
-# Gem added after ruby 3.0
+# ruby 3.x http server compatibility
 gem "webrick", "~> 1.9"

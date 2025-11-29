@@ -3,45 +3,49 @@ layout: null
 permalink: /feed.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom">
-
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 
-    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
-    <link>{{ page.url | absolute_url | xml_escape }}</link>
-    <atom:link href="{{ page.url | absolute_url | xml_escape }}" rel="self" type="application/rss+xml"/>
-    
-    {% assign title = site.title | default: site.name %}
-    {% if title %}
-    <title type="html">{{ title | smartify | xml_escape }}</title>
-    {% endif %}
-
-    {% if site.description %}
+    <title>{{ site.title | default: site.name | xml_escape }}</title>
+    <link>{{ site.url | xml_escape }}</link>
     <description>{{ site.description | xml_escape }}</description>
-    {% endif %}
+
+    <atom:link 
+      href="{{ page.url | absolute_url | xml_escape }}" 
+      rel="self" 
+      type="application/rss+xml" 
+    />
+
+    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">
+      Jekyll
+    </generator>
 
     <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
 
-    {% assign author = site.data.author-data %}
+    {% assign author_data = site.data.author-data %}
     <author>
-      <name>{{ author.name_en | xml_escape }}</name>
-      <url>{{ author.github_link | xml_escape }}</url>
+      <name>{{ author_data.name_en | xml_escape }}</name>
+      <url>{{ author_data.github_link | xml_escape }}</url>
     </author>
-    
+
     {% for post in site.posts limit:10 %}
     <item>
 
-      <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post.title }}" />
-      <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-      <title type="html">{{ post.title | xml_escape }}</title>
-      <description type="html">{{ post.content | xml_escape }}</description>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ post.url | absolute_url | xml_escape }}</link>
+      <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
+
+      <description>{{ post.content | xml_escape }}</description>
+
       <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
       <lastBuildDate>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastBuildDate>
 
-      {% for author in post.author %}
-      <author>{{ author }}</author>
+      {% if post.author %}
+      {% for name in post.author %}
+      <author>{{ name | xml_escape }}</author>
       {% endfor %}
+      {% endif %}
 
       {% for category in post.categories %}
       <category>{{ category | xml_escape }}</category>
@@ -51,5 +55,4 @@ permalink: /feed.xml
     {% endfor %}
 
   </channel>
-
 </rss>

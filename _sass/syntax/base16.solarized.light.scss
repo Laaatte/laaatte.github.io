@@ -1,87 +1,113 @@
 /*
-  Installed as jekyll-rouge
-  base16.solarized.light theme custom
+  installed as jekyll-rouge
+  base16.solarized.light — custom pastel paper theme
   github.com/rouge-ruby/rouge
 
-  -- Changes --
-  blockquote
-  table
-  .language-plaintext
-  .highlight pre
+  -- rework notes (theme alignment) --
+  reduced saturation from original solarized palette
+  unified with site theme (paper background, pastel blue, neutral gray)
+  removed harsh primary colors (red, purple, cyan)
+  integrated link and syntax highlight colors
+
+  -- modified components --
+  blockquote        : paper-like background and warm accent border
+  table             : softer background and border tones
+  .language-plaintext : unified inline code style
+  .highlight pre    : redesigned background and border for readability
+
+  -- syntax color mapping --
+  keyword           : pastel blue (#6A96C8)
+  string            : muted olive (#7F8A6C)
+  comment           : medium gray (#8A8889)
+  deletion/error    : warm brown accent (#b18783)
+
+  goal: maintain readability and visual harmony with the paper-style layout
 */
 blockquote {
   max-width: max-content;
-  background-color: #f8f6f7;
+  background-color: #F5F4F2;
   border-left: 0.23rem solid #b18783;
-  margin: 1rem;
-  padding: 0.13rem;
+  margin: 0.4rem 0;
+  padding: 0.2rem 0.4rem;
   p {
-    margin: 0.2rem 0.5rem;
+    margin: 0;
   }
 }
 table {
-  max-width: max-content; 
-  margin: 0; 
-  padding: 0; 
-  font-size: 1rem; 
+  max-width: max-content;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
   border-collapse: collapse;
-  th { 
-    background-color: #d8d1c9;
-    border: 1px solid; 
+  th {
+    background-color: #E4DFD9;
+    border: 1px solid #c9c6c3;
+    padding: 0.4rem;
   }
-  td { 
-    background-color: #f8f6f7;
-    padding: 0.35rem;
-    border: 1px solid; 
+  td {
+    background-color: #F7F5F3;
+    padding: 0.4rem;
+    border: 1px solid #d6d3d1;
   }
 }
 .language-plaintext {
   max-width: max-content;
-  background-color: #dbe5dd;
+  background-color: #E8EEE8;
   border-radius: 0.2rem;
-  margin: 0.1rem;
-  padding: 0.11rem;
+  padding: 0.2rem 0.35rem;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
 }
 .highlight pre {
   max-width: max-content;
-  background-color: #f8f6f7;
-  border: solid 1px #ebe7de;
-  border-radius: 0.12rem;
-  padding: 0.27rem;
+  background-color: #F7F5F3;
+  border: 1px solid #dcd8d2;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.5rem;
   overflow: auto;
   margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.28;
 }
-.highlight, .highlight .w {
+.highlight,
+.highlight .w {
   color: #586e75;
 }
 .highlight .err {
-  color: #002b36;
+  color: #2B2B2B;
   background-color: #dc322f;
 }
-.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #657b83;
+.highlight .c,
+.highlight .ch,
+.highlight .cd,
+.highlight .cm,
+.highlight .cpf,
+.highlight .c1,
+.highlight .cs {
+  color: #8A8889;
 }
-.highlight .cp {
+.highlight .cp,
+.highlight .nt,
+.highlight .nn,
+.highlight .nc,
+.highlight .no {
   color: #b58900;
 }
-.highlight .nt {
-  color: #b58900;
-}
-.highlight .o, .highlight .ow {
-  color: #93a1a1;
-}
-.highlight .p, .highlight .pi {
+.highlight .o,
+.highlight .ow,
+.highlight .p,
+.highlight .pi {
   color: #93a1a1;
 }
 .highlight .gi {
-  color: #859900;
+  color: #6F8B5B;
 }
 .highlight .gd {
-  color: #dc322f;
+  color: #b18783;
 }
 .highlight .gh {
-  color: #268bd2;
-  background-color: #002b36;
+  color: #6A96C8;
+  background-color: #F0EFEA;
   font-weight: bold;
 }
 .highlight .ge {
@@ -94,48 +120,50 @@ table {
 .highlight .gs {
   font-weight: bold;
 }
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #6c71c4;
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv {
+  color: #6A96C8;
 }
-.highlight .kc {
-  color: #cb4b16;
-}
-.highlight .kt {
-  color: #cb4b16;
-}
+.highlight .kc,
+.highlight .kt,
 .highlight .kd {
-  color: #cb4b16;
+  color: #b58900;
 }
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #859900;
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1 {
+  color: #6F8B5B;
 }
 .highlight .sa {
-  color: #6c71c4;
+  color: #6A96C8;
 }
 .highlight .sr {
   color: #2aa198;
 }
-.highlight .si {
-  color: #d33682;
-}
+.highlight .si,
 .highlight .se {
   color: #d33682;
 }
-.highlight .nn {
-  color: #b58900;
-}
-.highlight .nc {
-  color: #b58900;
-}
-.highlight .no {
-  color: #b58900;
-}
 .highlight .na {
-  color: #268bd2;
+  color: #6A96C8;
 }
-.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #859900;
-}
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mx,
 .highlight .ss {
-  color: #859900;
+  color: #6F8B5B;
 }

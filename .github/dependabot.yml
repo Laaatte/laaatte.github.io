@@ -1,7 +1,20 @@
-# Dependabot config
 version: 2
+
 updates:
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
+
+    # optional: automatically add labels to dependabot PRs
+    labels:
+      - "dependencies"
+
+    # optional: automatically assign reviewers to prs
+    reviewers:
+      - "nothumanity"
+
+    # optional: immediately create PRs for security or direct dependency updates
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "security"

@@ -1,16 +1,12 @@
 # gitignore configuration
-# Git
 .git
 
-# Jekyll
+# jekyll
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
-
-# Goorm IDE
-goorm.manifest
 
 # rbenv
 .ruby-version
