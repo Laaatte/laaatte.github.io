@@ -17,20 +17,26 @@ jobs:
     runs-on: ubuntu-latest  # runs on the latest Ubuntu environment
 
     steps:
-      # checkout repository
+      # checkout repository (fetch-depth 0 is required so _plugins is included)
       - name: checkout repository
-        uses: actions/checkout@v4  # checks out the code from the repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # ensures full repo including hidden folders
 
       # setup ruby (latest stable)
       - name: set up ruby
-        uses: ruby/setup-ruby@v1  # sets up Ruby environment
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'  # specify Ruby version
-          bundler-cache: true  # cache bundler dependencies to speed up subsequent builds
+          bundler-cache: false  # disable bundler cache to ensure plugin updates work
 
       # install sass
       - name: install sass
         run: npm install -g sass  # install sass using npm globally
+
+      # install ruby dependencies
+      - name: install gems
+        run: bundle install  # ensures Gemfile updates are applied
 
       # build jekyll site
       - name: build jekyll site
@@ -38,7 +44,7 @@ jobs:
 
       # deploy using GitHub Token (recommended)
       - name: deploy to github pages
-        uses: peaceiris/actions-gh-pages@v4  # deploys the site to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # uses GitHub token for deployment
           publish_dir: ./_site  # the directory to publish to GitHub Pages
