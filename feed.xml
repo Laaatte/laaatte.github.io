@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 
-    <title>NotHumanity</title>
+    <title>nothumanity</title>
     <link>https://nothumanity.github.io</link>
-    <description>Jekyll blog</description>
+    <description>jekyll blog</description>
 
     <atom:link 
       href="https://nothumanity.github.io/feed.xml" 
@@ -16,8 +16,8 @@
       Jekyll
     </generator>
 
-    <pubDate>2025-11-29T16:09:27+09:00</pubDate>
-    <lastBuildDate>2025-11-29T16:09:27+09:00</lastBuildDate>
+    <pubDate>2025-11-30T03:16:40+00:00</pubDate>
+    <lastBuildDate>2025-11-30T03:16:40+00:00</lastBuildDate>
 
     
     <author>
@@ -60,7 +60,7 @@
       &lt;td style=&quot;text-align: center&quot;&gt;scv&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;dc&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;f&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;del&gt;dg&lt;/del&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;~~dg~~&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;z&lt;/td&gt;
@@ -116,11 +116,11 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;테스트&quot;&gt;테스트&lt;/h2&gt;
+&lt;h2 id=&quot;section&quot;&gt;테스트&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
+&lt;p&gt;### 테스트&lt;/p&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;nothumanityhttpsgithubcomnothumanitytargetblank&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -128,46 +128,49 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;ul class=&quot;task-list&quot;&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;: true&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;: false&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li&gt;[x] : true&lt;/li&gt;
+  &lt;li&gt;[ ] : false&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;java&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;java
+```java
+import java;&lt;/p&gt;
 
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;public static void main(String[] args) {&lt;/p&gt;
 
-  &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;System.out.println(“Hello, World!”);&lt;/p&gt;
 
-&lt;p&gt;c&lt;/p&gt;
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include&lt;/span&gt; &lt;span class=&quot;cpf&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;}
+```&lt;/p&gt;
 
-  &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;c
+```c
+#include &lt;stdio.h&gt;&lt;/stdio.h&gt;&lt;/p&gt;
 
-&lt;p&gt;python&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python&lt;/span&gt;
+&lt;p&gt;int main() {&lt;/p&gt;
 
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Hello World!&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;printf(“Hello, world!\n”);&lt;/p&gt;
+
+&lt;p&gt;return 0;&lt;/p&gt;
+
+&lt;p&gt;}
+```&lt;/p&gt;
+
+&lt;p&gt;python
+```python
+import python&lt;/p&gt;
+
+&lt;p&gt;print(“Hello World!”)
+```&lt;/p&gt;
 </description>
 
-      <pubDate>2022-01-13T00:00:00+09:00</pubDate>
-      <lastBuildDate>2022-01-13T00:00:00+09:00</lastBuildDate>
+      <pubDate>2022-01-13T00:00:00+00:00</pubDate>
+      <lastBuildDate>2022-01-13T00:00:00+00:00</lastBuildDate>
 
       
       
