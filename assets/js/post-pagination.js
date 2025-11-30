@@ -94,7 +94,7 @@ $(function () {
   }
 
   // search function
-  window.searchPosts = function() {  // Explicitly declare searchPosts function in window
+  window.searchPosts = function() {  
     const searchTerm = $searchInput.val().toLowerCase().trim(); // get search term and trim whitespace
 
     // if search term is empty, show all items and hide "no results" message
@@ -134,7 +134,7 @@ $(function () {
       const titleElement = $(this).find("a");
       const excerptElement = $(this).find("p");
 
-      // safely insert highlighted text using text() method
+      // safely insert highlighted text using html() with escaping
       titleElement.html(searchHighlightTerm(titleElement.text(), searchTerm));  // highlight in title
       excerptElement.html(searchHighlightTerm(excerptElement.text(), searchTerm)); // highlight in excerpt
     });
