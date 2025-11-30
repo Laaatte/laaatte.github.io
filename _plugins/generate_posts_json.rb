@@ -1,34 +1,36 @@
 # generate_posts_json.rb
-# simple jekyll plugin to generate posts.json after build
+# simple jekyll plugin that writes posts.json after the site is built
 
-require 'json'
-require 'fileutils'
+require "json"
+require "fileutils"
 
 module Jekyll
   class GeneratePostsJson < Generator
-    priority :low   # run AFTER site is built
+    priority :lowest   # run at the LAST stage, after full build
     safe true
 
     def generate(site)
+      # collect post data
       posts = site.posts.docs.map do |p|
         {
-          "title" => p.data["title"],
-          "url"   => p.url,
-          "date"  => p.date.strftime("%Y-%m-%d"),
+          "title"   => p.data["title"],
+          "url"     => p.url,
+          "date"    => p.date.strftime("%Y-%m-%d"),
           "excerpt" => extract_excerpt(p)
         }
       end
 
-      json_path = File.join(site.dest, "posts.json")
-
-      # ensure destination directory exists
+      # ensure output directory exists
       FileUtils.mkdir_p(site.dest)
 
+      json_path = File.join(site.dest, "posts.json")
+
+      # write json file
       File.open(json_path, "w") do |f|
         f.write(JSON.pretty_generate(posts))
       end
 
-      Jekyll.logger.info "posts.json:", "generated at #{json_path}"
+      Jekyll.logger.info "posts.json:", "generated → #{json_path}"
     end
 
     private
