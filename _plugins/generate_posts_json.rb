@@ -15,7 +15,7 @@ module Jekyll
           "title" => post.data['title'],        # post title
           "url" => post.url,                    # post url
           "date" => post.date.strftime('%Y-%m-%d'), # post date
-          "excerpt" => post.excerpt.strip       # post excerpt
+          "excerpt" => post.excerpt.to_s.strip   # post excerpt, convert to string and strip
         }
       end
 
