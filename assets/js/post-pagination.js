@@ -87,14 +87,20 @@ $(function () {
   $("#prev").on("click", () => render(currentPage - 1));
   $("#next").on("click", () => render(currentPage + 1));
 
+  // safely escape HTML characters
+  function escapeHtml(text) {
+    return text.replace(/[&<>"'`=\/]/g, (char) => `&#${char.charCodeAt(0)};`);
+  }
+
   // highlight search term in text
   function searchHighlightTerm(text, term) {
+    const escapedText = escapeHtml(text); // escape HTML characters
     const regex = new RegExp(`(${term})`, 'gi'); // case-insensitive regex
-    return text.replace(regex, '<span class="search-highlight">$1</span>'); // wrap search term with <span> for highlighting
+    return escapedText.replace(regex, '<span class="search-highlight">$1</span>'); // wrap search term with <span> for highlighting
   }
 
   // search function
-  window.searchPosts = function() {  
+  window.searchPosts = function() {
     const searchTerm = $searchInput.val().toLowerCase().trim(); // get search term and trim whitespace
 
     // if search term is empty, show all items and hide "no results" message
