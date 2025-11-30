@@ -34,9 +34,9 @@ kramdown:
 # url structure
 permalink: /:title
 
-# include extra output files (ensure posts.json is copied correctly)
+# include extra output files
 include:
-  - posts.json  # ensuring posts.json is copied to the _site directory
+  - posts.json  # include posts.json file for json output
 
 # collections (tabs, categories)
 collections:
