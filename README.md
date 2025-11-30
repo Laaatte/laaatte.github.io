@@ -1,5 +1,5 @@
 # NotHumanity
-My GitHub Pages repository
+GitHub Pages repository
 
 # Library used
 #### [- Jquery](https://jquery.com)
