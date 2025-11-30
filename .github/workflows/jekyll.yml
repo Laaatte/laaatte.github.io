@@ -34,9 +34,11 @@ jobs:
 
       # build jekyll site
       - name: build jekyll site
-        run: bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
+        run: |
+          bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
+          mv ./_site/posts.json ./posts.json  # move posts.json to the root directory
 
-      # deploy using GitHub Token (recommended)
+      # deploy using github token (recommended)
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v4  # deploys the site to GitHub Pages
         with:

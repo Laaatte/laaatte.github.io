@@ -1,5 +1,3 @@
-# _plugins/generate_posts_json.rb
-
 require 'json'
 require 'fileutils'
 
@@ -25,8 +23,8 @@ module Jekyll
       # convert ruby hash to json formatted string
       posts_json = JSON.pretty_generate(posts)
 
-      # write json output to posts.json in _site directory
-      output_path = File.join(site.dest, 'posts.json')
+      # write json output to posts.json in the root directory
+      output_path = File.join(site.source, 'posts.json')  # modified to create in the root directory
       File.open(output_path, 'w') { |f| f.write(posts_json) }
     end
   end
