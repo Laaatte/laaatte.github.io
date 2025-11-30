@@ -2,14 +2,14 @@
 # jekyll configuration
 # ----------------------------
 
-# site info
+# site information
 url: https://nothumanity.github.io
 title: nothumanity
 description: jekyll blog
 lang: ko
 timezone: asia/seoul
 
-# open graph
+# open graph meta
 og_type: website
 og_locale: ko_kr
 # og_image:
@@ -17,7 +17,7 @@ og_locale: ko_kr
 # google analytics
 google_analytics: g-8y1w84b2cx
 
-# sass settings
+# sass configuration
 sass:
   sass_dir: _sass
   style: compressed
@@ -25,16 +25,20 @@ sass:
     - _sass/layout
     - _sass/syntax
 
-# markdown settings
+# markdown rendering
 markdown: kramdown
 kramdown:
   input: kramdown
   syntax_highlighter: rouge
 
-# url structure
+# permalink structure for posts
 permalink: /:title
 
-# collections (tabs, categories)
+# force include extra output files
+include:
+  - posts.json
+
+# custom collections (tabs, categories)
 collections:
   tabs:
     output: true
@@ -42,7 +46,7 @@ collections:
   category:
     output: true
 
-# default front matter
+# default front matter values
 defaults:
   - scope:
       type: posts

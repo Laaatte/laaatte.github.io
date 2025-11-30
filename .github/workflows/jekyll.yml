@@ -17,35 +17,35 @@ jobs:
     runs-on: ubuntu-latest  # runs on the latest Ubuntu environment
 
     steps:
-      # checkout repository (fetch-depth 0 is required so _plugins is included)
+      # checkout repository fully (important for _plugins)
       - name: checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # ensures full repo including hidden folders
+          fetch-depth: 0  # ensure full repo is checked out
 
-      # setup ruby (latest stable)
+      # setup ruby
       - name: set up ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'  # specify Ruby version
-          bundler-cache: false  # disable bundler cache to ensure plugin updates work
+          ruby-version: '3.3'
+          bundler-cache: false  # disable cache so plugins always load
 
       # install sass
       - name: install sass
-        run: npm install -g sass  # install sass using npm globally
+        run: npm install -g sass
 
-      # install ruby dependencies
+      # install gems
       - name: install gems
-        run: bundle install  # ensures Gemfile updates are applied
+        run: bundle install
 
-      # build jekyll site
+      # build jekyll
       - name: build jekyll site
-        run: bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
+        run: bundle exec jekyll build --trace
 
-      # deploy using GitHub Token (recommended)
+      # deploy to GitHub Pages
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # uses GitHub token for deployment
-          publish_dir: ./_site  # the directory to publish to GitHub Pages
-          publish_branch: github-pages  # the branch where the site will be deployed
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: github-pages
