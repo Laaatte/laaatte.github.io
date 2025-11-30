@@ -2,44 +2,44 @@
 name: jekyll build and deploy
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write  # allows the workflow to write to the repository contents
+  pages: write     # allows the workflow to push to GitHub Pages
+  id-token: write  # allows the workflow to authenticate and deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # runs on push to the main branch
   pull_request:
-    branches: [ main ]
+    branches: [ main ]  # runs on pull request targeting main branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # runs on the latest Ubuntu environment
 
     steps:
-      # checkout
+      # checkout repository
       - name: checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # checks out the code from the repo
 
       # setup ruby (latest stable)
       - name: set up ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1  # sets up Ruby environment
         with:
-          ruby-version: '3.3'
-          bundler-cache: true
+          ruby-version: '3.3'  # specify Ruby version
+          bundler-cache: true  # cache bundler dependencies to speed up subsequent builds
 
       # install sass
       - name: install sass
-        run: npm install -g sass
+        run: npm install -g sass  # install sass using npm globally
 
-      # build jekyll
+      # build jekyll site
       - name: build jekyll site
-        run: bundle exec jekyll build --trace
+        run: bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
 
       # deploy using GitHub Token (recommended)
       - name: deploy to github pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4  # deploys the site to GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: github-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # uses GitHub token for deployment
+          publish_dir: ./_site  # the directory to publish to GitHub Pages
+          publish_branch: github-pages  # the branch where the site will be deployed

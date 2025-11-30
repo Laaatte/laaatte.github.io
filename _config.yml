@@ -12,14 +12,10 @@ timezone: asia/seoul
 # open graph
 og_type: website
 og_locale: ko_kr
-# og_image: 
+# og_image:
 
 # google analytics
 google_analytics: g-8y1w84b2cx
-
-# plugins
-plugins:
-  - generate_posts_json  # custom plugin to generate posts.json automatically
 
 # sass settings
 sass:
@@ -38,8 +34,8 @@ kramdown:
 # url structure
 permalink: /:title
 
-# pagination settings
-paginate: 10  # number of posts per page
+# pagination settings (for your custom js pagination)
+paginate: 10          # number of posts per page
 paginate_path: /page:num/  # url for pagination pages
 
 # collections (tabs, categories)
@@ -70,11 +66,3 @@ defaults:
     values:
       layout: category
       permalink: /:collection/:name
-
-  # add default for posts.json
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: null  # no layout for posts.json
-      permalink: /posts.json  # path for posts.json file
