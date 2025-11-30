@@ -28,7 +28,7 @@ sass:
 # markdown settings
 markdown: kramdown
 kramdown:
-  input: kramdown
+  input: GFM
   syntax_highlighter: rouge
 
 # url structure
