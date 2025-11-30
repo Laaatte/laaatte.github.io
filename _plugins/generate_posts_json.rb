@@ -5,7 +5,7 @@ require 'json'
 
 module Jekyll
   class GeneratePostsJson < Generator
-    safe true    # safe mode compatibility
+    safe true
     priority :low
 
     def generate(site)
@@ -15,30 +15,21 @@ module Jekyll
           "url" => post.url,
           "date" => post.date.strftime("%Y-%m-%d"),
           "categories" => post.data["categories"] || [],
-          "excerpt" => extract_excerpt(post),
+          "excerpt" => extract_excerpt(post)
         }
       end
 
-      json_output = JSON.pretty_generate(posts_data)
-
-      output_path = File.join(site.dest, "posts.json")
-
-      File.open(output_path, "w") do |file|
-        file.write(json_output)
-      end
+      output = JSON.pretty_generate(posts_data)
+      File.write(File.join(site.dest, "posts.json"), output)
     end
 
     private
 
-    # extract a clean excerpt for previews
+    # generate a clean excerpt without markdown parsing
     def extract_excerpt(post)
-      if post.data["excerpt"]
-        return post.data["excerpt"].to_s.strip
-      end
-
       raw = post.content.to_s
       cleaned = raw.gsub(/<\/?[^>]*>/, "") # remove html tags
-      cleaned[0..160]  # first 160 chars as fallback excerpt
+      cleaned[0..160]  # first 160 chars fallback
     end
   end
 end

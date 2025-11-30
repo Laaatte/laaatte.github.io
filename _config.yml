@@ -25,18 +25,14 @@ sass:
     - _sass/layout
     - _sass/syntax
 
-# markdown & syntax highlighting
+# markdown settings
 markdown: kramdown
 kramdown:
-  input: gfm
+  input: kramdown
   syntax_highlighter: rouge
 
 # url structure
 permalink: /:title
-
-# pagination settings (for your custom js pagination)
-paginate: 10          # number of posts per page
-paginate_path: /page:num/  # url for pagination pages
 
 # collections (tabs, categories)
 collections:
