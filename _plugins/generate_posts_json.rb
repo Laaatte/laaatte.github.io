@@ -9,7 +9,7 @@ module Jekyll
 
     def generate(site)
       # ensure the destination directory exists
-      FileUtils.mkdir_p(site.source)  # make sure to create the root directory
+      FileUtils.mkdir_p(site.dest)  # create destination directory if it doesn't exist
 
       # collect posts with required fields
       posts = site.posts.docs.map do |post|
@@ -17,15 +17,15 @@ module Jekyll
           "title"   => post.data['title'],
           "url"     => post.url,
           "date"    => post.date.strftime('%Y-%m-%d'),
-          "excerpt" => post.excerpt.to_s.strip
+          "excerpt" => post.excerpt.to_s.strip  # ensure the excerpt is properly stripped of extra spaces
         }
       end
 
       # convert ruby hash to json formatted string
       posts_json = JSON.pretty_generate(posts)
 
-      # write json output to posts.json in the root directory
-      output_path = File.join(site.source, 'posts.json')  # saving posts.json at the root level
+      # write json output to posts.json in the _site directory
+      output_path = File.join(site.dest, 'posts.json')  # output the file to _site directory
       File.open(output_path, 'w') { |f| f.write(posts_json) }
     end
   end

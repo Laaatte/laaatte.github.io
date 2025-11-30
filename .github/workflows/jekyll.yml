@@ -43,7 +43,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # uses GitHub token for deployment
           publish_dir: ./_site  # the directory to publish to GitHub Pages
           publish_branch: github-pages  # the branch where the site will be deployed
-
-      # copy posts.json to the root directory
-      - name: copy posts.json to root directory
-        run: cp ./_site/posts.json ./  # copy posts.json from _site to root directory
