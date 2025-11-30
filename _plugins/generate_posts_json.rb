@@ -1,3 +1,4 @@
+# _plugins/generate_posts_json.rb
 require 'json'
 require 'fileutils'
 
@@ -7,9 +8,6 @@ module Jekyll
     priority :low
 
     def generate(site)
-      # ensure the destination directory exists
-      FileUtils.mkdir_p(site.dest)
-
       # collect posts with required fields
       posts = site.posts.docs.map do |post|
         {
@@ -24,7 +22,7 @@ module Jekyll
       posts_json = JSON.pretty_generate(posts)
 
       # write json output to posts.json in the root directory
-      output_path = File.join(site.source, 'posts.json')  # modified to create in the root directory
+      output_path = File.join(site.source, 'posts.json')  # set path to root
       File.open(output_path, 'w') { |f| f.write(posts_json) }
     end
   end

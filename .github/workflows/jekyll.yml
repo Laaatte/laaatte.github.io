@@ -34,9 +34,7 @@ jobs:
 
       # build jekyll site
       - name: build jekyll site
-        run: |
-          bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
-          mv ./_site/posts.json ./posts.json  # move posts.json to the root directory
+        run: bundle exec jekyll build --trace  # builds the Jekyll site with trace logs
 
       # deploy using github token (recommended)
       - name: deploy to github pages
