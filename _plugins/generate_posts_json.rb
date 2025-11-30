@@ -1,7 +1,6 @@
 # generate_posts_json.rb
 # -----------------------
-# custom jekyll plugin to generate posts.json
-# always writes posts.json into site root (_site/posts.json)
+# generate posts.json into site.dest before gh-pages copies files
 
 require "json"
 require "fileutils"
@@ -9,7 +8,7 @@ require "fileutils"
 module Jekyll
   class PostsJsonGenerator < Generator
     safe true
-    priority :lowest
+    priority :high
 
     def generate(site)
       posts = site.posts.docs.map do |post|
@@ -23,14 +22,10 @@ module Jekyll
 
       json_output = JSON.pretty_generate(posts)
 
-      # force output directory: always _site/posts.json
-      output_dir  = File.join(site.source, "_site")
-      output_path = File.join(output_dir, "posts.json")
+      # always output to site.dest root
+      output_path = File.join(site.dest, "posts.json")
 
-      # ensure directory exists
-      FileUtils.mkdir_p(output_dir)
-
-      # write json file
+      FileUtils.mkdir_p(site.dest)
       File.write(output_path, json_output)
 
       puts "posts.json generated → #{output_path}"
