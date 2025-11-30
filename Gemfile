@@ -1,4 +1,4 @@
-# rubyGems source
+# rubygems source
 source "https://rubygems.org"
 
 # jekyll
@@ -6,7 +6,6 @@ gem "jekyll", "~> 4.4", ">= 4.4.1"
 
 # jekyll Plugins
 group :jekyll_plugins do
-  gem "jekyll-paginate", "~> 1.1"
   gem "jekyll-sass-converter", "~> 3.1"
   gem "sass-embedded", "~> 1.94"
 end

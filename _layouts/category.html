@@ -5,6 +5,7 @@ layout: page
   {% assign category_name = page.title %}
   {% assign category_posts = site.categories[category_name] %}
 
+  <!-- container where js inserts posts -->
   {% if category_posts %}
     {% for post in category_posts %}
       <li class="post-link">
@@ -19,10 +20,12 @@ layout: page
   {% endif %}
 </ul>
 
+<!-- pagination buttons appear here -->
 <div class="pagination">
   <a id="prev" class="page-link">Prev</a>
   <span id="page-numbers"></span>
   <a id="next" class="page-link">Next</a>
 </div>
 
+<!-- pagination script -->
 <script src="{{ '/assets/js/post-pagination.js' | relative_url }}"></script>

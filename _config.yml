@@ -1,24 +1,25 @@
 # ----------------------------
 # jekyll configuration
 # ----------------------------
+
 # site info
 url: https://nothumanity.github.io
-title: NotHumanity
-description: Jekyll blog
+title: nothumanity
+description: jekyll blog
 lang: ko
-timezone: Asia/Seoul
+timezone: asia/seoul
 
-# open Graph
+# open graph
 og_type: website
 og_locale: ko_kr
 # og_image: 
 
 # google analytics
-google_analytics: G-8Y1W84B2CX
+google_analytics: g-8y1w84b2cx
 
 # plugins
 plugins:
-  - jekyll-paginate
+  - generate_posts_json  # custom plugin to generate posts.json automatically
 
 # sass settings
 sass:
@@ -31,15 +32,15 @@ sass:
 # markdown & syntax highlighting
 markdown: kramdown
 kramdown:
-  input: GFM
+  input: gfm
   syntax_highlighter: rouge
 
 # url structure
 permalink: /:title
 
-# pagination
-paginate: 10
-paginate_path: /:num
+# pagination settings
+paginate: 10  # number of posts per page
+paginate_path: /page:num/  # url for pagination pages
 
 # collections (tabs, categories)
 collections:
@@ -51,24 +52,29 @@ collections:
 
 # default front matter
 defaults:
-  -
-    scope:
+  - scope:
       type: posts
     values:
       layout: page
       permalink: /:collection/:title
       page_type: post
 
-  -
-    scope:
+  - scope:
       type: tabs
     values:
       layout: page
       permalink: /:collection/:name
 
-  -
-    scope:
+  - scope:
       type: category
     values:
       layout: category
       permalink: /:collection/:name
+
+  # add default for posts.json
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: null  # no layout for posts.json
+      permalink: /posts.json  # path for posts.json file
