@@ -7,6 +7,9 @@ $(function () {
   const $searchInput = $("#search-input");
   const $noResultsMessage = $("#no-results-message");
 
+  let typingTimer;
+  const doneTypingInterval = 500;
+
   // if no posts, hide pagination
   if (total === 0) {
     $pagination.removeClass("show");
@@ -148,8 +151,11 @@ $(function () {
     render(1); // re-render with the updated page number and filtered posts
   }
 
-  // attach search function to the input field
-  $searchInput.on("input", searchPosts);
+  // attach search function to the input field with delay
+  $searchInput.on("input", function() {
+    clearTimeout(typingTimer); // clear the previous timer
+    typingTimer = setTimeout(searchPosts, doneTypingInterval); // wait for user to stop typing
+  });
 
   // initial render
   render(1);
