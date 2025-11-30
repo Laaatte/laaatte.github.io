@@ -2,6 +2,7 @@
 # this plugin collects all posts and exports a json file for javascript pagination
 
 require 'json'
+require 'fileutils'
 
 module Jekyll
   class GeneratePostsJson < Generator
@@ -20,16 +21,21 @@ module Jekyll
       end
 
       output = JSON.pretty_generate(posts_data)
+
+      # ensure _site directory exists
+      FileUtils.mkdir_p(site.dest)
+
+      # write json file
       File.write(File.join(site.dest, "posts.json"), output)
     end
 
     private
 
-    # generate a clean excerpt without markdown parsing
+    # simple excerpt generator (no markdown conversion)
     def extract_excerpt(post)
       raw = post.content.to_s
       cleaned = raw.gsub(/<\/?[^>]*>/, "") # remove html tags
-      cleaned[0..160]  # first 160 chars fallback
+      cleaned[0..160]  # return first 160 chars
     end
   end
 end
