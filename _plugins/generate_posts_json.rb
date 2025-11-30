@@ -1,41 +1,46 @@
-# generate posts.json automatically during jekyll build
-# this plugin collects all posts and exports a json file for javascript pagination
+# generate_posts_json.rb
+# simple jekyll plugin to generate posts.json after build
 
 require 'json'
 require 'fileutils'
 
 module Jekyll
   class GeneratePostsJson < Generator
+    priority :low   # run AFTER site is built
     safe true
-    priority :low
 
     def generate(site)
-      posts_data = site.posts.docs.map do |post|
+      posts = site.posts.docs.map do |p|
         {
-          "title" => post.data["title"] || "",
-          "url" => post.url,
-          "date" => post.date.strftime("%Y-%m-%d"),
-          "categories" => post.data["categories"] || [],
-          "excerpt" => extract_excerpt(post)
+          "title" => p.data["title"],
+          "url"   => p.url,
+          "date"  => p.date.strftime("%Y-%m-%d"),
+          "excerpt" => extract_excerpt(p)
         }
       end
 
-      output = JSON.pretty_generate(posts_data)
+      json_path = File.join(site.dest, "posts.json")
 
-      # ensure _site directory exists
+      # ensure destination directory exists
       FileUtils.mkdir_p(site.dest)
 
-      # write json file
-      File.write(File.join(site.dest, "posts.json"), output)
+      File.open(json_path, "w") do |f|
+        f.write(JSON.pretty_generate(posts))
+      end
+
+      Jekyll.logger.info "posts.json:", "generated at #{json_path}"
     end
 
     private
 
-    # simple excerpt generator (no markdown conversion)
     def extract_excerpt(post)
-      raw = post.content.to_s
-      cleaned = raw.gsub(/<\/?[^>]*>/, "") # remove html tags
-      cleaned[0..160]  # return first 160 chars
+      if post.data["excerpt"]
+        post.data["excerpt"]
+      elsif post.respond_to?(:excerpt) && post.excerpt
+        post.excerpt.to_s.gsub(/<[^>]*>/, "")[0..150]
+      else
+        ""
+      end
     end
   end
 end
