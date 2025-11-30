@@ -1,14 +1,23 @@
 ---
 layout: page
 ---
+{% assign category_name = page.title %}
+{% assign category_posts = site.categories[category_name] %}
+
+<!-- search input for user -->
+{% if category_posts and category_posts.size > 0 %}
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search {{ category_name }}..." onkeyup="searchPosts()">
+  </div>
+{% endif %}
+
+<!-- post list -->
 <ul id="post-list" class="post-card">
-  {% assign category_name = page.title %}
-  {% assign category_posts = site.categories[category_name] %}
 
   <!-- container where js inserts posts -->
   {% if category_posts %}
     {% for post in category_posts %}
-      <li class="post-link">
+      <li class="post-link" data-title="{{ post.title | downcase }}" data-excerpt="{{ post.excerpt | downcase }}">
         <a href="{{ post.url | relative_url }}">
           {{ post.title }} {{ post.date | date_to_string }}
         </a>
@@ -20,7 +29,10 @@ layout: page
   {% endif %}
 </ul>
 
-<!-- pagination buttons appear here -->
+<!-- no results message -->
+<p id="no-results-message" style="display:none;">No results found.</p>
+
+<!-- pagination buttons -->
 <div class="pagination">
   <a id="prev" class="page-link">Prev</a>
   <span id="page-numbers"></span>

@@ -4,31 +4,33 @@ $(function () {
   const perPage = 10;
   const $pagination = $(".pagination");
   const $pageNumbers = $("#page-numbers");
+  const $searchInput = $("#search-input");
+  const $noResultsMessage = $("#no-results-message");
 
-  // no posts → hide pagination entirely
+  // if no posts, hide pagination
   if (total === 0) {
     $pagination.removeClass("show");
     return;
   }
 
-  // total posts <= 10 → show all items & keep pagination hidden
+  // if total posts <= 10, show all items and hide pagination
   if (total <= perPage) {
     $items.show();
     $pagination.removeClass("show");
     return;
   }
 
-  // pagination needed → show it
+  // pagination is needed, show it
   $pagination.addClass("show");
 
   let currentPage = 1;
-  const maxPage = Math.ceil(total / perPage);
+  let filteredItems = $items;
+  let maxPage = Math.ceil(filteredItems.length / perPage);
 
-  // render page numbers (optimized)
+  // render page numbers
   function renderPageNumbers() {
     $pageNumbers.empty(); // clear existing page numbers
 
-    // add one page link
     function addPageLink(num, isActive = false) {
       const $a = $(`<a class="page-link">${num}</a>`);
       if (isActive) $a.addClass("active");
@@ -36,7 +38,6 @@ $(function () {
       $pageNumbers.append($a);
     }
 
-    // show page numbers intelligently
     if (maxPage <= 7) {
       for (let i = 1; i <= maxPage; i++) {
         addPageLink(i, i === currentPage);
@@ -44,7 +45,6 @@ $(function () {
       return;
     }
 
-    // always show first page link
     addPageLink(1, currentPage === 1);
 
     if (currentPage > 3) {
@@ -62,7 +62,6 @@ $(function () {
       $pageNumbers.append('<span class="dots">...</span>');
     }
 
-    // always show last page link
     addPageLink(maxPage, currentPage === maxPage);
   }
 
@@ -73,10 +72,10 @@ $(function () {
     const start = (currentPage - 1) * perPage;
     const end = start + perPage;
 
-    $items.hide().slice(start, end).show(); // only show the current page items
+    filteredItems.hide().slice(start, end).show(); // only show the current page items
 
-    $("#prev").toggleClass("disabled", currentPage === 1);
-    $("#next").toggleClass("disabled", currentPage === maxPage);
+    $("#prev").toggleClass("disabled", currentPage === 1 || filteredItems.length === 0);
+    $("#next").toggleClass("disabled", currentPage === maxPage || filteredItems.length === 0);
 
     renderPageNumbers(); // update page numbers
   }
@@ -85,6 +84,73 @@ $(function () {
   $("#prev").on("click", () => render(currentPage - 1));
   $("#next").on("click", () => render(currentPage + 1));
 
-  // first render
+  // highlight search term in text
+  function searchHighlightTerm(text, term) {
+    const regex = new RegExp(`(${term})`, 'gi'); // case-insensitive regex
+    return text.replace(regex, '<span class="search-highlight">$1</span>'); // wrap search term with <span> for highlighting
+  }
+
+  // search function
+  window.searchPosts = function() {  // Explicitly declare searchPosts function in window
+    const searchTerm = $searchInput.val().toLowerCase().trim(); // get search term and trim whitespace
+
+    // if search term is empty, show all items and hide "no results" message
+    if (searchTerm === "") {
+      $items.show(); // show all posts
+      $noResultsMessage.hide(); // hide "no results" message
+
+      // remove highlight from all items
+      $items.each(function() {
+        const titleElement = $(this).find("a");
+        const excerptElement = $(this).find("p");
+
+        // reset highlighted text
+        titleElement.html(titleElement.text());
+        excerptElement.html(excerptElement.text());
+      });
+
+      return; // return early to stop further processing
+    }
+
+    // filter items based on search term
+    filteredItems = $items.filter(function () {
+      const title = $(this).find("a").text().toLowerCase();
+      const excerpt = $(this).find("p").text().toLowerCase();
+      
+      // check if title or excerpt matches the search term
+      return title.includes(searchTerm) || excerpt.includes(searchTerm);
+    });
+
+    // hide all items first
+    $items.hide();
+
+    // show only filtered items
+    filteredItems.show();
+
+    // highlight search term in title and excerpt
+    filteredItems.each(function () {
+      const titleElement = $(this).find("a");
+      const excerptElement = $(this).find("p");
+
+      titleElement.html(searchHighlightTerm(titleElement.text(), searchTerm)); // highlight in title
+      excerptElement.html(searchHighlightTerm(excerptElement.text(), searchTerm)); // highlight in excerpt
+    });
+
+    // show "no results found" message if no items match
+    if (filteredItems.length === 0) {
+      $noResultsMessage.show(); // show no results message
+    } else {
+      $noResultsMessage.hide(); // hide no results message
+    }
+
+    // adjust pagination based on filtered results
+    maxPage = Math.ceil(filteredItems.length / perPage); // update maxPage based on filtered results
+    render(1); // re-render with the updated page number and filtered posts
+  }
+
+  // attach search function to the input field
+  $searchInput.on("input", searchPosts);
+
+  // initial render
   render(1);
 });
