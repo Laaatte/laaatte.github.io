@@ -2,47 +2,41 @@
 name: jekyll build and deploy
 
 permissions:
-  contents: write  # allows the workflow to write to the repository contents
-  pages: write     # allows the workflow to push to GitHub Pages
-  id-token: write  # allows the workflow to authenticate and deploy
+  contents: write  # allows workflow to write to repo
+  pages: write     # allows publishing to github pages
+  id-token: write  # required for deployment
 
 on:
   push:
-    branches: [ main ]  # runs on push to the main branch
+    branches: [ main ]  # run on push to main
   pull_request:
-    branches: [ main ]  # runs on pull request targeting main branch
+    branches: [ main ]  # run on pull request to main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # runs on the latest Ubuntu environment
+    runs-on: ubuntu-latest  # latest ubuntu environment
 
     steps:
-      # checkout repository fully (important for _plugins)
+      # checkout repository
       - name: checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # ensure full repo is checked out
 
-      # setup ruby
+      # setup ruby environment
       - name: set up ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-          bundler-cache: false  # disable cache so plugins always load
+          bundler-cache: true  # cache gems for faster builds
 
       # install sass
       - name: install sass
         run: npm install -g sass
 
-      # install gems
-      - name: install gems
-        run: bundle install
-
-      # build jekyll
+      # build jekyll site
       - name: build jekyll site
-        run: bundle exec jekyll build --trace
+        run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
-      # deploy to GitHub Pages
+      # deploy to github pages
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
