@@ -8,7 +8,7 @@ $(function () {
   const $noResultsMessage = $("#no-results-message");
 
   let typingTimer;
-  const doneTypingInterval = 500;
+  const doneTypingInterval = 500; // 500ms delay after user stops typing
 
   // if no posts, hide pagination
   if (total === 0) {
@@ -107,9 +107,9 @@ $(function () {
         const titleElement = $(this).find("a");
         const excerptElement = $(this).find("p");
 
-        // reset highlighted text
-        titleElement.html(titleElement.text());
-        excerptElement.html(excerptElement.text());
+        // reset highlighted text using text() instead of html()
+        titleElement.text(titleElement.text());
+        excerptElement.text(excerptElement.text());
       });
 
       return; // return early to stop further processing
@@ -120,7 +120,6 @@ $(function () {
       const title = $(this).find("a").text().toLowerCase();
       const excerpt = $(this).find("p").text().toLowerCase();
       
-      // check if title or excerpt matches the search term
       return title.includes(searchTerm) || excerpt.includes(searchTerm);
     });
 
@@ -135,7 +134,8 @@ $(function () {
       const titleElement = $(this).find("a");
       const excerptElement = $(this).find("p");
 
-      titleElement.html(searchHighlightTerm(titleElement.text(), searchTerm)); // highlight in title
+      // safely insert highlighted text using text() method
+      titleElement.html(searchHighlightTerm(titleElement.text(), searchTerm));  // highlight in title
       excerptElement.html(searchHighlightTerm(excerptElement.text(), searchTerm)); // highlight in excerpt
     });
 
