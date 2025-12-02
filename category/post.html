@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,9 +27,6 @@
   <!-- <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico"> -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- libraries -->
-  <script src="/assets/lib/jquery-3.7.1.slim.js"></script>
-
   <!-- scripts -->
   <script src="/assets/js/nav-toggle.js"></script>
 
@@ -49,280 +46,350 @@
 </script>
 </head>
 
-  <body>
-    <main class="body container">
-      <header class="header">
-  <a class="nav-brand" href="/">NotHumanity</a>
+<body>
+  <main class="body layout-container">
+    <header class="header">
+  <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
-<nav class="nav">
-  <div class="container">
+<nav class="nav layout-container">
 
-    <div class="nav-toggle">
-      <a id="dropDownMenuOpen" role="button">Menu</a>
-    </div>
+  <div class="nav__toggle">
+    <a id="dropDownMenuOpen" role="button">Menu</a>
+  </div>
 
-    <div id="nav-collapse" class="nav-collapse">
-      <ul class="navbar">
+  <div id="nav-collapse" class="nav__collapse">
 
-        
-          
-            <li>
-              <a class="navbar-link" href="/tabs/category">
-                Category
-              </a>
-            </li>
-          
-        
-          
-            <li>
-              <a class="navbar-link" href="/tabs/contact">
-                Contact
-              </a>
-            </li>
-          
-        
+    <ul class="nav__list">
 
-      </ul>
-    </div>
+      
+      
+      <li>
+        <a class="nav__link" href="/tabs/category">
+          Category
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a class="nav__link" href="/tabs/contact">
+          Contact
+        </a>
+      </li>
+      
+      
+
+    </ul>
 
   </div>
+
 </nav>
-      <article class="article">
+    <article class="article">
+
   
-  
-  <a class="page-back" href="javascript:history.back()">← Back</a>
-  <p class="page-header">Post</p>
+  <a class="article__back-link" href="javascript:history.back()">← Back</a>
+  <p class="article__header">Post</p>
   
 
-  <section class="page-content">
+  <section class="article__content layout-container">
     
 
 
 <!-- search input for user -->
 
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search Post..." onkeyup="searchPosts()">
-  </div>
+<div class="search">
+  <input type="text" class="search__input" placeholder="Search Post..." onkeyup="searchPosts()">
+</div>
 
 
 <!-- post list -->
-<ul id="post-list" class="post-card">
+<ul id="post-list" class="post-list">
 
-  <!-- container where js inserts posts -->
   
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-9">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-8">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-7">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-6">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-5">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-4">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-3">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-2">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-13">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-12">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-11">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
-      <li class="post-link" data-title="markdown 테스트" data-excerpt="
-<blockquote>
-  <p>마크다운 테스트</p>
-</blockquote>
-">
-        <a href="/posts/markdown-test-copy-10">
-          Markdown 테스트 13 Jan 2022
-        </a>
-        <p>
-
-  마크다운 테스트
-
-</p>
-      </li>
-    
   
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-9">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-8">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-7">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-6">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-5">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-4">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-3">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-2">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-13">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-12">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-11">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
+<blockquote>
+  <p>마크다운 테스트</p>
+</blockquote>
+">
+
+    <a href="/posts/markdown-test-copy-10">
+      Markdown 테스트 13 Jan 2022
+    </a>
+
+    <p class="post-list__text">
+      
+
+  마크다운 테스트
+
+
+    </p>
+
+  </li>
+  
+  
+
 </ul>
 
 <!-- no results message -->
@@ -330,9 +397,9 @@
 
 <!-- pagination buttons -->
 <div class="pagination">
-  <a id="prev" class="page-link">Prev</a>
-  <span id="page-numbers"></span>
-  <a id="next" class="page-link">Next</a>
+  <a id="prev" class="pagination__link">Prev</a>
+  <span id="page-numbers" class="pagination__numbers"></span>
+  <a id="next" class="pagination__link">Next</a>
 </div>
 
 <!-- pagination script -->
@@ -340,41 +407,40 @@
   </section>
 
 </article>
-      <footer class="footer">
+    <footer class="footer">
 
-  <div class="footer-line"></div>
+  <div class="footer__line"></div>
 
-  <div class="container">
+  <div class="footer__item layout-container">
 
-    <div class="footer-item">
+    
 
-      
-      <ul>
-        <li>
-          <a class="footer-link" href="https://github.com/NotHumanity" target="_blank">
-            NotHumanity
-          </a>
-        </li>
-        <li>
-          Build by
-          <a class="footer-link" href="https://jekyllrb.com" target="_blank">
-            Jekyll
-          </a>
-        </li>
-        <li>
-          Powered by
-          <a class="footer-link" href="https://pages.github.com" target="_blank">
-            GitHub Pages
-          </a>
-        </li>
-      </ul>
+    <ul>
 
-    </div>
+      <li>
+        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">
+          NotHumanity
+        </a>
+      </li>
+      <li>
+        Build by
+        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
+          Jekyll
+        </a>
+      </li>
+      <li>
+        Powered by
+        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
+          GitHub Pages
+        </a>
+      </li>
+
+    </ul>
 
   </div>
 
 </footer>
-    </main>
-  </body>
+  </main>
+</body>
 
 </html>

@@ -1,11 +1,9 @@
-$(function () {
-
-  const $collapse = $("#nav-collapse");
-  const $toggle   = $("#dropDownMenuOpen");
+document.addEventListener("DOMContentLoaded", () => {
+  const collapse = document.querySelector(".nav__collapse");
+  const toggle = document.getElementById("dropDownMenuOpen");
 
   // toggle dropdown menu
-  $toggle.on("click", function () {
-    $collapse.toggleClass("show");
+  toggle.addEventListener("click", () => {
+    collapse.classList.toggle("nav__collapse--open");
   });
-
 });

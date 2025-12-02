@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,9 +27,6 @@
   <!-- <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico"> -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- libraries -->
-  <script src="/assets/lib/jquery-3.7.1.slim.js"></script>
-
   <!-- scripts -->
   <script src="/assets/js/nav-toggle.js"></script>
 
@@ -49,56 +46,57 @@
 </script>
 </head>
 
-  <body>
-    <main class="body container">
-      <header class="header">
-  <a class="nav-brand" href="/">NotHumanity</a>
+<body>
+  <main class="body layout-container">
+    <header class="header">
+  <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
-<nav class="nav">
-  <div class="container">
+<nav class="nav layout-container">
 
-    <div class="nav-toggle">
-      <a id="dropDownMenuOpen" role="button">Menu</a>
-    </div>
+  <div class="nav__toggle">
+    <a id="dropDownMenuOpen" role="button">Menu</a>
+  </div>
 
-    <div id="nav-collapse" class="nav-collapse">
-      <ul class="navbar">
+  <div id="nav-collapse" class="nav__collapse">
 
-        
-          
-            <li>
-              <a class="navbar-link" href="/tabs/category">
-                Category
-              </a>
-            </li>
-          
-        
-          
-            <li>
-              <a class="navbar-link" href="/tabs/contact">
-                Contact
-              </a>
-            </li>
-          
-        
+    <ul class="nav__list">
 
-      </ul>
-    </div>
+      
+      
+      <li>
+        <a class="nav__link" href="/tabs/category">
+          Category
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a class="nav__link" href="/tabs/contact">
+          Contact
+        </a>
+      </li>
+      
+      
+
+    </ul>
 
   </div>
+
 </nav>
-      <article class="article">
-  
+    <article class="article">
+
   
 
-  <section class="page-content">
+  <section class="article__content layout-container">
     <style type="text/css" media="screen">
   .error-container {
     margin: 10px auto;
     max-width: 600px;
     text-align: center;
   }
+
   h1 {
     margin: 30px 0;
     font-size: 4em;
@@ -108,9 +106,9 @@
 </style>
 
 <div class="error-container">
-  
+
   <h1>404</h1>
-  
+
   <p><strong>Page not found :(</strong></p>
   <p>The requested page could not be found.</p>
   <p>Please go back <a href="/">HOME</a> and try again.</p>
@@ -119,41 +117,40 @@
   </section>
 
 </article>
-      <footer class="footer">
+    <footer class="footer">
 
-  <div class="footer-line"></div>
+  <div class="footer__line"></div>
 
-  <div class="container">
+  <div class="footer__item layout-container">
 
-    <div class="footer-item">
+    
 
-      
-      <ul>
-        <li>
-          <a class="footer-link" href="https://github.com/NotHumanity" target="_blank">
-            NotHumanity
-          </a>
-        </li>
-        <li>
-          Build by
-          <a class="footer-link" href="https://jekyllrb.com" target="_blank">
-            Jekyll
-          </a>
-        </li>
-        <li>
-          Powered by
-          <a class="footer-link" href="https://pages.github.com" target="_blank">
-            GitHub Pages
-          </a>
-        </li>
-      </ul>
+    <ul>
 
-    </div>
+      <li>
+        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">
+          NotHumanity
+        </a>
+      </li>
+      <li>
+        Build by
+        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
+          Jekyll
+        </a>
+      </li>
+      <li>
+        Powered by
+        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
+          GitHub Pages
+        </a>
+      </li>
+
+    </ul>
 
   </div>
 
 </footer>
-    </main>
-  </body>
+  </main>
+</body>
 
 </html>
