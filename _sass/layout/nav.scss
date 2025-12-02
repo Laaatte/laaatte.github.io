@@ -1,15 +1,17 @@
 /* nav typography */
-.nav-brand,
-.navbar-link,
-.nav-toggle {
+.nav__brand,
+.nav__link,
+.nav__toggle {
   font-weight: 500;
   letter-spacing: 0.04rem;
 }
+
 /* header - sharp rectangle title box */
 .header {
   margin: 1rem 0 0.5rem;
   text-align: center;
-  .nav-brand {
+
+  .nav__brand {
     color: var(--color-text);
     font-size: 2.3rem;
     display: inline-block;
@@ -18,6 +20,7 @@
     border-radius: 0;
   }
 }
+
 /* navigation bar */
 .nav {
   position: relative;
@@ -28,27 +31,32 @@
   justify-content: center;
   gap: 0.8rem;
   padding: 0.6rem 0.7rem 0.8rem;
+
   a {
     color: var(--color-text);
     transition: opacity 0.2s;
+
     &:hover {
       opacity: 0.8;
     }
   }
 }
+
 /* mobile nav toggle */
-.nav-toggle {
+.nav__toggle {
   background-color: transparent;
   color: var(--color-text);
   display: flex;
   justify-content: center;
   font-size: 1.7rem;
+
   a {
     cursor: pointer;
   }
 }
+
 /* collapsible nav for mobile – overlay slide */
-.nav-collapse {
+.nav__collapse {
   position: absolute;
   top: 100%;
   left: 0;
@@ -67,28 +75,35 @@
   justify-content: center;
   transition: max-height 0.35s ease, opacity 0.25s ease;
 }
-.nav-collapse.show {
+
+/* collapse open state (modifier) */
+.nav__collapse--open {
   max-height: 500px;
   opacity: 1;
 }
+
 /* nav list */
-.navbar {
+.nav__list {
   display: flex;
   flex-direction: column;
   margin: 0.35rem;
+
   li {
     text-align: center;
   }
 }
-.navbar-link {
+
+.nav__link {
   font-size: 1.3rem;
 }
+
 /* desktop layout */
 @media (min-width: 960px) {
-  .nav-toggle {
+  .nav__toggle {
     display: none;
   }
-  .nav-collapse {
+
+  .nav__collapse {
     position: static;
     display: flex !important;
     max-height: none;
@@ -97,7 +112,8 @@
     background: none;
     padding-bottom: 0;
   }
-  .navbar {
+
+  .nav__list {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0.75rem;

@@ -1,5 +1,6 @@
 /* root */
 @charset "UTF-8";
+
 :root {
   --color-bg: #FAFAF7;
   --color-text: #2A2A2A;
@@ -8,6 +9,7 @@
   --footer-text: #aeadb0;
   --footer-line: #c0bebf;
 }
+
 /* typography & rendering */
 html {
   -webkit-font-smoothing: antialiased;
@@ -16,26 +18,34 @@ html {
   text-size-adjust: 100%;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.12) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
 }
+
 /* scrollbar webKit */
 html::-webkit-scrollbar {
   width: 6px;
 }
+
 html::-webkit-scrollbar-track {
   background: transparent;
 }
+
 html::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.12);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 3px;
 }
+
 html::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.20);
+  background: rgba(0, 0, 0, 0.20);
 }
+
 /* layout reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 /* base */
 body {
   margin: 0;
@@ -45,28 +55,34 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
+
 /* form inherit fix */
 button,
 input,
 textarea {
   font-family: inherit;
 }
+
 /* elements */
 img {
   max-width: 100%;
   height: auto;
 }
+
 a {
   color: var(--color-link);
   text-decoration: none;
 }
+
 ul,
 li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.container {
+
+/* layout container */
+.layout-container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;

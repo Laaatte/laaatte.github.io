@@ -1,33 +1,32 @@
 <footer class="footer">
 
-  <div class="footer-line"></div>
+  <div class="footer__line"></div>
 
-  <div class="container">
+  <div class="footer__item layout-container">
 
-    <div class="footer-item">
+    {% assign author = site.data.author-data %}
 
-      {% assign author = site.data.author-data %}
-      <ul>
-        <li>
-          <a class="footer-link" href="{{ author.github_link }}" target="_blank">
-            {{ author.github_username }}
-          </a>
-        </li>
-        <li>
-          Build by
-          <a class="footer-link" href="https://jekyllrb.com" target="_blank">
-            Jekyll
-          </a>
-        </li>
-        <li>
-          Powered by
-          <a class="footer-link" href="https://pages.github.com" target="_blank">
-            GitHub Pages
-          </a>
-        </li>
-      </ul>
+    <ul>
 
-    </div>
+      <li>
+        <a class="footer__link" href="{{ author.github_link }}" target="_blank" rel="noopener noreferrer">
+          {{ author.github_username }}
+        </a>
+      </li>
+      <li>
+        Build by
+        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
+          Jekyll
+        </a>
+      </li>
+      <li>
+        Powered by
+        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
+          GitHub Pages
+        </a>
+      </li>
+
+    </ul>
 
   </div>
 

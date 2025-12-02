@@ -1,5 +1,5 @@
 /* container for search input */
-.search-container {
+.search {
   display: flex;
   justify-content: flex-start;
   font-size: 1.9rem;
@@ -10,8 +10,9 @@
   margin-top: 0.5rem;
   margin-bottom: 1.2rem;
 }
+
 /* search input field styles */
-#search-input {
+.search__input {
   width: 8rem;
   padding: 0.28rem;
   font-size: 0.9rem;
@@ -20,28 +21,33 @@
   border: 0.14rem solid var(--nav-line);
   border-radius: 0;
   outline: none;
+
+  &:focus {
+    box-shadow: none;
+  }
 }
-/* styles for search input on focus */
-#search-input:focus {
-  box-shadow: none;
-}
+
 /* highlight style for search term */
-.search-highlight {
+.search__highlight {
   background-color: var(--footer-line);
   color: var(--color-text);
   font-weight: bold;
   border-radius: 0.1rem;
 }
+
 /* post list */
-.post-card {
+.post-list {
   font-size: 1.1rem;
 }
-.post-link {
+
+.post-list__item {
   margin-bottom: 0.7rem;
+
   p {
     margin: 0.23rem;
   }
 }
+
 /* pagination */
 .pagination {
   display: none;
@@ -50,34 +56,49 @@
   gap: 0.6rem;
   margin: 1.5rem 0;
   font-size: 1.05rem;
-  /* visible only when js adds .show */
-  &.show {
-    display: flex;
+}
+
+/* visible only when js adds the class */
+.pagination--visible {
+  display: flex;
+}
+
+.pagination__link {
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.6;
   }
-  .page-link {
-    color: var(--color-text);
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s;
-    &:hover {
-      opacity: 0.6;
-    }
-    &.disabled {
-      opacity: 0.35;
-      cursor: default;
-      pointer-events: none;
-    }
+}
+
+.pagination__link--disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* page number container */
+.pagination__numbers {
+  display: flex;
+  align-items: center;
+}
+
+/* each page number */
+.pagination__numbers .pagination__link {
+  color: var(--color-text);
+  margin: 0 0.25rem;
+  font-size: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.6;
   }
-  #page-numbers a {
-    color: var(--color-text);
-    margin: 0 0.25rem;
-    font-size: 1rem;
-    text-decoration: none;
-    &:hover {
-      opacity: 0.6;
-    }
-    &.active {
-      font-weight: 600;
-    }
-  }
+}
+
+/* active page */
+.pagination__number--active {
+  font-weight: 600;
 }

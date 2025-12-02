@@ -3,13 +3,13 @@ title: Category
 page_type: tab
 order: 2
 ---
-<ul class="category-card">
+<ul class="category">
 
-  {% for category in site.category %}
-    {% if category.page_type contains "category" %}
-      <li class="category-link">
-        <a href="{{ category.url | relative_url }}">
-          {{ category.title }} - {{ site.categories[category.title].size }}
+  {% for cat_page in site.category %}
+    {% if cat_page.page_type contains "category" %}
+      <li class="category__link">
+        <a href="{{ cat_page.url | relative_url }}">
+          {{ cat_page.title }} - {{ site.categories[cat_page.title].size }}
         </a>
       </li>
     {% endif %}

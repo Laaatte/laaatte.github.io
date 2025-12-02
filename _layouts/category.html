@@ -6,27 +6,32 @@ layout: page
 
 <!-- search input for user -->
 {% if category_posts and category_posts.size > 0 %}
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search {{ category_name }}..." onkeyup="searchPosts()">
-  </div>
+<div class="search">
+  <input type="text" class="search__input" placeholder="Search {{ category_name }}..." onkeyup="searchPosts()">
+</div>
 {% endif %}
 
 <!-- post list -->
-<ul id="post-list" class="post-card">
+<ul id="post-list" class="post-list">
 
-  <!-- container where js inserts posts -->
   {% if category_posts %}
-    {% for post in category_posts %}
-      <li class="post-link" data-title="{{ post.title | downcase }}" data-excerpt="{{ post.excerpt | downcase }}">
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title }} {{ post.date | date_to_string }}
-        </a>
-        <p>{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
-      </li>
-    {% endfor %}
+  {% for post in category_posts %}
+  <li class="post-list__item" data-title="{{ post.title | downcase }}" data-excerpt="{{ post.excerpt | downcase }}">
+
+    <a href="{{ post.url | relative_url }}">
+      {{ post.title }} {{ post.date | date_to_string }}
+    </a>
+
+    <p class="post-list__text">
+      {{ post.excerpt | strip_html | truncatewords: 10 }}
+    </p>
+
+  </li>
+  {% endfor %}
   {% else %}
-    <p>There is no content.</p>
+  <p>There is no content.</p>
   {% endif %}
+
 </ul>
 
 <!-- no results message -->
@@ -34,9 +39,9 @@ layout: page
 
 <!-- pagination buttons -->
 <div class="pagination">
-  <a id="prev" class="page-link">Prev</a>
-  <span id="page-numbers"></span>
-  <a id="next" class="page-link">Next</a>
+  <a id="prev" class="pagination__link">Prev</a>
+  <span id="page-numbers" class="pagination__numbers"></span>
+  <a id="next" class="pagination__link">Next</a>
 </div>
 
 <!-- pagination script -->

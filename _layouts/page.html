@@ -2,13 +2,13 @@
 layout: default
 ---
 <article class="article">
-  
+
   {% if page.title != null and page.page_type contains "post" %}
-  <a class="page-back" href="javascript:history.back()">← Back</a>
-  <p class="page-header">{{ page.title }}</p>
+  <a class="article__back-link" href="javascript:history.back()">← Back</a>
+  <p class="article__header">{{ page.title }}</p>
   {% endif %}
 
-  <section class="page-content">
+  <section class="article__content layout-container">
     {{ content }}
   </section>
 

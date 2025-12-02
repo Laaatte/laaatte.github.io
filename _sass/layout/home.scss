@@ -1,30 +1,41 @@
 /* basic style for about, tech-stack, and license sections */
-#about, #tech-stack, #license {
+.about,
+.tech-stack,
+.license {
   margin: 1rem 0;
   padding: 1rem;
   text-align: left;
 }
+
 /* style for headings */
-#about h2, #tech-stack h2, #license h2 {
+.about__title,
+.tech-stack__title,
+.license__title {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   text-align: left;
 }
+
 /* style for text content */
-#about p, #tech-stack p, #license p {
+.about__text,
+.tech-stack__text,
+.license__text {
   font-size: 1rem;
   text-align: left;
 }
+
 /* style for tech stack list */
-#tech-stack ul.tech-list {
+.tech-stack__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
+
 /* style for each tech stack item with a dash (-) */
-#tech-stack li {
+.tech-stack__item {
   padding: 0.5rem 0;
 }
-#tech-stack li::before {
-  content: "- "; /* add dash before each list item */
+
+.tech-stack__item::before {
+  content: "- ";
 }

@@ -1,16 +1,18 @@
 /* footer content */
-.footer-line {
+.footer__line {
   height: 0.13rem;
   background: linear-gradient(var(--footer-line), var(--footer-line)) center / 95% 0.13rem no-repeat;
   margin: 1.5rem auto 1rem;
   opacity: 0.8;
 }
+
 .footer {
-  > .container {
+  >.layout-container {
     margin-bottom: 1.5rem;
   }
 }
-.footer-item {
+
+.footer__item {
   color: var(--footer-text);
   display: flex;
   justify-content: center;
@@ -18,20 +20,24 @@
   font-size: 0.8rem;
   line-height: 1.4;
   letter-spacing: 0.02rem;
+
   ul {
     columns: 1;
     gap: 0.4rem;
   }
 }
-.footer-link {
+
+.footer__link {
   color: var(--footer-text);
   transition: opacity 0.2s;
+
   &:hover {
     opacity: 0.8;
   }
 }
+
 @media (min-width: 960px) {
-  .footer-item {
+  .footer__item {
     ul {
       columns: 3;
     }

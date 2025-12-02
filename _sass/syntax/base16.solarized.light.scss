@@ -29,27 +29,32 @@ blockquote {
   border-left: 0.23rem solid #b18783;
   margin: 0.4rem 0;
   padding: 0.2rem 0.4rem;
+
   p {
     margin: 0;
   }
 }
+
 table {
   max-width: max-content;
   margin: 0;
   padding: 0;
   font-size: 1rem;
   border-collapse: collapse;
+
   th {
     background-color: #E4DFD9;
     border: 1px solid #c9c6c3;
     padding: 0.4rem;
   }
+
   td {
     background-color: #F7F5F3;
     padding: 0.4rem;
     border: 1px solid #d6d3d1;
   }
 }
+
 .language-plaintext {
   max-width: max-content;
   background-color: #E8EEE8;
@@ -59,6 +64,7 @@ table {
   font-size: 0.95rem;
   font-weight: 500;
 }
+
 .highlight pre {
   max-width: max-content;
   background-color: #F7F5F3;
@@ -70,14 +76,17 @@ table {
   font-size: 0.95rem;
   line-height: 1.28;
 }
+
 .highlight,
 .highlight .w {
   color: #586e75;
 }
+
 .highlight .err {
   color: #2B2B2B;
   background-color: #dc322f;
 }
+
 .highlight .c,
 .highlight .ch,
 .highlight .cd,
@@ -87,6 +96,7 @@ table {
 .highlight .cs {
   color: #8A8889;
 }
+
 .highlight .cp,
 .highlight .nt,
 .highlight .nn,
@@ -94,33 +104,41 @@ table {
 .highlight .no {
   color: #b58900;
 }
+
 .highlight .o,
 .highlight .ow,
 .highlight .p,
 .highlight .pi {
   color: #93a1a1;
 }
+
 .highlight .gi {
   color: #6F8B5B;
 }
+
 .highlight .gd {
   color: #b18783;
 }
+
 .highlight .gh {
   color: #6A96C8;
   background-color: #F0EFEA;
   font-weight: bold;
 }
+
 .highlight .ge {
   font-style: italic;
 }
+
 .highlight .ges {
   font-weight: bold;
   font-style: italic;
 }
+
 .highlight .gs {
   font-weight: bold;
 }
+
 .highlight .k,
 .highlight .kn,
 .highlight .kp,
@@ -128,11 +146,13 @@ table {
 .highlight .kv {
   color: #6A96C8;
 }
+
 .highlight .kc,
 .highlight .kt,
 .highlight .kd {
   color: #b58900;
 }
+
 .highlight .s,
 .highlight .sb,
 .highlight .sc,
@@ -144,19 +164,24 @@ table {
 .highlight .s1 {
   color: #6F8B5B;
 }
+
 .highlight .sa {
   color: #6A96C8;
 }
+
 .highlight .sr {
   color: #2aa198;
 }
+
 .highlight .si,
 .highlight .se {
   color: #d33682;
 }
+
 .highlight .na {
   color: #6A96C8;
 }
+
 .highlight .m,
 .highlight .mb,
 .highlight .mf,

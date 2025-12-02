@@ -1,168 +1,270 @@
-$(function () {
-  const $items = $("#post-list .post-link");
-  const total = $items.length;
+document.addEventListener("DOMContentLoaded", () => {
+  // cache DOM elements
+  const items = Array.from(document.querySelectorAll(".post-list__item"));
+  const total = items.length;
   const perPage = 10;
-  const $pagination = $(".pagination");
-  const $pageNumbers = $("#page-numbers");
-  const $searchInput = $("#search-input");
-  const $noResultsMessage = $("#no-results-message");
 
-  let typingTimer;
-  const doneTypingInterval = 500; // 500ms delay after user stops typing
+  const pagination = document.querySelector(".pagination");
+  const pageNumbers = document.querySelector(".pagination__numbers");
+  const searchInput = document.querySelector(".search__input");
+  const noResultsMessage = document.getElementById("no-results-message");
 
-  // if no posts, hide pagination
-  if (total === 0) {
-    $pagination.removeClass("show");
-    return;
-  }
-
-  // if total posts <= 10, show all items and hide pagination
-  if (total <= perPage) {
-    $items.show();
-    $pagination.removeClass("show");
-    return;
-  }
-
-  // pagination is needed, show it
-  $pagination.addClass("show");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
 
   let currentPage = 1;
-  let filteredItems = $items;
+  let filteredItems = items.slice();
   let maxPage = Math.ceil(filteredItems.length / perPage);
 
-  // render page numbers
+  let typingTimer;
+  const typingDelay = 500; // delay after user stops typing
+
+
+  /* ------------------------------------------------------------
+    Store original content for safe restoring and clean searching
+  ------------------------------------------------------------- */
+  items.forEach(item => {
+    const titleEl = item.querySelector("a");                 // use <a> (no class)
+    const textEl = item.querySelector(".post-list__text");  // paragraph inside item
+
+    if (!titleEl || !textEl) return;
+
+    item.dataset.originalTitle = titleEl.textContent;
+    item.dataset.originalExcerpt = textEl.textContent;
+  });
+
+
+  /* ------------------------------------------------------------
+    Utility: escape HTML for safe highlight
+  ------------------------------------------------------------- */
+  function escapeHtml(text) {
+    return text.replace(/[&<>"'`=\/]/g, char => `&#${char.charCodeAt(0)};`);
+  }
+
+  function highlightTerm(text, term) {
+    const escaped = escapeHtml(text);
+    const regex = new RegExp(`(${term})`, "gi");
+    return escaped.replace(regex, `<span class="search__highlight">$1</span>`);
+  }
+
+
+  /* ------------------------------------------------------------
+    Utility: show only the given set of items
+  ------------------------------------------------------------- */
+  function showItems(list) {
+    items.forEach(item => { item.style.display = "none"; });
+    list.forEach(item => { item.style.display = ""; });
+  }
+
+
+  /* ------------------------------------------------------------
+    Pagination number builder
+  ------------------------------------------------------------- */
   function renderPageNumbers() {
-    $pageNumbers.empty(); // clear existing page numbers
+    pageNumbers.innerHTML = "";
 
-    function addPageLink(num, isActive = false) {
-      const $a = $(`<a class="page-link">${num}</a>`);
-      if (isActive) $a.addClass("active");
-      $a.on("click", () => render(num)); // attach click handler to the page link
-      $pageNumbers.append($a);
-    }
+    const addLink = (num, isActive = false) => {
+      const a = document.createElement("a");
+      a.textContent = num;
+      a.className = "pagination__link";
+      if (isActive) a.classList.add("pagination__number--active");
+      a.addEventListener("click", () => render(num));
+      pageNumbers.appendChild(a);
+    };
 
+    // small amount of pages
     if (maxPage <= 7) {
       for (let i = 1; i <= maxPage; i++) {
-        addPageLink(i, i === currentPage);
+        addLink(i, i === currentPage);
       }
       return;
     }
 
-    addPageLink(1, currentPage === 1);
-
+    // left side
+    addLink(1, currentPage === 1);
     if (currentPage > 3) {
-      $pageNumbers.append('<span class="dots">...</span>');
+      const dots = document.createElement("span");
+      dots.textContent = "...";
+      dots.className = "dots";
+      pageNumbers.appendChild(dots);
     }
 
+    // middle block
     const start = Math.max(2, currentPage - 1);
     const end = Math.min(maxPage - 1, currentPage + 1);
 
     for (let i = start; i <= end; i++) {
-      addPageLink(i, i === currentPage);
+      addLink(i, i === currentPage);
     }
 
+    // right side
     if (currentPage < maxPage - 2) {
-      $pageNumbers.append('<span class="dots">...</span>');
+      const dots = document.createElement("span");
+      dots.textContent = "...";
+      dots.className = "dots";
+      pageNumbers.appendChild(dots);
     }
 
-    addPageLink(maxPage, currentPage === maxPage);
+    addLink(maxPage, currentPage === maxPage);
   }
 
-  // render posts per page
+
+  /* ------------------------------------------------------------
+    Core pagination renderer
+  ------------------------------------------------------------- */
   function render(page) {
+    if (filteredItems.length === 0) {
+      showItems([]);
+      if (pagination) pagination.classList.remove("pagination--visible");
+      return;
+    }
+
     currentPage = Math.max(1, Math.min(page, maxPage));
 
     const start = (currentPage - 1) * perPage;
     const end = start + perPage;
 
-    filteredItems.hide().slice(start, end).show(); // only show the current page items
+    showItems(filteredItems.slice(start, end));
 
-    $("#prev").toggleClass("disabled", currentPage === 1 || filteredItems.length === 0);
-    $("#next").toggleClass("disabled", currentPage === maxPage || filteredItems.length === 0);
+    if (prevBtn) {
+      prevBtn.classList.toggle(
+        "pagination__link--disabled",
+        currentPage === 1
+      );
+    }
 
-    renderPageNumbers(); // update page numbers
+    if (nextBtn) {
+      nextBtn.classList.toggle(
+        "pagination__link--disabled",
+        currentPage === maxPage
+      );
+    }
+
+    renderPageNumbers();
   }
 
-  // prev / next button event
-  $("#prev").on("click", () => render(currentPage - 1));
-  $("#next").on("click", () => render(currentPage + 1));
 
-  // safely escape HTML characters
-  function escapeHtml(text) {
-    return text.replace(/[&<>"'`=\/]/g, (char) => `&#${char.charCodeAt(0)};`);
-  }
+  /* ------------------------------------------------------------
+    Search engine
+  ------------------------------------------------------------- */
+  function performSearch() {
+    const term = (searchInput?.value || "").toLowerCase().trim();
 
-  // highlight search term in text
-  function searchHighlightTerm(text, term) {
-    const escapedText = escapeHtml(text); // escape HTML characters
-    const regex = new RegExp(`(${term})`, 'gi'); // case-insensitive regex
-    return escapedText.replace(regex, '<span class="search-highlight">$1</span>'); // wrap search term with <span> for highlighting
-  }
+    // empty search -> restore all original content
+    if (!term) {
+      filteredItems = items.slice();
 
-  // search function
-  window.searchPosts = function() {
-    const searchTerm = $searchInput.val().toLowerCase().trim(); // get search term and trim whitespace
+      items.forEach(item => {
+        const titleEl = item.querySelector("a");
+        const textEl = item.querySelector(".post-list__text");
 
-    // if search term is empty, show all items and hide "no results" message
-    if (searchTerm === "") {
-      $items.show(); // show all posts
-      $noResultsMessage.hide(); // hide "no results" message
+        if (!titleEl || !textEl) return;
 
-      // remove highlight from all items
-      $items.each(function() {
-        const titleElement = $(this).find("a");
-        const excerptElement = $(this).find("p");
-
-        // reset highlighted text using text() instead of html()
-        titleElement.text(titleElement.text());
-        excerptElement.text(excerptElement.text());
+        titleEl.textContent = item.dataset.originalTitle || titleEl.textContent;
+        textEl.textContent = item.dataset.originalExcerpt || textEl.textContent;
       });
 
-      return; // return early to stop further processing
+      if (noResultsMessage) {
+        noResultsMessage.style.display = "none";
+      }
+
+      maxPage = Math.ceil(filteredItems.length / perPage);
+
+      if (pagination && total > perPage) {
+        pagination.classList.add("pagination--visible");
+      }
+
+      render(1);
+      return;
     }
 
-    // filter items based on search term
-    filteredItems = $items.filter(function () {
-      const title = $(this).find("a").text().toLowerCase();
-      const excerpt = $(this).find("p").text().toLowerCase();
-      
-      return title.includes(searchTerm) || excerpt.includes(searchTerm);
+    // filter based on original text
+    filteredItems = items.filter(item => {
+      const originalTitle = (item.dataset.originalTitle || "").toLowerCase();
+      const originalExcerpt = (item.dataset.originalExcerpt || "").toLowerCase();
+      return originalTitle.includes(term) || originalExcerpt.includes(term);
     });
 
-    // hide all items first
-    $items.hide();
+    showItems(filteredItems);
 
-    // show only filtered items
-    filteredItems.show();
+    // apply highlight safely
+    filteredItems.forEach(item => {
+      const titleEl = item.querySelector("a");
+      const textEl = item.querySelector(".post-list__text");
 
-    // highlight search term in title and excerpt
-    filteredItems.each(function () {
-      const titleElement = $(this).find("a");
-      const excerptElement = $(this).find("p");
+      if (!titleEl || !textEl) return;
 
-      // safely insert highlighted text using html() with escaping
-      titleElement.html(searchHighlightTerm(titleElement.text(), searchTerm));  // highlight in title
-      excerptElement.html(searchHighlightTerm(excerptElement.text(), searchTerm)); // highlight in excerpt
+      titleEl.innerHTML = highlightTerm(item.dataset.originalTitle || titleEl.textContent, term);
+      textEl.innerHTML = highlightTerm(item.dataset.originalExcerpt || textEl.textContent, term);
     });
 
-    // show "no results found" message if no items match
-    if (filteredItems.length === 0) {
-      $noResultsMessage.show(); // show no results message
-    } else {
-      $noResultsMessage.hide(); // hide no results message
+    // no results
+    if (noResultsMessage) {
+      noResultsMessage.style.display =
+        filteredItems.length === 0 ? "block" : "none";
     }
 
-    // adjust pagination based on filtered results
-    maxPage = Math.ceil(filteredItems.length / perPage); // update maxPage based on filtered results
-    render(1); // re-render with the updated page number and filtered posts
+    maxPage = Math.ceil(filteredItems.length / perPage);
+
+    // toggle pagination visibility
+    if (pagination) {
+      if (filteredItems.length > perPage) {
+        pagination.classList.add("pagination--visible");
+      } else {
+        pagination.classList.remove("pagination--visible");
+      }
+    }
+
+    render(1);
   }
 
-  // attach search function to the input field with delay
-  $searchInput.on("input", function() {
-    clearTimeout(typingTimer); // clear the previous timer
-    typingTimer = setTimeout(searchPosts, doneTypingInterval); // wait for user to stop typing
-  });
+  // expose search for inline HTML handler
+  window.searchPosts = performSearch;
 
-  // initial render
+
+  /* ------------------------------------------------------------
+    Event bindings
+  ------------------------------------------------------------- */
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(performSearch, typingDelay);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (!prevBtn.classList.contains("pagination__link--disabled")) {
+        render(currentPage - 1);
+      }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (!nextBtn.classList.contains("pagination__link--disabled")) {
+        render(currentPage + 1);
+      }
+    });
+  }
+
+
+  /* ------------------------------------------------------------
+    Initial load
+  ------------------------------------------------------------- */
+  if (total === 0) {
+    if (pagination) pagination.classList.remove("pagination--visible");
+    return;
+  }
+
+  if (total <= perPage) {
+    showItems(items);
+    if (pagination) pagination.classList.remove("pagination--visible");
+    return;
+  }
+
+  if (pagination) {
+    pagination.classList.add("pagination--visible");
+  }
   render(1);
 });
