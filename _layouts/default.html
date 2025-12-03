@@ -4,11 +4,11 @@
 {% include head.html %}
 
 <body>
-  <main class="body layout-container">
-    {% include nav.html %}
+  {% include nav.html %}
+  <main class="layout-container">
     {{ content }}
-    {% include footer.html %}
   </main>
+  {% include footer.html %}
 </body>
 
 </html>

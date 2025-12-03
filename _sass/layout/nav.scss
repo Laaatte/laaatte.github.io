@@ -6,7 +6,7 @@
   letter-spacing: 0.04rem;
 }
 
-/* header - sharp rectangle title box */
+/* header - rectangle title box */
 .header {
   margin: 1rem 0 0.5rem;
   text-align: center;
@@ -42,7 +42,7 @@
   }
 }
 
-/* mobile nav toggle */
+/* mobile nav toggle wrapper */
 .nav__toggle {
   background-color: transparent;
   color: var(--color-text);
@@ -55,7 +55,18 @@
   }
 }
 
-/* collapsible nav for mobile – overlay slide */
+/* mobile toggle button (actual clickable button) */
+.nav__toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* collapsible nav panel for mobile */
 .nav__collapse {
   position: absolute;
   top: 100%;
@@ -68,21 +79,30 @@
   background-position: bottom center;
   padding-bottom: 0.4rem;
   z-index: 10;
+
   display: block;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   justify-content: center;
   transition: max-height 0.35s ease, opacity 0.25s ease;
+
+  /* prevent tab focus when collapsed */
+  pointer-events: none;
+  visibility: hidden;
 }
 
-/* collapse open state (modifier) */
+/* collapsible nav: open state */
 .nav__collapse--open {
   max-height: 500px;
   opacity: 1;
+
+  /* allow tab focus when open */
+  pointer-events: auto;
+  visibility: visible;
 }
 
-/* nav list */
+/* nav list container */
 .nav__list {
   display: flex;
   flex-direction: column;
@@ -93,6 +113,7 @@
   }
 }
 
+/* nav link style */
 .nav__link {
   font-size: 1.3rem;
 }
@@ -111,6 +132,10 @@
     overflow: visible;
     background: none;
     padding-bottom: 0;
+
+    /* desktop is always open → must allow focus */
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .nav__list {

@@ -4,10 +4,11 @@ layout: page
 {% assign category_name = page.title %}
 {% assign category_posts = site.categories[category_name] %}
 
-<!-- search input for user -->
+<!-- search input -->
 {% if category_posts and category_posts.size > 0 %}
 <div class="search">
-  <input type="text" class="search__input" placeholder="Search {{ category_name }}..." onkeyup="searchPosts()">
+  <label for="category-search" class="visually-hidden">search posts in {{ category_name }}</label>
+  <input id="category-search" type="text" class="search__input" placeholder="search {{ category_name }}..." onkeyup="searchPosts()" aria-label="search posts in {{ category_name }}">
 </div>
 {% endif %}
 
@@ -17,15 +18,8 @@ layout: page
   {% if category_posts %}
   {% for post in category_posts %}
   <li class="post-list__item" data-title="{{ post.title | downcase }}" data-excerpt="{{ post.excerpt | downcase }}">
-
-    <a href="{{ post.url | relative_url }}">
-      {{ post.title }} {{ post.date | date_to_string }}
-    </a>
-
-    <p class="post-list__text">
-      {{ post.excerpt | strip_html | truncatewords: 10 }}
-    </p>
-
+    <a href="{{ post.url | relative_url }}">{{ post.title }} {{ post.date | date_to_string }}</a>
+    <p class="post-list__text">{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
   </li>
   {% endfor %}
   {% else %}
@@ -34,14 +28,19 @@ layout: page
 
 </ul>
 
-<!-- no results message -->
-<p id="no-results-message" style="display:none;">No results found.</p>
+<!-- no results -->
+<p id="no-results-message" style="display:none;">no results found.</p>
 
-<!-- pagination buttons -->
+<!-- pagination -->
 <div class="pagination">
-  <a id="prev" class="pagination__link">Prev</a>
-  <span id="page-numbers" class="pagination__numbers"></span>
-  <a id="next" class="pagination__link">Next</a>
+
+  <!-- prev button (tab possible) -->
+  <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
+  <!-- page numbers container (js fills this) -->
+  <div id="page-numbers" class="pagination__numbers" aria-label="pagination pages"></div>
+  <!-- next button (tab possible) -->
+  <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
+
 </div>
 
 <!-- pagination script -->

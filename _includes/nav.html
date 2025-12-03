@@ -5,7 +5,7 @@
 <nav class="nav layout-container">
 
   <div class="nav__toggle">
-    <a id="dropDownMenuOpen" role="button">Menu</a>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
   </div>
 
   <div id="nav-collapse" class="nav__collapse">
@@ -14,11 +14,7 @@
 
       {% for tabs in site.tabs %}
       {% if tabs.page_type contains "tab" %}
-      <li>
-        <a class="nav__link" href="{{ tabs.url | relative_url }}">
-          {{ tabs.title }}
-        </a>
-      </li>
+      <li><a class="nav__link" href="{{ tabs.url | relative_url }}">{{ tabs.title }}</a></li>
       {% endif %}
       {% endfor %}
 
