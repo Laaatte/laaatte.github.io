@@ -14,13 +14,15 @@
   <meta name="referrer" content="no-referrer">
 
   <!-- basic csp for static site security -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-                 script-src 'self';
-                 style-src 'self' 'unsafe-inline';
-                 img-src 'self' data:;
-                 object-src 'none';
-                 base-uri 'self';
-                 form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://www.google-analytics.com;
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  ">
 
   <!-- page title -->
   <title>
@@ -49,7 +51,7 @@
 
   <!-- google analytics -->
   <!-- google analytics (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=g-8y1w84b2cx"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1W84B2CX"></script>
 
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -59,7 +61,7 @@
   }
 
   gtag("js", new Date());
-  gtag("config", "g-8y1w84b2cx");
+  gtag("config", "G-8Y1W84B2CX");
 </script>
 </head>
 
