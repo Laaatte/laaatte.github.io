@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const dots = document.createElement("span");
       dots.textContent = "...";
       dots.className = "dots";
+      dots.setAttribute("aria-hidden", "true"); // a11y: hide dots from screen readers
       pageNumbers.appendChild(dots);
     }
 
@@ -92,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const dots = document.createElement("span");
       dots.textContent = "...";
       dots.className = "dots";
+      dots.setAttribute("aria-hidden", "true"); // a11y: hide dots from screen readers
       pageNumbers.appendChild(dots);
     }
 

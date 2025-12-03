@@ -26,7 +26,8 @@ date: 2022-01-13
 ---
 ### 테스트
 
-#### __[{{ author.github_username }}]({{ author.github_link }}){:target="_blank"}__
+#### __[{{ author.github_username }}]({{ author.github_link }}){:target="_blank" rel="noopener noreferrer"}__
+
 
 __asd__ asd
 

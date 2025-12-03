@@ -1,9 +1,25 @@
 <head>
+  <!-- meta basics -->
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- title -->
+  <!-- seo meta description -->
+  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 150 | default: site.description }}">
+
+  <!-- privacy and security meta -->
+  <meta name="referrer" content="no-referrer">
+
+  <!-- basic csp for static site security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data:;
+                 object-src 'none';
+                 base-uri 'self';
+                 form-action 'self'">
+
+  <!-- page title -->
   <title>
     {% if page.title != null %}
       {{ page.title }} | {{ site.title }}
@@ -13,7 +29,7 @@
   </title>
 
   <!-- open graph -->
-  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:type" content="{{ site.og_type }}">
   <meta property="og:image" content="{{ site.og_image }}">
   <meta property="og:title" content="{{ page.title | default: site.title }}">
@@ -21,13 +37,14 @@
   <meta property="og:description" content="{{ site.description }}">
   <meta property="og:locale" content="{{ site.og_locale }}">
 
+  <!-- twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+
   <!-- styles -->
-  <!-- <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}"> -->
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}"> -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  <!-- scripts -->
-  <script src="{{ '/assets/js/nav-toggle.js' | relative_url }}"></script>
+  <!-- scripts (defer improves load performance) -->
+  <script src="{{ '/assets/js/nav-toggle.js' | relative_url }}" defer></script>
 
   <!-- google analytics -->
   {% include google-analytics.html %}

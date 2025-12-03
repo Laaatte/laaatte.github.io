@@ -8,7 +8,7 @@ layout: page
 {% if category_posts and category_posts.size > 0 %}
 <div class="search">
   <label for="category-search" class="visually-hidden">search posts in {{ category_name }}</label>
-  <input id="category-search" type="text" class="search__input" placeholder="search {{ category_name }}..." onkeyup="searchPosts()" aria-label="search posts in {{ category_name }}">
+  <input id="category-search" type="text" class="search__input" placeholder="search {{ category_name }}..." onkeyup="searchPosts()" autocomplete="off">
 </div>
 {% endif %}
 
@@ -29,15 +29,15 @@ layout: page
 </ul>
 
 <!-- no results -->
-<p id="no-results-message" style="display:none;">no results found.</p>
+<p id="no-results-message" aria-live="polite" style="display:none;">no results found.</p>
 
 <!-- pagination -->
-<div class="pagination">
+<div class="pagination" role="navigation" aria-label="pagination">
 
   <!-- prev button (tab possible) -->
   <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
   <!-- page numbers container (js fills this) -->
-  <div id="page-numbers" class="pagination__numbers" aria-label="pagination pages"></div>
+  <div id="page-numbers" class="pagination__numbers" role="list" aria-label="pagination pages"></div>
   <!-- next button (tab possible) -->
   <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
 

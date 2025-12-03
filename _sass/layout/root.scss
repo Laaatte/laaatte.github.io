@@ -18,12 +18,12 @@ html {
   text-size-adjust: 100%;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+  scrollbar-color: rgba(138, 136, 137, 0.25) transparent;
 }
 
 /* scrollbar webKit */
 html::-webkit-scrollbar {
-  width: 6px;
+  width: 0.38rem;
 }
 
 html::-webkit-scrollbar-track {
@@ -31,12 +31,12 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 3px;
+  background: rgba(138, 136, 137, 0.25);
+  border-radius: 0.19rem;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.20);
+  background: rgba(138, 136, 137, 0.38);
 }
 
 /* layout reset */
