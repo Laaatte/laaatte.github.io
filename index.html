@@ -47,15 +47,14 @@
 </head>
 
 <body>
-  <main class="body layout-container">
-    <header class="header">
+  <header class="header">
   <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
 <nav class="nav layout-container">
 
   <div class="nav__toggle">
-    <a id="dropDownMenuOpen" role="button">Menu</a>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
   </div>
 
   <div id="nav-collapse" class="nav__collapse">
@@ -64,19 +63,11 @@
 
       
       
-      <li>
-        <a class="nav__link" href="/tabs/category">
-          Category
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/category">Category</a></li>
       
       
       
-      <li>
-        <a class="nav__link" href="/tabs/contact">
-          Contact
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/contact">Contact</a></li>
       
       
 
@@ -85,6 +76,7 @@
   </div>
 
 </nav>
+  <main class="layout-container">
     <article class="article">
 
   
@@ -161,11 +153,12 @@
   </section>
 
 </article>
-    <footer class="footer">
+  </main>
+  <footer class="footer layout-container">
 
   <div class="footer__line"></div>
 
-  <div class="footer__item layout-container">
+  <div class="footer__item">
 
     
 
@@ -194,7 +187,6 @@
   </div>
 
 </footer>
-  </main>
 </body>
 
 </html>

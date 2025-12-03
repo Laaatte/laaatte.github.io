@@ -47,15 +47,14 @@
 </head>
 
 <body>
-  <main class="body layout-container">
-    <header class="header">
+  <header class="header">
   <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
 <nav class="nav layout-container">
 
   <div class="nav__toggle">
-    <a id="dropDownMenuOpen" role="button">Menu</a>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
   </div>
 
   <div id="nav-collapse" class="nav__collapse">
@@ -64,19 +63,11 @@
 
       
       
-      <li>
-        <a class="nav__link" href="/tabs/category">
-          Category
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/category">Category</a></li>
       
       
       
-      <li>
-        <a class="nav__link" href="/tabs/contact">
-          Contact
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/contact">Contact</a></li>
       
       
 
@@ -85,6 +76,7 @@
   </div>
 
 </nav>
+  <main class="layout-container">
     <article class="article">
 
   
@@ -96,10 +88,11 @@
     
 
 
-<!-- search input for user -->
+<!-- search input -->
 
 <div class="search">
-  <input type="text" class="search__input" placeholder="Search Post..." onkeyup="searchPosts()">
+  <label for="category-search" class="visually-hidden">search posts in Post</label>
+  <input id="category-search" type="text" class="search__input" placeholder="search Post..." onkeyup="searchPosts()" aria-label="search posts in Post">
 </div>
 
 
@@ -113,19 +106,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -133,19 +119,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -153,19 +132,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-9">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-9">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -173,19 +145,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-8">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-8">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -193,19 +158,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-7">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-7">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -213,19 +171,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-6">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-6">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -233,19 +184,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-5">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-5">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -253,19 +197,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-4">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-4">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -273,19 +210,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-3">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-3">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -293,19 +223,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-2">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-2">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -313,19 +236,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-13">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-13">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -333,19 +249,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-12">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-12">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -353,19 +262,12 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-11">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-11">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   <li class="post-list__item" data-title="markdown 테스트" data-excerpt="
@@ -373,33 +275,31 @@
   <p>마크다운 테스트</p>
 </blockquote>
 ">
-
-    <a href="/posts/markdown-test-copy-10">
-      Markdown 테스트 13 Jan 2022
-    </a>
-
+    <a href="/posts/markdown-test-copy-10">Markdown 테스트 13 Jan 2022</a>
     <p class="post-list__text">
-      
 
   마크다운 테스트
 
-
-    </p>
-
+</p>
   </li>
   
   
 
 </ul>
 
-<!-- no results message -->
-<p id="no-results-message" style="display:none;">No results found.</p>
+<!-- no results -->
+<p id="no-results-message" style="display:none;">no results found.</p>
 
-<!-- pagination buttons -->
+<!-- pagination -->
 <div class="pagination">
-  <a id="prev" class="pagination__link">Prev</a>
-  <span id="page-numbers" class="pagination__numbers"></span>
-  <a id="next" class="pagination__link">Next</a>
+
+  <!-- prev button (tab possible) -->
+  <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
+  <!-- page numbers container (js fills this) -->
+  <div id="page-numbers" class="pagination__numbers" aria-label="pagination pages"></div>
+  <!-- next button (tab possible) -->
+  <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
+
 </div>
 
 <!-- pagination script -->
@@ -407,11 +307,12 @@
   </section>
 
 </article>
-    <footer class="footer">
+  </main>
+  <footer class="footer layout-container">
 
   <div class="footer__line"></div>
 
-  <div class="footer__item layout-container">
+  <div class="footer__item">
 
     
 
@@ -440,7 +341,6 @@
   </div>
 
 </footer>
-  </main>
 </body>
 
 </html>

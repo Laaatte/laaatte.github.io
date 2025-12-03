@@ -47,15 +47,14 @@
 </head>
 
 <body>
-  <main class="body layout-container">
-    <header class="header">
+  <header class="header">
   <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
 <nav class="nav layout-container">
 
   <div class="nav__toggle">
-    <a id="dropDownMenuOpen" role="button">Menu</a>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
   </div>
 
   <div id="nav-collapse" class="nav__collapse">
@@ -64,19 +63,11 @@
 
       
       
-      <li>
-        <a class="nav__link" href="/tabs/category">
-          Category
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/category">Category</a></li>
       
       
       
-      <li>
-        <a class="nav__link" href="/tabs/contact">
-          Contact
-        </a>
-      </li>
+      <li><a class="nav__link" href="/tabs/contact">Contact</a></li>
       
       
 
@@ -85,6 +76,7 @@
   </div>
 
 </nav>
+  <main class="layout-container">
     <article class="article">
 
   
@@ -96,7 +88,7 @@
     
 
 
-<!-- search input for user -->
+<!-- search input -->
 
 
 <!-- post list -->
@@ -108,14 +100,19 @@
 
 </ul>
 
-<!-- no results message -->
-<p id="no-results-message" style="display:none;">No results found.</p>
+<!-- no results -->
+<p id="no-results-message" style="display:none;">no results found.</p>
 
-<!-- pagination buttons -->
+<!-- pagination -->
 <div class="pagination">
-  <a id="prev" class="pagination__link">Prev</a>
-  <span id="page-numbers" class="pagination__numbers"></span>
-  <a id="next" class="pagination__link">Next</a>
+
+  <!-- prev button (tab possible) -->
+  <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
+  <!-- page numbers container (js fills this) -->
+  <div id="page-numbers" class="pagination__numbers" aria-label="pagination pages"></div>
+  <!-- next button (tab possible) -->
+  <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
+
 </div>
 
 <!-- pagination script -->
@@ -123,11 +120,12 @@
   </section>
 
 </article>
-    <footer class="footer">
+  </main>
+  <footer class="footer layout-container">
 
   <div class="footer__line"></div>
 
-  <div class="footer__item layout-container">
+  <div class="footer__item">
 
     
 
@@ -156,7 +154,6 @@
   </div>
 
 </footer>
-  </main>
 </body>
 
 </html>
