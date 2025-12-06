@@ -29,7 +29,7 @@
       };
 
       // simple number layout
-      if (state.maxPage <= 7) {
+      if (state.maxPage <= 5) {
         for (let i = 1; i <= state.maxPage; i++) {
           addLink(i, i === state.currentPage);
         }
