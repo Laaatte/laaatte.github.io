@@ -1,7 +1,7 @@
 ---
 title: Category
 page_type: tab
-order: 2
+order: 1
 ---
 <ul class="category">
 

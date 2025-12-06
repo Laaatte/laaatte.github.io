@@ -1,7 +1,7 @@
 ---
 title: Contact
 page_type: tab, post
-order: 3
+order: 2
 ---
 {% assign author = site.data.author-data %}
 
