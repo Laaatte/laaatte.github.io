@@ -1,16 +1,16 @@
 /* root */
-@charset "UTF-8";
+@charset "utf-8";
 
 :root {
-  --color-bg: #FAFAF7;
-  --color-text: #2A2A2A;
-  --color-link: #6A96C8;
-  --nav-line: #8A8889;
+  --color-bg: #fafaf7;
+  --color-text: #2a2a2a;
+  --color-link: #6a96c8;
+  --nav-line: #8a8889;
   --footer-text: #aeadb0;
   --footer-line: #c0bebf;
 }
 
-/* typography & rendering */
+/* typography and rendering */
 html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -19,24 +19,24 @@ html {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: rgba(138, 136, 137, 0.25) transparent;
-}
 
-/* scrollbar webKit */
-html::-webkit-scrollbar {
-  width: 0.38rem;
-}
+  /* scrollbar webkit */
+  &::-webkit-scrollbar {
+    width: 0.38rem;
+  }
 
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-html::-webkit-scrollbar-thumb {
-  background: rgba(138, 136, 137, 0.25);
-  border-radius: 0.19rem;
-}
+  &::-webkit-scrollbar-thumb {
+    background: rgba(138, 136, 137, 0.25);
+    border-radius: 0.19rem;
 
-html::-webkit-scrollbar-thumb:hover {
-  background: rgba(138, 136, 137, 0.38);
+    &:hover {
+      background: rgba(138, 136, 137, 0.38);
+    }
+  }
 }
 
 /* layout reset */

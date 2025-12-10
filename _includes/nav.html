@@ -1,23 +1,26 @@
+<!-- site header with brand link -->
 <header class="header">
   <a class="nav__brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
 </header>
 
-<nav class="nav layout-container">
+<!-- global navigation bar -->
+<nav class="nav layout-container" role="navigation" aria-label="site navigation">
 
+  <!-- mobile menu toggle button -->
   <div class="nav__toggle">
-    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
   </div>
 
+  <!-- collapsible navigation panel -->
   <div id="nav-collapse" class="nav__collapse">
 
+    <!-- navigation list -->
     <ul class="nav__list">
-
       {% for tabs in site.tabs %}
       {% if tabs.page_type contains "tab" %}
-      <li><a class="nav__link" href="{{ tabs.url | relative_url }}">{{ tabs.title }}</a></li>
+      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url == tabs.url %}aria-current="page"{% endif %}>{{ tabs.title }}</a></li>
       {% endif %}
       {% endfor %}
-
     </ul>
 
   </div>

@@ -1,9 +1,12 @@
 /* nav typography */
-.nav__brand,
-.nav__link,
-.nav__toggle {
-  font-weight: 500;
-  letter-spacing: 0.04rem;
+.nav {
+
+  &__brand,
+  &__link,
+  &__toggle {
+    font-weight: 500;
+    letter-spacing: 0.04rem;
+  }
 }
 
 /* header - rectangle title box */
@@ -40,82 +43,82 @@
       opacity: 0.8;
     }
   }
-}
 
-/* mobile nav toggle wrapper */
-.nav__toggle {
-  background-color: transparent;
-  color: var(--color-text);
-  display: flex;
-  justify-content: center;
-  font-size: 1.7rem;
+  /* mobile nav toggle wrapper */
+  &__toggle {
+    background-color: transparent;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    font-size: 1.7rem;
 
-  a {
+    a {
+      cursor: pointer;
+    }
+  }
+
+  /* mobile toggle button */
+  &__toggle-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font: inherit;
     cursor: pointer;
   }
-}
 
-/* mobile toggle button (actual clickable button) */
-.nav__toggle-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
+  /* collapsible nav panel for mobile */
+  &__collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    background-image: linear-gradient(var(--nav-line), var(--nav-line));
+    background-size: 95% 0.12rem;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    padding-bottom: 0.4rem;
+    z-index: 10;
 
-/* collapsible nav panel for mobile */
-.nav__collapse {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: var(--color-bg);
-  background-image: linear-gradient(var(--nav-line), var(--nav-line));
-  background-size: 95% 0.12rem;
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  padding-bottom: 0.4rem;
-  z-index: 10;
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    justify-content: center;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
 
-  display: block;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  justify-content: center;
-  transition: max-height 0.35s ease, opacity 0.25s ease;
-
-  /* prevent tab focus when collapsed */
-  pointer-events: none;
-  visibility: hidden;
-}
-
-/* collapsible nav: open state */
-.nav__collapse--open {
-  max-height: 500px;
-  opacity: 1;
-
-  /* allow tab focus when open */
-  pointer-events: auto;
-  visibility: visible;
-}
-
-/* nav list container */
-.nav__list {
-  display: flex;
-  flex-direction: column;
-  margin: 0.35rem;
-
-  li {
-    text-align: center;
+    /* prevent tab focus when collapsed */
+    pointer-events: none;
+    visibility: hidden;
   }
-}
 
-/* nav link style */
-.nav__link {
-  font-size: 1.3rem;
+  /* open state */
+  &__collapse--open {
+    max-height: 500px;
+    opacity: 1;
+
+    /* allow tab focus when open */
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* nav list container */
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0.35rem;
+
+    li {
+      text-align: center;
+    }
+  }
+
+  /* nav link style */
+  &__link {
+    font-size: 1.3rem;
+  }
 }
 
 /* desktop layout */

@@ -1,12 +1,16 @@
 ---
 ---
 @use "main";
-/* global a11y: keyboard focus indicator for all interactive elements */
+/* global a11y: keyboard focus indicator for interactive elements */
 :focus-visible {
   outline: 0.125rem solid var(--color-link);
   outline-offset: 0.19rem;
-}/* exception: remove outline only from search input */
-.search__input:focus-visible {
-  outline: none;
-  outline-offset: 0;
+}
+
+/* exception: remove outline for search input */
+.search__input {
+  &:focus-visible {
+    outline: none;
+    outline-offset: 0;
+  }
 }

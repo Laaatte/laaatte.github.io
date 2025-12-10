@@ -1,5 +1,5 @@
 <head>
-  <!-- meta basics -->
+  <!-- basic meta tags -->
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,17 +10,17 @@
   <!-- privacy and security meta -->
   <meta name="referrer" content="no-referrer">
 
-  <!-- basic csp for static site security -->
-   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
-    connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https://www.google-analytics.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-  ">
+  <!-- content security policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://www.google-analytics.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    ">
 
   <!-- page title -->
   <title>
@@ -31,7 +31,7 @@
     {% endif %}
   </title>
 
-  <!-- open graph -->
+  <!-- open graph metadata -->
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:type" content="{{ site.og_type }}">
   <meta property="og:image" content="{{ site.og_image }}">
@@ -43,12 +43,12 @@
   <!-- twitter card -->
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- styles -->
+  <!-- stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  <!-- scripts (defer improves load performance) -->
+  <!-- nav toggle script -->
   <script src="{{ '/assets/js/nav-toggle.js' | relative_url }}" defer></script>
 
-  <!-- google analytics -->
+  <!-- google analytics include -->
   {% include google-analytics.html %}
 </head>

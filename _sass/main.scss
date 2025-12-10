@@ -1,8 +1,12 @@
-@use "layout/root";
+/* base */
+@use "base/root";
+/* layout */
 @use "layout/nav";
-@use "layout/category";
-@use "layout/article";
-@use "layout/post";
-@use "layout/home";
 @use "layout/footer";
+@use "layout/home";
+/* components */
+@use "components/article";
+@use "components/category";
+@use "components/post";
+/* syntax highlight */
 @use "syntax/base16.solarized.light";

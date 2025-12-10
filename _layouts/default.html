@@ -5,9 +5,11 @@
 
 <body>
   {% include nav.html %}
-  <main class="layout-container">
+
+  <main id="main-content" class="layout-container" tabindex="-1">
     {{ content }}
   </main>
+
   {% include footer.html %}
 </body>
 

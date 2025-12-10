@@ -1,28 +1,29 @@
+<!-- site footer -->
 <footer class="footer layout-container">
 
+  <!-- footer separator line -->
   <div class="footer__line"></div>
 
+  <!-- footer content -->
   <div class="footer__item">
 
     {% assign author = site.data.author-data %}
 
     <ul>
 
+      <!-- github profile link -->
       <li>
-        <a class="footer__link" href="{{ author.github_link }}" target="_blank" rel="noopener noreferrer">
-          {{ author.github_username }}
-        </a>
+        <a class="footer__link" href="{{ author.github_link }}" target="_blank" rel="noopener noreferrer">{{ author.github_username }}</a>
       </li>
+
+      <!-- built with jekyll -->
       <li>
-        Build by
-        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
-          Jekyll
-        </a>
+        Build by<a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer"> Jekyll</a>
       </li>
+
+      <!-- powered by github pages -->
       <li>
-        Powered by
-        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
-          GitHub Pages
+        Powered by<a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer"> Github Pages
         </a>
       </li>
 
