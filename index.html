@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-  <!-- meta basics -->
+  <!-- basic meta tags -->
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,17 +13,17 @@
   <!-- privacy and security meta -->
   <meta name="referrer" content="no-referrer">
 
-  <!-- basic csp for static site security -->
-   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
-    connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https://www.google-analytics.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-  ">
+  <!-- content security policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://www.google-analytics.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    ">
 
   <!-- page title -->
   <title>
@@ -32,7 +32,7 @@
     
   </title>
 
-  <!-- open graph -->
+  <!-- open graph metadata -->
   <meta property="og:url" content="https://nothumanity.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="">
@@ -44,19 +44,19 @@
   <!-- twitter card -->
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- styles -->
+  <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- scripts (defer improves load performance) -->
+  <!-- nav toggle script -->
   <script src="/assets/js/nav-toggle.js" defer></script>
 
-  <!-- google analytics -->
-  <!-- google analytics (gtag.js) -->
+  <!-- google analytics include -->
+  <!-- google analytics script loader -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1W84B2CX"></script>
 
+<!-- google analytics configuration -->
 <script>
   window.dataLayer = window.dataLayer || [];
-
   function gtag() {
     dataLayer.push(arguments);
   }
@@ -67,138 +67,160 @@
 </head>
 
 <body>
-  <header class="header">
+  <!-- site header with brand link -->
+<header class="header">
   <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
-<nav class="nav layout-container">
+<!-- global navigation bar -->
+<nav class="nav layout-container" role="navigation" aria-label="site navigation">
 
+  <!-- mobile menu toggle button -->
   <div class="nav__toggle">
-    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
   </div>
 
+  <!-- collapsible navigation panel -->
   <div id="nav-collapse" class="nav__collapse">
 
+    <!-- navigation list -->
     <ul class="nav__list">
-
       
       
-      <li><a class="nav__link" href="/tabs/category">Category</a></li>
+      <li><a class="nav__link" href="/tabs/category" >Category</a></li>
       
       
       
-      <li><a class="nav__link" href="/tabs/contact">Contact</a></li>
+      <li><a class="nav__link" href="/tabs/contact" >Contact</a></li>
       
       
-
     </ul>
 
   </div>
 
 </nav>
-  <main class="layout-container">
-    <article class="article">
+
+  <main id="main-content" class="layout-container" tabindex="-1">
+    <article class="article layout-container">
 
   
 
-  <section class="article__content layout-container">
-    <!-- 한글 소개 -->
-<section class="about">
-  <h2 class="about__title">소개</h2>
-  <p class="about__text">
-    이 Jekyll 블로그는 생각나는 대로 마음대로 만들었으며, GPT가 도와주었습니다.
-  </p>
-</section>
+  <!-- main article content -->
+  <section class="article__content">
+    <!-- korean section group -->
+<section class="lang lang--ko">
 
-<!-- 한글 기술 스택 -->
-<section class="tech-stack">
-  <h2 class="tech-stack__title">사용한 것들</h2>
-  <ul class="tech-stack__list">
-    <li class="tech-stack__item">정적 사이트 생성을 위한 Jekyll</li>
-    <li class="tech-stack__item">GitHub Pages에서 호스팅</li>
-    <li class="tech-stack__item">동적 페이지네이션 및 검색 기능을 위한 JavaScript</li>
-    <li class="tech-stack__item">효율적인 포스트 네비게이션을 위한 커스텀 페이지네이션</li>
-    <li class="tech-stack__item">페이지네이션 젬 대신 <code class="language-plaintext highlighter-rouge">posts.json</code>을 생성하는
-      Ruby 스크립트</li>
-    <li class="tech-stack__item">동적 콘텐츠 생성을 위한 Liquid 템플릿 언어</li>
-  </ul>
-</section>
+  <!-- korean about section -->
+  <section class="about" aria-labelledby="about-ko-title">
+    <h2 id="about-ko-title" class="about__title">소개</h2>
+    <p class="about__text">
+      이 Jekyll 블로그는 생각나는 대로 마음대로 만들었으며, GPT가 도와주었습니다.
+    </p>
+  </section>
 
-<!-- 한글 라이센스 -->
-<section class="license">
-  <h2 class="license__title">라이센스</h2>
-  <p class="license__text">
-    이 블로그는 오픈 소스이며, 마음대로 사용하셔도 됩니다.
-    <a class="license__link" href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT
-      라이센스</a>
-    에 따라 라이센스가 제공됩니다.
-  </p>
+  <!-- korean tech stack section -->
+  <section class="tech-stack" aria-labelledby="stack-ko-title">
+    <h2 id="stack-ko-title" class="tech-stack__title">사용한 것들</h2>
+    <ul class="tech-stack__list">
+      <li class="tech-stack__item">정적 사이트 생성을 위한 Jekyll</li>
+      <li class="tech-stack__item">GitHub Pages에서 호스팅</li>
+      <li class="tech-stack__item">동적 페이지네이션 및 검색 기능을 위한 JavaScript</li>
+      <li class="tech-stack__item">효율적인 포스트 네비게이션을 위한 커스텀 페이지네이션</li>
+      <li class="tech-stack__item">
+        페이지네이션 젬 대신 <code class="language-plaintext highlighter-rouge">posts.json</code>을 생성하는 Ruby 스크립트
+      </li>
+      <li class="tech-stack__item">동적 콘텐츠 생성을 위한 Liquid 템플릿 언어</li>
+    </ul>
+  </section>
+
+  <!-- korean license section -->
+  <section class="license" aria-labelledby="license-ko-title">
+    <h2 id="license-ko-title" class="license__title">라이센스</h2>
+    <p class="license__text">
+      이 블로그는 오픈 소스이며, 마음대로 사용하셔도 됩니다.
+      <a class="license__link" href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">
+        MIT 라이센스
+      </a>
+      에 따라 라이센스가 제공됩니다.
+    </p>
+  </section>
+
 </section>
 
 <hr />
 
-<!-- about section -->
-<section class="about">
-  <h2 class="about__title">About</h2>
-  <p class="about__text">
-    This Jekyll blog was created just the way I wanted. It's not perfect, but I hope you enjoy it.
-    Also, GPT was a helpful friend along the way.
-  </p>
-</section>
+<!-- english section group -->
+<section class="lang lang--en">
 
-<!-- tech stack section -->
-<section class="tech-stack">
-  <h2 class="tech-stack__title">What I Use</h2>
-  <ul class="tech-stack__list">
-    <li class="tech-stack__item">Jekyll for static site generation</li>
-    <li class="tech-stack__item">Hosted on GitHub Pages</li>
-    <li class="tech-stack__item">JavaScript for dynamic pagination and search functionality</li>
-    <li class="tech-stack__item">Custom Pagination for efficient navigation through posts</li>
-    <li class="tech-stack__item">Ruby script to generate <code
-        class="language-plaintext highlighter-rouge">posts.json</code> instead of using pagination gem</li>
-    <li class="tech-stack__item">Liquid templating language for dynamic content generation</li>
-  </ul>
-</section>
+  <!-- english about section -->
+  <section class="about" aria-labelledby="about-en-title">
+    <h2 id="about-en-title" class="about__title">About</h2>
+    <p class="about__text">
+      This Jekyll blog was created just the way I wanted. It's not perfect, but I hope you enjoy it.
+      Also, GPT was a helpful friend along the way.
+    </p>
+  </section>
 
-<!-- license section -->
-<section class="license">
-  <h2 class="license__title">License</h2>
-  <p class="license__text">
-    This blog is open-source and free to use! Feel free to take it, modify it, and make it your own.
-    This project is licensed under the
-    <a class="license__link" href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT
-      License</a>.
-  </p>
+  <!-- english tech stack section -->
+  <section class="tech-stack" aria-labelledby="stack-en-title">
+    <h2 id="stack-en-title" class="tech-stack__title">What I Use</h2>
+    <ul class="tech-stack__list">
+      <li class="tech-stack__item">Jekyll for static site generation</li>
+      <li class="tech-stack__item">Hosted on GitHub Pages</li>
+      <li class="tech-stack__item">JavaScript for dynamic pagination and search functionality</li>
+      <li class="tech-stack__item">Custom Pagination for efficient navigation through posts</li>
+      <li class="tech-stack__item">
+        Ruby script to generate <code class="language-plaintext highlighter-rouge">posts.json</code> instead of using
+        pagination gem
+      </li>
+      <li class="tech-stack__item">Liquid templating language for dynamic content generation</li>
+    </ul>
+  </section>
+
+  <!-- english license section -->
+  <section class="license" aria-labelledby="license-en-title">
+    <h2 id="license-en-title" class="license__title">License</h2>
+    <p class="license__text">
+      This blog is open-source and free to use! Feel free to take it, modify it, and make it your own.
+      This project is licensed under the
+      <a class="license__link" href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">
+        MIT License
+      </a>.
+    </p>
+  </section>
+
 </section>
   </section>
 
 </article>
   </main>
-  <footer class="footer layout-container">
 
+  <!-- site footer -->
+<footer class="footer layout-container">
+
+  <!-- footer separator line -->
   <div class="footer__line"></div>
 
+  <!-- footer content -->
   <div class="footer__item">
 
     
 
     <ul>
 
+      <!-- github profile link -->
       <li>
-        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">
-          NotHumanity
-        </a>
+        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">NotHumanity</a>
       </li>
+
+      <!-- built with jekyll -->
       <li>
-        Build by
-        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
-          Jekyll
-        </a>
+        Build by<a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer"> Jekyll</a>
       </li>
+
+      <!-- powered by github pages -->
       <li>
-        Powered by
-        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
-          GitHub Pages
+        Powered by<a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer"> Github Pages
         </a>
       </li>
 

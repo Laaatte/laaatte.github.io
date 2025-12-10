@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-  <!-- meta basics -->
+  <!-- basic meta tags -->
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,17 +14,17 @@
   <!-- privacy and security meta -->
   <meta name="referrer" content="no-referrer">
 
-  <!-- basic csp for static site security -->
-   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
-    connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https://www.google-analytics.com;
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-  ">
+  <!-- content security policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://www.google-analytics.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    ">
 
   <!-- page title -->
   <title>
@@ -33,7 +33,7 @@
     
   </title>
 
-  <!-- open graph -->
+  <!-- open graph metadata -->
   <meta property="og:url" content="https://nothumanity.github.io/category/post">
   <meta property="og:type" content="website">
   <meta property="og:image" content="">
@@ -45,19 +45,19 @@
   <!-- twitter card -->
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- styles -->
+  <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- scripts (defer improves load performance) -->
+  <!-- nav toggle script -->
   <script src="/assets/js/nav-toggle.js" defer></script>
 
-  <!-- google analytics -->
-  <!-- google analytics (gtag.js) -->
+  <!-- google analytics include -->
+  <!-- google analytics script loader -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1W84B2CX"></script>
 
+<!-- google analytics configuration -->
 <script>
   window.dataLayer = window.dataLayer || [];
-
   function gtag() {
     dataLayer.push(arguments);
   }
@@ -68,56 +68,66 @@
 </head>
 
 <body>
-  <header class="header">
+  <!-- site header with brand link -->
+<header class="header">
   <a class="nav__brand" href="/">NotHumanity</a>
 </header>
 
-<nav class="nav layout-container">
+<!-- global navigation bar -->
+<nav class="nav layout-container" role="navigation" aria-label="site navigation">
 
+  <!-- mobile menu toggle button -->
   <div class="nav__toggle">
-    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false">Menu</button>
+    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
   </div>
 
+  <!-- collapsible navigation panel -->
   <div id="nav-collapse" class="nav__collapse">
 
+    <!-- navigation list -->
     <ul class="nav__list">
-
       
       
-      <li><a class="nav__link" href="/tabs/category">Category</a></li>
+      <li><a class="nav__link" href="/tabs/category" >Category</a></li>
       
       
       
-      <li><a class="nav__link" href="/tabs/contact">Contact</a></li>
+      <li><a class="nav__link" href="/tabs/contact" >Contact</a></li>
       
       
-
     </ul>
 
   </div>
 
 </nav>
-  <main class="layout-container">
-    <article class="article">
+
+  <main id="main-content" class="layout-container" tabindex="-1">
+    <article class="article layout-container">
 
   
-  <a class="article__back-link" href="javascript:history.back()">← Back</a>
-  <p class="article__header">Post</p>
+  <!-- back button for post pages -->
+  <a class="article__back-link" href="javascript:history.back()">← back</a>
+
+  <!-- post title heading -->
+  <h1 class="article__header">Post</h1>
   
 
-  <section class="article__content layout-container">
+  <!-- main article content -->
+  <section class="article__content">
     
 
 
-<!-- search input -->
+<!-- search input for category posts -->
 
 <div class="search">
-  <label for="category-search" class="visually-hidden">search posts in Post</label>
-  <input id="category-search" type="text" class="search__input" placeholder="search Post..." onkeyup="searchPosts()" autocomplete="off">
+  <label for="category-search" class="visually-hidden">
+    search posts in Post
+  </label>
+  <input id="category-search" type="text" class="search__input" placeholder="search Post..."onkeyup="searchPosts()" autocomplete="off">
 </div>
 
 
-<!-- post list -->
+<!-- post list container -->
 <ul id="post-list" class="post-list">
 
   
@@ -308,22 +318,20 @@
 
 </ul>
 
-<!-- no results -->
-<p id="no-results-message" aria-live="polite" style="display:none;">no results found.</p>
+<!-- no results message -->
+<p id="no-results-message" aria-live="polite" style="display:none;">No results found.</p>
 
-<!-- pagination -->
+<!-- pagination navigation -->
 <div class="pagination" role="navigation" aria-label="pagination">
-
-  <!-- prev button (tab possible) -->
+  <!-- prev button -->
   <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
-  <!-- page numbers container (js fills this) -->
+  <!-- page numbers injected by js -->
   <div id="page-numbers" class="pagination__numbers" role="list" aria-label="pagination pages"></div>
-  <!-- next button (tab possible) -->
+  <!-- next button -->
   <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
-
 </div>
 
-<!-- category script -->
+<!-- category scripts -->
 <script src="/assets/js/category-pagination.js"></script>
 <script src="/assets/js/category-search.js"></script>
 <script src="/assets/js/category.js"></script>
@@ -331,31 +339,33 @@
 
 </article>
   </main>
-  <footer class="footer layout-container">
 
+  <!-- site footer -->
+<footer class="footer layout-container">
+
+  <!-- footer separator line -->
   <div class="footer__line"></div>
 
+  <!-- footer content -->
   <div class="footer__item">
 
     
 
     <ul>
 
+      <!-- github profile link -->
       <li>
-        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">
-          NotHumanity
-        </a>
+        <a class="footer__link" href="https://github.com/NotHumanity" target="_blank" rel="noopener noreferrer">NotHumanity</a>
       </li>
+
+      <!-- built with jekyll -->
       <li>
-        Build by
-        <a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">
-          Jekyll
-        </a>
+        Build by<a class="footer__link" href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer"> Jekyll</a>
       </li>
+
+      <!-- powered by github pages -->
       <li>
-        Powered by
-        <a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
-          GitHub Pages
+        Powered by<a class="footer__link" href="https://pages.github.com" target="_blank" rel="noopener noreferrer"> Github Pages
         </a>
       </li>
 
