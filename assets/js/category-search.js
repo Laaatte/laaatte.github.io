@@ -1,18 +1,17 @@
-// assets/js/category-search.js (A version optimized)
-
+// assets/js/category-search.js
 (function () {
   const initCategorySearch = state => {
     const { items, perPage, pagination, searchInput, noResultsMessage } = state;
 
     // debounce timer
     let typingTimer;
-    const typingDelay = 350; // delay before search executes
+    const typingDelay = 500; // delay before search executes
 
-    // helper: escape html safely
+    // escape html safely
     const escapeHtml = text =>
       text.replace(/[&<>"'`=\/]/g, ch => `&#${ch.charCodeAt(0)};`);
 
-    // helper: highlight matched term
+    // highlight matched term
     const highlightTerm = (text, term) =>
       escapeHtml(text).replace(
         new RegExp(`(${term})`, "gi"),
@@ -68,7 +67,7 @@
         excerpt.innerHTML = highlightTerm(item.dataset.originalExcerpt || "", term);
       }
 
-      // restore text for non-matching items (no flicker)
+      // restore text for non-matching items
       for (const item of items) {
         if (state.filteredItems.includes(item)) continue;
 

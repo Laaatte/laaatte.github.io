@@ -10,15 +10,9 @@ permalink: /feed.xml
     <link>{{ site.url | xml_escape }}</link>
     <description>{{ site.description | xml_escape }}</description>
 
-    <atom:link 
-      href="{{ page.url | absolute_url | xml_escape }}" 
-      rel="self" 
-      type="application/rss+xml" 
-    />
+    <atom:link href="{{ page.url | absolute_url | xml_escape }}" rel="self" type="application/rss+xml" />
 
-    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">
-      Jekyll
-    </generator>
+    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
 
     <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>

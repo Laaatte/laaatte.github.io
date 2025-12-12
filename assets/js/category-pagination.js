@@ -1,5 +1,4 @@
 // assets/js/category-pagination.js
-
 (function () {
   // init pagination behavior
   const initCategoryPagination = state => {
@@ -85,7 +84,7 @@
 
       showItems(state.filteredItems.slice(start, end));
 
-      // update prev/next disabled state
+      // update prev / next disabled state
       const atFirst = state.currentPage === 1;
       const atLast = state.currentPage === state.maxPage;
 

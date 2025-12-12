@@ -1,5 +1,4 @@
 // assets/js/category.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // cache post items
   const items = Array.from(document.querySelectorAll(".post-list__item"));

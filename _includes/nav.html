@@ -18,7 +18,7 @@
     <ul class="nav__list">
       {% for tabs in site.tabs %}
       {% if tabs.page_type contains "tab" %}
-      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url==tabs.url %}aria-current="page"{%endif %}>{{ tabs.title }}</a></li>
+      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url == tabs.url %} aria-current="page" {% endif %}>{{ tabs.title }}</a></li>
       {% endif %}
       {% endfor %}
     </ul>

@@ -1,3 +1,4 @@
+// assets/js/color-mode-btn.js
 (function () {
     // key used to persist theme preference
     const STORAGE_KEY = "theme";
