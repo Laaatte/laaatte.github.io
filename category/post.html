@@ -51,6 +51,18 @@
   <!-- nav toggle script -->
   <script src="/assets/js/nav-toggle.js" defer></script>
 
+  <!-- color mode btn script -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) { }
+    })();
+  </script>
+
   <!-- google analytics include -->
   <!-- google analytics script loader -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1W84B2CX"></script>
@@ -99,7 +111,12 @@
 
   </div>
 
+  <button class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+
 </nav>
+
+<!-- color__mode-btn script -->
+<script src="/assets/js/color-mode-btn.js" defer></script>
 
   <main id="main-content" class="layout-container" tabindex="-1">
     <article class="article layout-container">
@@ -332,9 +349,9 @@
 </div>
 
 <!-- category scripts -->
-<script src="/assets/js/category-pagination.js"></script>
-<script src="/assets/js/category-search.js"></script>
-<script src="/assets/js/category.js"></script>
+<script src="/assets/js/category-pagination.js" defer></script>
+<script src="/assets/js/category-search.js" defer></script>
+<script src="/assets/js/category.js" defer></script>
   </section>
 
 </article>
