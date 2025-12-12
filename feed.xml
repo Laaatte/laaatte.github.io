@@ -6,18 +6,12 @@
     <link>https://nothumanity.github.io</link>
     <description>jekyll blog</description>
 
-    <atom:link 
-      href="https://nothumanity.github.io/feed.xml" 
-      rel="self" 
-      type="application/rss+xml" 
-    />
+    <atom:link href="https://nothumanity.github.io/feed.xml" rel="self" type="application/rss+xml" />
 
-    <generator uri="https://jekyllrb.com/" version="4.4.1">
-      Jekyll
-    </generator>
+    <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
 
-    <pubDate>2025-12-12T03:43:01+00:00</pubDate>
-    <lastBuildDate>2025-12-12T03:43:01+00:00</lastBuildDate>
+    <pubDate>2025-12-12T04:21:09+00:00</pubDate>
+    <lastBuildDate>2025-12-12T04:21:09+00:00</lastBuildDate>
 
     
     <author>

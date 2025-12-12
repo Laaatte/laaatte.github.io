@@ -1,3 +1,4 @@
+// assets/js/nav-toggle.js
 document.addEventListener("DOMContentLoaded", () => {
   // cache elements
   const collapse = document.querySelector(".nav__collapse");
