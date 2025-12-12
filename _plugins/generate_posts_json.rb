@@ -1,5 +1,6 @@
 # generate_posts_json.rb
 # this plugin generates posts.json after jekyll finishes writing the site
+# used for client-side pagination without jekyll pagination plugins
 
 require "json"
 

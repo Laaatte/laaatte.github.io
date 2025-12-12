@@ -10,42 +10,24 @@ permalink: /sitemap.xml
     http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
 ">
-
-  {%- comment -%} Collections (posts, tabs, categories…) {%- endcomment -%}
-  {%- assign collections = site.collections | where_exp: 'col', 'col.output != false' -%}
-
-  {%- for col in collections -%}
-  {%- assign docs = col.docs | where_exp: 'd', 'd.sitemap != false' -%}
-  {%- for d in docs -%}
+  {%- comment -%} posts {%- endcomment -%}
+  {%- for post in site.posts -%}
   <url>
-    <loc>{{ d.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
-    {%- if d.last_modified_at or d.date -%}
-    <lastmod>{{ d.last_modified_at | default: d.date | date_to_xmlschema }}</lastmod>
-    {%- endif -%}
+    <loc>{{ post.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
   </url>
   {%- endfor -%}
-  {%- endfor -%}
 
-  {%- comment -%} HTML pages (excluding 404) {%- endcomment -%}
-  {%- assign pages = site.html_pages | where_exp: 'p', 'p.sitemap != false' | where_exp: 'p', 'p.url != "/404.html"' -%}
-
-  {%- for p in pages -%}
-    <url>
-      <loc>{{ p.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
-      {%- if p.last_modified_at -%}
-      <lastmod>{{ p.last_modified_at | date_to_xmlschema }}</lastmod>
-      {%- endif -%}
+  {%- comment -%} html pages (exclude 404) {%- endcomment -%}
+  {%- for page in site.html_pages -%}
+  {%- if page.url != "/404.html" and page.sitemap != false -%}
+  <url>
+    <loc>{{ page.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
+    {%- if page.last_modified_at -%}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
     </url>
-  {%- endfor -%}
-
-  {%- comment -%} Static files (real Jekyll variable is site.static_files) {%- endcomment -%}
-  {%- assign static_files = site.static_files | where_exp: 'f', 'f.sitemap != false' | where_exp: 'f', 'f.name != "404.html"' -%}
-
-  {%- for f in static_files -%}
-    <url>
-      <loc>{{ f.path | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
-      <lastmod>{{ f.modified_time | date_to_xmlschema }}</lastmod>
-    </url>
+  {%- endif -%}
   {%- endfor -%}
 
 </urlset>
