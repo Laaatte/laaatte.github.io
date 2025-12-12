@@ -1,6 +1,7 @@
 /* root */
 @charset "utf-8";
 
+/* light mode color pallette */
 :root {
   --color-bg: #fafaf7;
   --color-text: #2a2a2a;
@@ -8,7 +9,21 @@
   --nav-line: #8a8889;
   --footer-text: #aeadb0;
   --footer-line: #c0bebf;
+  /* mode button */
+  --mode-btn-light: #f2f2ee;
+  --mode-btn-dark: #1a1c1f;
 }
+
+/* dark mode color palette */
+[data-theme="dark"] {
+  --color-bg: #141618;
+  --color-text: #e4e4df;
+  --color-link: #8aaedf;
+  --nav-line: #303338;
+  --footer-text: #9d9fa3;
+  --footer-line: #26282c;
+}
+
 
 /* typography and rendering */
 html {

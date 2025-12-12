@@ -1,6 +1,6 @@
 <!-- site header with brand link -->
 <header class="header">
-  <a class="nav__brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+  <a class="nav__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 </header>
 
 <!-- global navigation bar -->
@@ -18,11 +18,16 @@
     <ul class="nav__list">
       {% for tabs in site.tabs %}
       {% if tabs.page_type contains "tab" %}
-      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url == tabs.url %}aria-current="page"{% endif %}>{{ tabs.title }}</a></li>
+      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url==tabs.url %}aria-current="page"{%endif %}>{{ tabs.title }}</a></li>
       {% endif %}
       {% endfor %}
     </ul>
 
   </div>
 
+  <button class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+
 </nav>
+
+<!-- color__mode-btn script -->
+<script src="{{ '/assets/js/color-mode-btn.js' | relative_url }}" defer></script>

@@ -121,6 +121,33 @@
   }
 }
 
+/* site color mode btn */
+.color__mode-btn {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  right: calc(2.5% + 1rem);
+  transform: translateY(-50%);
+  padding: 0.32rem 0.65rem;
+  border: 0.12rem solid var(--nav-line);
+  background: linear-gradient(to right, var(--mode-btn-dark) 50%,var(--mode-btn-light) 50%);
+  background-size: 200% 100%;
+  background-position: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-position 0.25s ease;
+
+  &:hover {
+    border-color: var(--color-link);
+  }
+}
+
+/* dark theme override */
+[data-theme="dark"] {
+  .color__mode-btn {
+    background-position: right;
+  }
+}
+
 /* desktop layout */
 @media (min-width: 960px) {
   .nav__toggle {

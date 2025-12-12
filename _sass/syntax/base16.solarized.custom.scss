@@ -1,0 +1,286 @@
+/*
+  installed as jekyll-rouge
+  base16.solarized — custom pastel paper theme
+  light theme with dark-mode palette swap
+  github.com/rouge-ruby/rouge
+
+  -- rework notes --
+  reduced saturation from original solarized palette
+  unified with site theme (paper background, pastel blue, neutral gray)
+  dark mode derived by role-preserving palette swap
+  avoided pure black / pure white for long-form readability
+*/
+
+/* =========================
+   light mode (default)
+   ========================= */
+/* blockquote */
+blockquote {
+  max-width: max-content;
+  background-color: #f5f4f2;
+  border-left: 0.23rem solid #b18783;
+  margin: 0.4rem 0;
+  padding: 0.2rem 0.4rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+/* table */
+table {
+  max-width: max-content;
+  margin: 0;
+  font-size: 1rem;
+  border-collapse: collapse;
+
+  th {
+    background-color: #e4dfd9;
+    border: 1px solid #c9c6c3;
+    padding: 0.4rem;
+  }
+
+  td {
+    background-color: #f7f5f3;
+    border: 1px solid #d6d3d1;
+    padding: 0.4rem;
+  }
+}
+
+/* inline code */
+.language-plaintext {
+  max-width: max-content;
+  background-color: #e8eee8;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.35rem;
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* code block */
+.highlight pre {
+  max-width: max-content;
+  background-color: #f7f5f3;
+  border: 1px solid #dcd8d2;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.5rem;
+  margin: 0;
+  overflow: auto;
+  font-size: 0.95rem;
+  line-height: 1.28;
+}
+
+/* base text */
+.highlight,
+.highlight .w {
+  color: #586e75;
+}
+
+/* comments */
+.highlight {
+
+  .c,
+  .ch,
+  .cd,
+  .cm,
+  .cpf,
+  .c1,
+  .cs {
+    color: #8a8889;
+  }
+
+  /* keywords */
+  .k,
+  .kn,
+  .kp,
+  .kr,
+  .kv,
+  .na,
+  .sa {
+    color: #6a96c8;
+  }
+
+  /* types / constants */
+  .kc,
+  .kt,
+  .kd,
+  .cp,
+  .nt,
+  .nn,
+  .nc,
+  .no {
+    color: #b58900;
+  }
+
+  /* strings / numbers */
+  .s,
+  .sb,
+  .sc,
+  .dl,
+  .sd,
+  .s2,
+  .sh,
+  .sx,
+  .s1,
+  .m,
+  .mb,
+  .mf,
+  .mh,
+  .mi,
+  .il,
+  .mo,
+  .mx,
+  .ss {
+    color: #6f8b5b;
+  }
+
+  /* operators */
+  .o,
+  .ow,
+  .p,
+  .pi {
+    color: #93a1a1;
+  }
+
+  /* additions / deletions */
+  .gi {
+    color: #6f8b5b;
+  }
+
+  .gd {
+    color: #b18783;
+  }
+
+  /* headings */
+  .gh {
+    color: #6a96c8;
+    background-color: #f0efea;
+    font-weight: bold;
+  }
+
+  /* error */
+  .err {
+    color: #2b2b2b;
+    background-color: #dc322f;
+  }
+}
+
+/* =========================
+   dark mode override
+   ========================= */
+[data-theme="dark"] {
+  blockquote {
+    background-color: #1c1e21;
+  }
+
+  table {
+    th {
+      background-color: #202226;
+      border-color: #2f3236;
+    }
+
+    td {
+      background-color: #181a1d;
+      border-color: #2a2d31;
+    }
+  }
+
+  .language-plaintext {
+    background-color: #202326;
+    color: #e4e4df;
+  }
+
+  .highlight pre {
+    background-color: #181a1d;
+    border-color: #2a2d31;
+    color: #e4e4df;
+  }
+
+  .highlight,
+  .highlight .w {
+    color: #e4e4df;
+  }
+
+  .highlight {
+
+    /* comments */
+    .c,
+    .ch,
+    .cd,
+    .cm,
+    .cpf,
+    .c1,
+    .cs {
+      color: #9b9da1;
+    }
+
+    /* keywords */
+    .k,
+    .kn,
+    .kp,
+    .kr,
+    .kv,
+    .na,
+    .sa {
+      color: #8aaedf;
+    }
+
+    /* types / constants */
+    .kc,
+    .kt,
+    .kd,
+    .cp {
+      color: #cfae70;
+    }
+
+    /* strings / numbers */
+    .s,
+    .sb,
+    .sc,
+    .dl,
+    .sd,
+    .s2,
+    .sh,
+    .sx,
+    .s1,
+    .m,
+    .mb,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo {
+      color: #8fa57a;
+    }
+
+    /* operators */
+    .o,
+    .ow,
+    .p,
+    .pi {
+      color: #9ca3af;
+    }
+
+    /* additions / deletions */
+    .gi {
+      color: #8fa57a;
+    }
+
+    .gd {
+      color: #c18f8b;
+    }
+
+    /* headings */
+    .gh {
+      color: #8aaedf;
+      background-color: #202226;
+    }
+
+    /* error */
+    .err {
+      color: #1c1e21;
+      background-color: #c18f8b;
+    }
+  }
+}

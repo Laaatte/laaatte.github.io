@@ -49,6 +49,18 @@
   <!-- nav toggle script -->
   <script src="{{ '/assets/js/nav-toggle.js' | relative_url }}" defer></script>
 
+  <!-- color mode btn script -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) { }
+    })();
+  </script>
+
   <!-- google analytics include -->
   {% include google-analytics.html %}
 </head>
