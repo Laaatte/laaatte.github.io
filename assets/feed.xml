@@ -24,28 +24,28 @@ permalink: /feed.xml
     </author>
 
     {% for post in site.posts limit:10 %}
-    <item>
+      <item>
 
-      <title>{{ post.title | xml_escape }}</title>
-      <link>{{ post.url | absolute_url | xml_escape }}</link>
-      <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
+        <title>{{ post.title | xml_escape }}</title>
+        <link>{{ post.url | absolute_url | xml_escape }}</link>
+        <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
 
-      <description>{{ post.content | xml_escape }}</description>
+        <description>{{ post.content | xml_escape }}</description>
 
-      <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-      <lastBuildDate>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastBuildDate>
+        <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+        <lastBuildDate>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastBuildDate>
 
-      {% if post.author %}
-      {% for name in post.author %}
-      <author>{{ name | xml_escape }}</author>
-      {% endfor %}
-      {% endif %}
+        {% if post.author %}
+          {% for name in post.author %}
+            <author>{{ name | xml_escape }}</author>
+          {% endfor %}
+        {% endif %}
 
-      {% for category in post.categories %}
-      <category>{{ category | xml_escape }}</category>
-      {% endfor %}
+        {% for category in post.categories %}
+          <category>{{ category | xml_escape }}</category>
+        {% endfor %}
 
-    </item>
+      </item>
     {% endfor %}
 
   </channel>

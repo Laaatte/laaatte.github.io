@@ -13,16 +13,14 @@
 
   <!-- collapsible navigation panel -->
   <div id="nav-collapse" class="nav__collapse">
-
     <!-- navigation list -->
     <ul class="nav__list">
       {% for tabs in site.tabs %}
-      {% if tabs.page_type contains "tab" %}
-      <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url == tabs.url %} aria-current="page" {% endif %}>{{ tabs.title }}</a></li>
-      {% endif %}
+        {% if tabs.page_type contains "tab" %}
+          <li><a class="nav__link" href="{{ tabs.url | relative_url }}" {% if page.url == tabs.url %} aria-current="page" {% endif %}>{{ tabs.title }}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
-
   </div>
 
   <button class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
