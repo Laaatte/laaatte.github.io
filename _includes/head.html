@@ -3,9 +3,10 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
 
   <!-- seo meta description -->
-  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 150 | default: site.description }}">
+  <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 150 | default: site.description }}">
 
   <!-- privacy and security meta -->
   <meta name="referrer" content="no-referrer">
@@ -32,16 +33,33 @@
   </title>
 
   <!-- open graph metadata -->
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:type" content="{{ site.og_type }}">
-  <meta property="og:image" content="{{ site.og_image }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+  <meta property="og:type" content="{% if page.page_type == 'post' %}article{% else %}{{ site.og_type }}{% endif %}">
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image | default: site.og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 200 | default: site.description }}">
   <meta property="og:locale" content="{{ site.og_locale }}">
 
   <!-- twitter card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 200 | default: site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ page.og_image | default: site.og_image }}">
+  
+  <!-- favicon -->
+  <!-- dark mode -->
+  <link rel="icon" href="/assets/favicon/dark/favicon.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+
+  <!-- light mode -->
+  <link rel="icon" href="/assets/favicon/light/favicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
+
+  <link rel="apple-touch-icon" href="/assets/favicon/dark/apple-touch-icon.png">
+
 
   <!-- stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">

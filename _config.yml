@@ -11,7 +11,7 @@ timezone: asia/seoul
 # open graph
 og_type: website
 og_locale: ko_kr
-# og_image:
+og_image: /assets/og-image.png
 
 # google analytics
 google_analytics: G-8Y1W84B2CX
