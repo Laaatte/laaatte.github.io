@@ -7,7 +7,7 @@ gem "jekyll", "~> 4.4", ">= 4.4.1"
 # jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-sass-converter", "~> 3.1"  # keep if you're using sass for styling
-  gem "sass-embedded", "~> 1.94"  # keep if you're using sass for styling
+  gem "sass-embedded", "~> 1.96"  # keep if you're using sass for styling
 end
 
 # windows-only timezone libraries
