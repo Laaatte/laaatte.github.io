@@ -1,45 +1,50 @@
-# jekyll build custom, generated with gpt
+# jekyll build and deploy workflow, generated with gpt
+# builds site on push/pr, deploys only on main push
 name: jekyll build and deploy
 
 permissions:
-  contents: write  # allows workflow to write to repo
-  pages: write     # allows publishing to github pages
-  id-token: write  # required for deployment
+  contents: write  # required to push generated files to repo
+  pages: write     # required for github pages deployment
+  id-token: write  # required by github pages deploy action
 
 on:
+  # deploy trigger
   push:
-    branches: [ main ]  # run on push to main
+    branches: [ main ]
+
+  # build-only trigger for pull requests
   pull_request:
-    branches: [ main ]  # run on pull request to main
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # latest ubuntu environment
+    runs-on: ubuntu-latest  # github-hosted runner
 
     steps:
-      # checkout repository
+      # fetch repository contents
       - name: checkout repository
         uses: actions/checkout@v4
 
-      # setup ruby environment
+      # setup ruby environment for jekyll
       - name: set up ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-          bundler-cache: true  # cache gems for faster builds
+          bundler-cache: true  # cache gems to speed up builds
 
-      # install sass
+      # install sass cli for scss compilation
       - name: install sass
         run: npm install -g sass
 
-      # build jekyll site
+      # build jekyll site with production settings
       - name: build jekyll site
         run: JEKYLL_ENV=production bundle exec jekyll build --trace
 
-      # deploy to github pages
+      # deploy only when pushing to main branch
       - name: deploy to github pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: github-pages
+          publish_dir: ./_site         # jekyll build output
+          publish_branch: github-pages # pages source branch
