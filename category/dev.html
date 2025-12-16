@@ -2,13 +2,14 @@
 <html lang="ko">
 
 <head>
-  <!-- basic meta tags -->
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- basic meta tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://nothumanity.github.io/category/dev">
 
   <!-- seo meta description -->
+  
   <meta name="description" content="
 ">
 
@@ -17,15 +18,15 @@
 
   <!-- content security policy -->
   <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self';
-      script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
-      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https://www.google-analytics.com;
-      object-src 'none';
-      base-uri 'self';
-      form-action 'self';
-    ">
+    default-src 'self';
+    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
+    connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https://www.google-analytics.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+  ">
 
   <!-- page title -->
   <title>
@@ -110,7 +111,7 @@
 
   <!-- mobile menu toggle button -->
   <div class="nav__toggle">
-    <button id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
+    <button type="button" id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
   </div>
 
   <!-- collapsible navigation panel -->
@@ -129,7 +130,7 @@
     </ul>
   </div>
 
-  <button class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+  <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
 
 </nav>
 
@@ -162,16 +163,16 @@
 </ul>
 
 <!-- no results message -->
-<p id="no-results-message" aria-live="polite" style="display:none;">No results found.</p>
+<p id="search__no-results" class="search__no-results search__no-results--hidden" aria-live="polite">No results found.</p>
 
 <!-- pagination navigation -->
 <div class="pagination" role="navigation" aria-label="pagination">
   <!-- prev button -->
-  <button id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
+  <button type="button" id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
   <!-- page numbers injected by js -->
-  <div id="page-numbers" class="pagination__numbers" role="list" aria-label="pagination pages"></div>
+  <div id="page-numbers" class="pagination__numbers"></div>
   <!-- next button -->
-  <button id="next" class="pagination__btn" aria-label="go to next page">Next</button>
+  <button type="button" id="next" class="pagination__btn" aria-label="go to next page">Next</button>
 </div>
 
 <!-- category scripts -->

@@ -5,8 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("dropDownMenuOpen");
   const links = document.querySelectorAll(".nav__link");
 
+  // exit early if nav does not exist
+  if (!collapse || !toggle) return;
+
   // media query (live)
   const mq = window.matchMedia("(min-width: 960px)");
+
+  // update link tabindex state
+  const setLinksFocusable = focusable => {
+    links.forEach(link => {
+      if (focusable) link.removeAttribute("tabindex");
+      else link.setAttribute("tabindex", "-1");
+    });
+  };
 
   // apply correct state based on current mode
   const applyMode = () => {
@@ -18,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.setAttribute("aria-expanded", "false");
 
       // desktop: links stay focusable
-      links.forEach(link => link.removeAttribute("tabindex"));
+      setLinksFocusable(true);
 
       // desktop: hide toggle button
       toggle.style.display = "none";
@@ -28,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.setAttribute("aria-expanded", "false");
 
       // mobile: disable tab navigation while closed
-      links.forEach(link => link.setAttribute("tabindex", "-1"));
+      setLinksFocusable(false);
 
       // mobile: show toggle button
       toggle.style.display = "block";
@@ -41,52 +52,40 @@ document.addEventListener("DOMContentLoaded", () => {
   // run on breakpoint change
   mq.addEventListener("change", applyMode);
 
-  // handle toggle button
+  // handle toggle button (mobile only)
   toggle.addEventListener("click", () => {
-    const desktop = mq.matches;
-    if (desktop) return;
+    if (mq.matches) return;
 
     const isOpen = collapse.classList.toggle("nav__collapse--open");
     toggle.setAttribute("aria-expanded", isOpen);
 
     // update link tabindex state
-    links.forEach(link => {
-      if (isOpen) link.removeAttribute("tabindex");
-      else link.setAttribute("tabindex", "-1");
-    });
+    setLinksFocusable(isOpen);
   });
 
   // close menu with esc key (mobile only)
   document.addEventListener("keydown", e => {
-    const desktop = mq.matches;
-    if (desktop) return;
+    if (mq.matches) return;
     if (e.key !== "Escape") return;
 
-    // close only if open
     if (collapse.classList.contains("nav__collapse--open")) {
       collapse.classList.remove("nav__collapse--open");
       toggle.setAttribute("aria-expanded", "false");
-
-      links.forEach(link => link.setAttribute("tabindex", "-1"));
+      setLinksFocusable(false);
     }
   });
 
   // close menu on outside click (mobile only)
   document.addEventListener("click", e => {
-    const desktop = mq.matches;
-    if (desktop) return;
-
-    const isOpen = collapse.classList.contains("nav__collapse--open");
-    if (!isOpen) return;
+    if (mq.matches) return;
+    if (!collapse.classList.contains("nav__collapse--open")) return;
 
     // ignore clicks inside toggle or menu
     if (collapse.contains(e.target)) return;
     if (toggle.contains(e.target)) return;
 
-    // close menu
     collapse.classList.remove("nav__collapse--open");
     toggle.setAttribute("aria-expanded", "false");
-
-    links.forEach(link => link.setAttribute("tabindex", "-1"));
+    setLinksFocusable(false);
   });
 });

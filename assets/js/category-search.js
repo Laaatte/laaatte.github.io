@@ -1,52 +1,63 @@
 // assets/js/category-search.js
 (function () {
   const initCategorySearch = state => {
-    const { items, perPage, pagination, searchInput, noResultsMessage } = state;
+    // extract shared state values
+    const { items, perPage, pagination, searchInput, noResultsEl } = state;
 
-    // debounce timer
+    // debounce control
     let typingTimer;
-    const typingDelay = 500; // delay before search executes
+    const typingDelay = 200;
+    let lastValue = "";
+    let isComposing = false;
 
-    // escape html safely
+    // cache title and excerpt elements
+    for (const item of items) {
+      item._titleEl = item.querySelector("a");
+      item._excerptEl = item.querySelector(".post-list__text");
+    }
+
+    // escape html to prevent markup injection
     const escapeHtml = text =>
       text.replace(/[&<>"'`=\/]/g, ch => `&#${ch.charCodeAt(0)};`);
 
-    // highlight matched term
-    const highlightTerm = (text, term) =>
+    // apply highlight span using regex
+    const highlightText = (text, regex) =>
       escapeHtml(text).replace(
-        new RegExp(`(${term})`, "gi"),
+        regex,
         '<span class="search__highlight">$1</span>'
       );
 
-    // run search
+    // toggle no results message immediately
+    const updatenoResultsEl = isEmpty => {
+      if (!noResultsEl) return;
+      noResultsEl.classList.toggle("search__no-results--hidden", !isEmpty);
+    };
+
+    // restore original title and excerpt
+    const restoreItem = item => {
+      item._titleEl.textContent = item.dataset.originalTitle || "";
+      item._excerptEl.textContent = item.dataset.originalExcerpt || "";
+    };
+
+    // execute search and highlight
     const performSearch = () => {
       const term = (searchInput?.value || "").toLowerCase().trim();
 
-      // clear highlight + restore original when no term
+      // reset when search term is empty
       if (!term) {
         state.filteredItems = items.slice();
+        items.forEach(restoreItem);
 
-        for (const item of items) {
-          const title = item.querySelector("a");
-          const excerpt = item.querySelector(".post-list__text");
-          if (!title || !excerpt) continue;
-
-          title.textContent = item.dataset.originalTitle || "";
-          excerpt.textContent = item.dataset.originalExcerpt || "";
-        }
-
-        if (noResultsMessage) noResultsMessage.style.display = "none";
-
+        updatenoResultsEl(false);
         state.maxPage = Math.ceil(state.filteredItems.length / perPage);
 
-        if (pagination && state.total > perPage) {
+        if (pagination && items.length > perPage) {
           pagination.classList.add("pagination--visible");
+        } else {
+          pagination?.classList.remove("pagination--visible");
         }
 
-        if (typeof state.renderPage === "function") {
-          state.renderPage(1);
-        }
-
+        state.renderPage?.(1);
         return;
       }
 
@@ -57,62 +68,74 @@
         return t.includes(term) || e.includes(term);
       });
 
-      // highlight for filtered items only
-      for (const item of state.filteredItems) {
-        const title = item.querySelector("a");
-        const excerpt = item.querySelector(".post-list__text");
-        if (!title || !excerpt) continue;
+      const filteredSet = new Set(state.filteredItems);
+      const regex = new RegExp(`(${term})`, "gi");
 
-        title.innerHTML = highlightTerm(item.dataset.originalTitle || "", term);
-        excerpt.innerHTML = highlightTerm(item.dataset.originalExcerpt || "", term);
-      }
-
-      // restore text for non-matching items
+      // update items and apply highlight
       for (const item of items) {
-        if (state.filteredItems.includes(item)) continue;
-
-        const title = item.querySelector("a");
-        const excerpt = item.querySelector(".post-list__text");
-        if (!title || !excerpt) continue;
-
-        title.textContent = item.dataset.originalTitle || "";
-        excerpt.textContent = item.dataset.originalExcerpt || "";
+        if (filteredSet.has(item)) {
+          item._titleEl.innerHTML = highlightText(
+            item.dataset.originalTitle || "",
+            regex
+          );
+          item._excerptEl.innerHTML = highlightText(
+            item.dataset.originalExcerpt || "",
+            regex
+          );
+        } else {
+          restoreItem(item);
+        }
       }
 
-      // show or hide "no results"
-      if (noResultsMessage) {
-        noResultsMessage.style.display =
-          state.filteredItems.length === 0 ? "block" : "none";
-      }
+      updatenoResultsEl(state.filteredItems.length === 0);
 
       state.maxPage = Math.ceil(state.filteredItems.length / perPage);
 
-      // toggle pagination
       if (state.filteredItems.length > perPage) {
         pagination?.classList.add("pagination--visible");
       } else {
         pagination?.classList.remove("pagination--visible");
       }
 
-      if (typeof state.renderPage === "function") {
-        state.renderPage(1);
+      state.renderPage?.(1);
+    };
+
+    // hybrid input handler with ime awareness
+    const handleInput = e => {
+      if (isComposing) return;
+
+      const value = e.target.value;
+
+      // immediate search on first input or delete
+      if (value.length <= 1 || value.length < lastValue.length) {
+        clearTimeout(typingTimer);
+        performSearch();
+      } else {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(performSearch, typingDelay);
       }
+
+      lastValue = value;
     };
 
-    // smooth debounce for typing
-    const handleInput = () => {
+    // ime composition handling
+    searchInput?.addEventListener("compositionstart", () => {
+      isComposing = true;
+    });
+
+    searchInput?.addEventListener("compositionend", () => {
+      isComposing = false;
       clearTimeout(typingTimer);
-      typingTimer = setTimeout(performSearch, typingDelay);
-    };
+      performSearch();
+    });
 
-    // expose search function globally (if needed)
-    window.searchPosts = performSearch;
-    state.performSearch = performSearch;
-
-    // attach input listener
+    // attach input event
     searchInput?.addEventListener("input", handleInput);
+
+    // expose api via shared state
+    state.performSearch = performSearch;
   };
 
-  // export to global
+  // expose initializer globally
   window.initCategorySearch = initCategorySearch;
 })();

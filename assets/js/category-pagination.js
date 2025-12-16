@@ -1,77 +1,114 @@
 // assets/js/category-pagination.js
 (function () {
-  // init pagination behavior
+  // initialize category pagination with shared state
   const initCategoryPagination = state => {
     const { items, perPage, pagination, pageNumbers, prevBtn, nextBtn } = state;
 
-    // show selected items only
-    const showItems = list => {
-      for (const el of items) el.style.display = "none";
-      for (const el of list) el.style.display = "";
+    let visibleItems = [];
+
+    // hide all items on initial load
+    for (const el of items) {
+      el.style.display = "none";
+    }
+
+    // hide currently visible items
+    const hideVisibleItems = () => {
+      for (const el of visibleItems) {
+        el.style.display = "none";
+      }
+      visibleItems = [];
     };
 
-    // render page number buttons
+    // show given list of items
+    const showItems = list => {
+      hideVisibleItems();
+
+      for (const el of list) {
+        el.style.display = "";
+        visibleItems.push(el);
+      }
+    };
+
+    // render page number links
     const renderPageNumbers = () => {
       if (!pageNumbers) return;
 
-      pageNumbers.innerHTML = "";
+      pageNumbers.textContent = "";
+      const fragment = document.createDocumentFragment();
 
-      // create page number element
+      // create single page link
       const addLink = (num, active = false) => {
         const a = document.createElement("a");
+        a.href = "#";
         a.textContent = num;
         a.className = "pagination__link";
         a.tabIndex = -1;
-        if (active) a.classList.add("pagination__number--active");
-        a.addEventListener("click", () => render(num));
-        pageNumbers.appendChild(a);
+        a.setAttribute("aria-label", `page ${num}`);
+
+        if (active) {
+          a.classList.add("pagination__number--active");
+          a.setAttribute("aria-current", "page");
+        }
+
+        a.addEventListener("click", e => {
+          e.preventDefault();
+          render(num);
+        });
+
+        fragment.appendChild(a);
       };
 
-      // simple number layout
-      if (state.maxPage <= 5) {
-        for (let i = 1; i <= state.maxPage; i++) {
-          addLink(i, i === state.currentPage);
+      const { currentPage, maxPage } = state;
+
+      // simple rendering when page count is small
+      if (maxPage <= 5) {
+        for (let i = 1; i <= maxPage; i++) {
+          addLink(i, i === currentPage);
         }
+        pageNumbers.appendChild(fragment);
         return;
       }
 
-      // always include first page
-      addLink(1, state.currentPage === 1);
+      // always show first page
+      addLink(1, currentPage === 1);
 
-      // left dots
-      if (state.currentPage > 3) {
+      // leading dots
+      if (currentPage > 3) {
         const dots = document.createElement("span");
         dots.textContent = "...";
         dots.className = "dots";
         dots.setAttribute("aria-hidden", "true");
-        pageNumbers.appendChild(dots);
+        fragment.appendChild(dots);
       }
 
-      // sliding window pages
-      const start = Math.max(2, state.currentPage - 1);
-      const end = Math.min(state.maxPage - 1, state.currentPage + 1);
+      // middle page range
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(maxPage - 1, currentPage + 1);
+
       for (let i = start; i <= end; i++) {
-        addLink(i, i === state.currentPage);
+        addLink(i, i === currentPage);
       }
 
-      // right dots
-      if (state.currentPage < state.maxPage - 2) {
+      // trailing dots
+      if (currentPage < maxPage - 2) {
         const dots = document.createElement("span");
         dots.textContent = "...";
         dots.className = "dots";
         dots.setAttribute("aria-hidden", "true");
-        pageNumbers.appendChild(dots);
+        fragment.appendChild(dots);
       }
 
-      // last page
-      addLink(state.maxPage, state.currentPage === state.maxPage);
+      // always show last page
+      addLink(maxPage, currentPage === maxPage);
+
+      pageNumbers.appendChild(fragment);
     };
 
     // render selected page
     const render = page => {
-      // empty filter case
+      // no items after filtering
       if (state.filteredItems.length === 0) {
-        showItems([]);
+        hideVisibleItems();
         pagination?.classList.remove("pagination--visible");
         return;
       }
@@ -84,43 +121,35 @@
 
       showItems(state.filteredItems.slice(start, end));
 
-      // update prev / next disabled state
-      const atFirst = state.currentPage === 1;
-      const atLast = state.currentPage === state.maxPage;
+      const atFirstPage = state.currentPage === 1;
+      const atLastPage = state.currentPage === state.maxPage;
 
-      if (prevBtn) {
-        prevBtn.classList.toggle("pagination__link--disabled", atFirst);
-        prevBtn.setAttribute("aria-disabled", atFirst);
-      }
-
-      if (nextBtn) {
-        nextBtn.classList.toggle("pagination__link--disabled", atLast);
-        nextBtn.setAttribute("aria-disabled", atLast);
-      }
+      prevBtn?.classList.toggle("pagination__link--disabled", atFirstPage);
+      nextBtn?.classList.toggle("pagination__link--disabled", atLastPage);
 
       renderPageNumbers();
     };
 
-    // attach public functions to state
-    state.showItems = showItems;
+    // expose render api to outer scope
     state.renderPage = render;
-    state.renderPageNumbers = renderPageNumbers;
 
-    // prev button listener
-    prevBtn?.addEventListener("click", () => {
+    // previous page handler
+    prevBtn?.addEventListener("click", e => {
+      e.preventDefault();
       if (!prevBtn.classList.contains("pagination__link--disabled")) {
         render(state.currentPage - 1);
       }
     });
 
-    // next button listener
-    nextBtn?.addEventListener("click", () => {
+    // next page handler
+    nextBtn?.addEventListener("click", e => {
+      e.preventDefault();
       if (!nextBtn.classList.contains("pagination__link--disabled")) {
         render(state.currentPage + 1);
       }
     });
   };
 
-  // export module globally
+  // expose initializer globally
   window.initCategoryPagination = initCategoryPagination;
 })();
