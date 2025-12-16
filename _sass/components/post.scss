@@ -32,6 +32,11 @@
   }
 }
 
+/* "no results found" message is initially hidden */
+.search__no-results--hidden {
+  display: none;
+}
+
 /* remove focus-visible outline on search input when using a mouse or trackpad */
 @media (pointer: fine) {
   .search__input:focus-visible {

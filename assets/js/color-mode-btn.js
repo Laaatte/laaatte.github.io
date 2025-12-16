@@ -12,15 +12,32 @@
     // exit early if button does not exist
     if (!button) return;
 
+    // safe storage helpers
+    const safeGet = key => {
+        try {
+            return localStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    };
+
+    const safeSet = (key, value) => {
+        try {
+            localStorage.setItem(key, value);
+        } catch {
+            // ignore storage errors
+        }
+    };
+
     // apply theme state to dom, storage, and accessibility attributes
     const applyTheme = isDark => {
         if (isDark) {
             root.setAttribute("data-theme", "dark");
-            localStorage.setItem(STORAGE_KEY, "dark");
+            safeSet(STORAGE_KEY, "dark");
             button.setAttribute("aria-pressed", "true");
         } else {
             root.setAttribute("data-theme", "light");
-            localStorage.setItem(STORAGE_KEY, "light");
+            safeSet(STORAGE_KEY, "light");
             button.setAttribute("aria-pressed", "false");
         }
     };
@@ -28,7 +45,7 @@
     // determine initial theme
     // priority: localStorage > system preference
     const getInitialTheme = () => {
-        const stored = localStorage.getItem(STORAGE_KEY);
+        const stored = safeGet(STORAGE_KEY);
         if (stored === "dark") return true;
         if (stored === "light") return false;
 
@@ -37,6 +54,14 @@
 
     // sync initial theme state on page load
     applyTheme(getInitialTheme());
+
+    // follow system theme only when user has not chosen explicitly
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    media.addEventListener("change", e => {
+        const stored = safeGet(STORAGE_KEY);
+        if (stored === "dark" || stored === "light") return;
+        applyTheme(e.matches);
+    });
 
     // toggle theme on button click
     button.addEventListener("click", () => {
