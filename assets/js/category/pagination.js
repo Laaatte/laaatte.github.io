@@ -1,4 +1,4 @@
-// assets/js/category-pagination.js
+// assets/js/category/pagination.js
 (function () {
   // initialize category pagination with shared state
   const initCategoryPagination = state => {
@@ -60,7 +60,6 @@
 
       const { currentPage, maxPage } = state;
 
-      // simple rendering when page count is small
       if (maxPage <= 5) {
         for (let i = 1; i <= maxPage; i++) {
           addLink(i, i === currentPage);
@@ -69,10 +68,8 @@
         return;
       }
 
-      // always show first page
       addLink(1, currentPage === 1);
 
-      // leading dots
       if (currentPage > 3) {
         const dots = document.createElement("span");
         dots.textContent = "...";
@@ -81,7 +78,6 @@
         fragment.appendChild(dots);
       }
 
-      // middle page range
       const start = Math.max(2, currentPage - 1);
       const end = Math.min(maxPage - 1, currentPage + 1);
 
@@ -89,7 +85,6 @@
         addLink(i, i === currentPage);
       }
 
-      // trailing dots
       if (currentPage < maxPage - 2) {
         const dots = document.createElement("span");
         dots.textContent = "...";
@@ -98,29 +93,20 @@
         fragment.appendChild(dots);
       }
 
-      // always show last page
       addLink(maxPage, currentPage === maxPage);
-
       pageNumbers.appendChild(fragment);
     };
 
     // render selected page
     const render = page => {
-      // no items after filtering
       if (state.filteredItems.length === 0) {
         hideVisibleItems();
         pagination?.classList.remove("pagination--visible");
         return;
       }
 
-      // update max page in case filtered items changed
       state.maxPage = Math.ceil(state.filteredItems.length / perPage);
-
-      // clamp page number safely
-      state.currentPage = Math.max(
-        1,
-        Math.min(page, state.maxPage)
-      );
+      state.currentPage = Math.max(1, Math.min(page, state.maxPage));
 
       const start = (state.currentPage - 1) * perPage;
       const end = start + perPage;
@@ -133,9 +119,7 @@
       prevBtn?.classList.toggle("pagination__link--disabled", atFirstPage);
       nextBtn?.classList.toggle("pagination__link--disabled", atLastPage);
 
-      // update url hash without adding history entry
       history.replaceState(null, "", `#page=${state.currentPage}`);
-
       renderPageNumbers();
 
       // scroll to pagination for better ux
@@ -145,7 +129,6 @@
     // expose render api to outer scope
     state.renderPage = render;
 
-    // previous page handler
     prevBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!prevBtn.classList.contains("pagination__link--disabled")) {
@@ -153,7 +136,6 @@
       }
     });
 
-    // next page handler
     nextBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!nextBtn.classList.contains("pagination__link--disabled")) {
@@ -165,7 +147,7 @@
   // expose initializer globally
   window.initCategoryPagination = initCategoryPagination;
 
-  // reveal js-dependent content after all client-side rendering is complete
+  // reveal js-dependent content after rendering
   document.querySelectorAll(".js-dependent").forEach(el => {
     el.style.visibility = "visible";
   });

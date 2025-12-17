@@ -79,6 +79,9 @@
       } catch (e) { }
     })();
   </script>
+  
+  <!-- global posts.json loader loads once and provides a shared promise for all category scripts -->
+   <script src="{{ '/assets/js/posts-store.js' | relative_url }}" data-posts-url="{{ '/assets/data/posts.json' | relative_url }}" defer></script>
 
   <!-- google analytics include -->
   {% include google-analytics.html %}

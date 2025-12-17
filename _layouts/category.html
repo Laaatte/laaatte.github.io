@@ -12,7 +12,7 @@ layout: page
 
 <!--
   post list container
-  - populated dynamically by category-init.js
+  - populated dynamically by category/init.js
   - uses posts.json for data source
   - filtered by data-category attribute
   - supports client-side search and pagination
@@ -32,7 +32,7 @@ layout: page
   <button type="button" id="next" class="pagination__btn" aria-label="go to next page">Next</button>
 </div>
 
-<!-- category scripts -->
-<script src="{{ '/assets/js/category-pagination.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/category-search.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/category-init.js' | relative_url }}" defer></script>
+<!-- category page entry and feature modules -->
+<script src="{{ '/assets/js/category/pagination.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/category/search.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/category/init.js' | relative_url }}" defer></script>

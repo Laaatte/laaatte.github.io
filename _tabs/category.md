@@ -14,4 +14,5 @@ order: 1
   {% endfor %}
 </ul>
 
-<script src="{{ '/assets/js/category-count.js' | relative_url }}" defer></script>
+<!-- inject post counts into category links using posts.json -->
+<script src="{{ '/assets/js/category/count.js' | relative_url }}" defer></script>
