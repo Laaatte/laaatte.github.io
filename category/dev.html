@@ -153,17 +153,22 @@
 
 
 <!-- search input for category posts -->
+<div id="category-search-wrapper" class="search is-hidden">
+  <label for="category-search" class="visually-hidden">search posts in Dev</label>
+  <input id="category-search" type="text" class="search__input" placeholder="search Dev..." autocomplete="off">
+</div>
 
-
-<!-- post list container -->
-<ul id="post-list" class="post-list">
-  
-    <li class="post-list__item">There is no content.</li>
-  
-</ul>
+<!--
+  post list container
+  - populated dynamically by category.js
+  - uses posts.json for data source
+  - filtered by data-category attribute
+  - supports client-side search and pagination
+-->
+<ul id="post-list" class="post-list" data-category="Dev"></ul>
 
 <!-- no results message -->
-<p id="search__no-results" class="search__no-results search__no-results--hidden" aria-live="polite">No results found.</p>
+<p id="search__no-results" class="search__no-results is-hidden" aria-live="polite">No results found.</p>
 
 <!-- pagination navigation -->
 <div class="pagination" role="navigation" aria-label="pagination">

@@ -113,8 +113,14 @@
         return;
       }
 
-      // clamp page number
-      state.currentPage = Math.max(1, Math.min(page, state.maxPage));
+      // update max page in case filtered items changed
+      state.maxPage = Math.ceil(state.filteredItems.length / perPage);
+
+      // clamp page number safely
+      state.currentPage = Math.max(
+        1,
+        Math.min(page, state.maxPage)
+      );
 
       const start = (state.currentPage - 1) * perPage;
       const end = start + perPage;
@@ -127,7 +133,13 @@
       prevBtn?.classList.toggle("pagination__link--disabled", atFirstPage);
       nextBtn?.classList.toggle("pagination__link--disabled", atLastPage);
 
+      // update url hash without adding history entry
+      history.replaceState(null, "", `#page=${state.currentPage}`);
+
       renderPageNumbers();
+
+      // scroll to pagination for better ux
+      pagination?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     // expose render api to outer scope

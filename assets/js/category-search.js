@@ -30,7 +30,7 @@
     // toggle no results message immediately
     const updatenoResultsEl = isEmpty => {
       if (!noResultsEl) return;
-      noResultsEl.classList.toggle("search__no-results--hidden", !isEmpty);
+      noResultsEl.classList.toggle("is-hidden", !isEmpty);
     };
 
     // restore original title and excerpt
