@@ -153,6 +153,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // enable pagination and render initial page
   pagination?.classList.add("pagination--visible");
-  state.renderPage?.(state.currentPage);
+  state.renderPage?.(state.currentPage, { scroll: false });
 
 });
