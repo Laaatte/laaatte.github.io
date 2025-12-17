@@ -164,4 +164,9 @@
 
   // expose initializer globally
   window.initCategoryPagination = initCategoryPagination;
+
+  // reveal js-dependent content after all client-side rendering is complete
+  document.querySelectorAll(".js-dependent").forEach(el => {
+    el.style.visibility = "visible";
+  });
 })();

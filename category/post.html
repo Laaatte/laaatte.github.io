@@ -160,12 +160,12 @@
 
 <!--
   post list container
-  - populated dynamically by category.js
+  - populated dynamically by category-init.js
   - uses posts.json for data source
   - filtered by data-category attribute
   - supports client-side search and pagination
 -->
-<ul id="post-list" class="post-list" data-category="Post"></ul>
+<ul id="post-list" class="post-list js-dependent" data-category="Post"></ul>
 
 <!-- no results message -->
 <p id="search__no-results" class="search__no-results is-hidden" aria-live="polite">No results found.</p>
@@ -183,7 +183,7 @@
 <!-- category scripts -->
 <script src="/assets/js/category-pagination.js" defer></script>
 <script src="/assets/js/category-search.js" defer></script>
-<script src="/assets/js/category.js" defer></script>
+<script src="/assets/js/category-init.js" defer></script>
   </section>
 
 </article>
