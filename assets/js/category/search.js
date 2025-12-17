@@ -1,4 +1,4 @@
-// assets/js/category-search.js
+// assets/js/category/search.js
 (function () {
   const initCategorySearch = state => {
     // extract shared state values
@@ -18,17 +18,21 @@
 
     // escape html to prevent markup injection
     const escapeHtml = text =>
-      text.replace(/[&<>"'`=\/]/g, ch => `&#${ch.charCodeAt(0)};`);
+      String(text || "").replace(/[&<>"'`=\/]/g, ch => `&#${ch.charCodeAt(0)};`);
 
-    // apply highlight span using regex
+    // escape regex special characters in search term
+    const escapeRegExp = text =>
+      String(text || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    // apply highlight span using escaped regex
     const highlightText = (text, regex) =>
       escapeHtml(text).replace(
         regex,
         '<span class="search__highlight">$1</span>'
       );
 
-    // toggle no results message immediately
-    const updatenoResultsEl = isEmpty => {
+    // toggle no results message visibility
+    const updateNoResultsEl = isEmpty => {
       if (!noResultsEl) return;
       noResultsEl.classList.toggle("is-hidden", !isEmpty);
     };
@@ -48,7 +52,7 @@
         state.filteredItems = items.slice();
         items.forEach(restoreItem);
 
-        updatenoResultsEl(false);
+        updateNoResultsEl(false);
         state.maxPage = Math.ceil(state.filteredItems.length / perPage);
 
         if (pagination && items.length > perPage) {
@@ -61,7 +65,7 @@
         return;
       }
 
-      // filter items
+      // filter items by title or excerpt
       state.filteredItems = items.filter(item => {
         const t = (item.dataset.originalTitle || "").toLowerCase();
         const e = (item.dataset.originalExcerpt || "").toLowerCase();
@@ -69,17 +73,17 @@
       });
 
       const filteredSet = new Set(state.filteredItems);
-      const regex = new RegExp(`(${term})`, "gi");
+      const regex = new RegExp(`(${escapeRegExp(term)})`, "gi");
 
       // update items and apply highlight
       for (const item of items) {
         if (filteredSet.has(item)) {
           item._titleEl.innerHTML = highlightText(
-            item.dataset.originalTitle || "",
+            item.dataset.originalTitle,
             regex
           );
           item._excerptEl.innerHTML = highlightText(
-            item.dataset.originalExcerpt || "",
+            item.dataset.originalExcerpt,
             regex
           );
         } else {
@@ -87,8 +91,7 @@
         }
       }
 
-      updatenoResultsEl(state.filteredItems.length === 0);
-
+      updateNoResultsEl(state.filteredItems.length === 0);
       state.maxPage = Math.ceil(state.filteredItems.length / perPage);
 
       if (state.filteredItems.length > perPage) {

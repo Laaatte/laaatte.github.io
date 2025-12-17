@@ -1,17 +1,23 @@
-// assets/js/category-count.js
+// assets/js/category/count.js
 document.addEventListener("DOMContentLoaded", async () => {
   // find category links on this page only
   const links = document.querySelectorAll(".category__link a[data-category]");
   if (!links.length) return;
 
+  // resolve posts.json url from script data attribute
+  const postsUrl =
+    document.querySelector("script[data-posts-url]")?.dataset.postsUrl;
+
+  if (!postsUrl || typeof window.loadPosts !== "function") {
+    console.error("posts-store is not available");
+    return;
+  }
+
   let posts = [];
 
-  // load posts.json
+  // load posts.json via shared store
   try {
-    const res = await fetch(
-      `${document.documentElement.getAttribute("data-baseurl") || ""}/assets/data/posts.json`
-    );
-    posts = await res.json();
+    posts = await window.loadPosts(postsUrl);
   } catch (e) {
     console.error("failed to load posts.json", e);
     return;
@@ -34,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     link.textContent = `${cat} - ${count}`;
   });
 
-  // reveal js-dependent content after all client-side rendering is complete
+  // reveal js-dependent content after rendering
   document.querySelectorAll(".js-dependent").forEach(el => {
     el.style.visibility = "visible";
   });

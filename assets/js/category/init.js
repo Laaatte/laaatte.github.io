@@ -1,4 +1,4 @@
-// assets/js/category-init.js
+// assets/js/category/init.js
 document.addEventListener("DOMContentLoaded", async () => {
   // get post list container
   const listEl = document.getElementById("post-list");
@@ -6,10 +6,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let posts = [];
 
-  // load posts.json
+  // resolve posts.json url from script data attribute
+  const postsUrl =
+    document.querySelector("script[data-posts-url]")?.dataset.postsUrl;
+
+  if (!postsUrl || typeof window.loadPosts !== "function") {
+    console.error("posts-store is not available");
+    return;
+  }
+
+  // load posts.json via shared store
   try {
-    const res = await fetch("/assets/data/posts.json");
-    posts = await res.json();
+    posts = await window.loadPosts(postsUrl);
   } catch (e) {
     console.error("failed to load posts.json", e);
     return;
@@ -98,9 +106,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     pagination?.classList.remove("pagination--visible");
     return;
-
   }
 
+  // number of posts displayed per page
   const perPage = 10;
 
   // read initial page from url hash
@@ -135,10 +143,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (total <= perPage) {
     items.forEach(el => (el.style.display = ""));
     pagination?.classList.remove("pagination--visible");
+
+    // reveal js-dependent content after rendering
+    document.querySelectorAll(".js-dependent").forEach(el => {
+      el.style.visibility = "visible";
+    });
     return;
   }
 
   // enable pagination and render initial page
   pagination?.classList.add("pagination--visible");
   state.renderPage?.(state.currentPage);
+
 });

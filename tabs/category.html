@@ -146,6 +146,9 @@
       } catch (e) { }
     })();
   </script>
+  
+  <!-- global posts.json loader loads once and provides a shared promise for all category scripts -->
+   <script src="/assets/js/posts-store.js" data-posts-url="/assets/data/posts.json" defer></script>
 
   <!-- google analytics include -->
   <!-- google analytics script loader -->
@@ -230,7 +233,8 @@
   
 </ul>
 
-<script src="/assets/js/category-count.js" defer=""></script>
+<!-- inject post counts into category links using posts.json -->
+<script src="/assets/js/category/count.js" defer=""></script>
 
 
   </section>

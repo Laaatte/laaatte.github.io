@@ -83,6 +83,9 @@
       } catch (e) { }
     })();
   </script>
+  
+  <!-- global posts.json loader loads once and provides a shared promise for all category scripts -->
+   <script src="/assets/js/posts-store.js" data-posts-url="/assets/data/posts.json" defer></script>
 
   <!-- google analytics include -->
   <!-- google analytics script loader -->
@@ -160,7 +163,7 @@
 
 <!--
   post list container
-  - populated dynamically by category-init.js
+  - populated dynamically by category/init.js
   - uses posts.json for data source
   - filtered by data-category attribute
   - supports client-side search and pagination
@@ -180,10 +183,10 @@
   <button type="button" id="next" class="pagination__btn" aria-label="go to next page">Next</button>
 </div>
 
-<!-- category scripts -->
-<script src="/assets/js/category-pagination.js" defer></script>
-<script src="/assets/js/category-search.js" defer></script>
-<script src="/assets/js/category-init.js" defer></script>
+<!-- category page entry and feature modules -->
+<script src="/assets/js/category/pagination.js" defer></script>
+<script src="/assets/js/category/search.js" defer></script>
+<script src="/assets/js/category/init.js" defer></script>
   </section>
 
 </article>
