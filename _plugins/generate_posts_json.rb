@@ -1,9 +1,12 @@
 # generate_posts_json.rb
-# this plugin generates posts.json after jekyll finishes writing the site
-# used for client-side pagination without jekyll pagination plugins
+# generate posts.json at build time for client-side pagination and search
+# avoids jekyll pagination plugins and prevents stale post list issues
+
 require "json"
+require "fileutils"
 
 Jekyll::Hooks.register :site, :post_write do |site|
+  # collect current posts only (deleted posts are excluded automatically)
   posts = site.posts.docs.map do |post|
     {
       "title" => post.data["title"],
@@ -12,9 +15,18 @@ Jekyll::Hooks.register :site, :post_write do |site|
     }
   end
 
-  output_path = File.join(site.dest, "posts.json")
+  # define output directory under assets for predictable caching
+  output_dir = File.join(site.dest, "assets", "data")
 
+  # ensure directory exists before writing file
+  FileUtils.mkdir_p(output_dir)
+
+  # final output path: _site/assets/data/posts.json
+  output_path = File.join(output_dir, "posts.json")
+
+  # write json file fresh on every build
   File.write(output_path, JSON.pretty_generate(posts))
 
-  puts "posts.json generated → #{output_path}"
+  # log generated file path for build visibility
+  puts "posts.json generated -> #{output_path}"
 end
