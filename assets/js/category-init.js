@@ -1,4 +1,4 @@
-// assets/js/category.js
+// assets/js/category-init.js
 document.addEventListener("DOMContentLoaded", async () => {
   // get post list container
   const listEl = document.getElementById("post-list");

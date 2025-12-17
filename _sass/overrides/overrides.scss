@@ -19,3 +19,8 @@
 .is-hidden {
   display: none;
 }
+
+/* hide js-dependent content until ready */
+.js-dependent {
+  visibility: hidden;
+}

@@ -1,18 +1,55 @@
 # generate_posts_json.rb
 # generate posts.json at build time for client-side pagination and search
-# avoids jekyll pagination plugins and prevents stale post list issues
+# validates category field with relaxed input and strict matching
 
 require "json"
 require "fileutils"
 
 Jekyll::Hooks.register :site, :post_write do |site|
+  # allow letters, numbers, spaces, underscore, hyphen
+  allowed_category = /\A[a-zA-Z0-9 _-]+\z/
+
+  # build category lookup map
+  # key: normalized category (downcase + strip)
+  # value: original category title
+  category_map =
+    site.collections["category"].docs
+        .map { |c| c.data["title"].to_s.strip }
+        .reject(&:empty?)
+        .each_with_object({}) do |title, map|
+          map[title.downcase] = title
+        end
+
   posts = site.posts.docs.map do |post|
+    raw_category = post.data["category"]
+
+    normalized =
+      raw_category
+        .to_s
+        .strip
+        .downcase
+
+    category =
+      if raw_category.nil?
+        "Uncategorized"
+      elsif normalized.empty?
+        "Uncategorized"
+      elsif normalized.include?(",")
+        "Uncategorized"
+      elsif !allowed_category.match?(normalized)
+        "Uncategorized"
+      elsif !category_map.key?(normalized)
+        "Uncategorized"
+      else
+        category_map[normalized]
+      end
+
     {
-      "url"   => post.url,
-      "category" => post.data["category"].to_s.strip.empty? ? "Uncategorized" : post.data["category"],
-      "title" => post.data["title"],
-      "desc"  => post.data["desc"] || "",
-      "date"  => post.date.strftime("%Y-%m-%d")
+      "url"      => post.url,
+      "category" => category,
+      "title"    => post.data["title"],
+      "desc"     => post.data["desc"] || "",
+      "date"     => post.date.strftime("%Y-%m-%d")
     }
   end
 
