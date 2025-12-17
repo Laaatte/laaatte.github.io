@@ -61,7 +61,8 @@
           pagination?.classList.remove("pagination--visible");
         }
 
-        state.renderPage?.(1);
+        // do not scroll on search reset
+        state.renderPage?.(1, { scroll: false });
         return;
       }
 
@@ -100,7 +101,8 @@
         pagination?.classList.remove("pagination--visible");
       }
 
-      state.renderPage?.(1);
+      // do not scroll on search result update
+      state.renderPage?.(1, { scroll: false });
     };
 
     // hybrid input handler with ime awareness

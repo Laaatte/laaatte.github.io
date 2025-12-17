@@ -52,7 +52,7 @@
 
         a.addEventListener("click", e => {
           e.preventDefault();
-          render(num);
+          render(num, { scroll: true });
         });
 
         fragment.appendChild(a);
@@ -98,7 +98,9 @@
     };
 
     // render selected page
-    const render = page => {
+    const render = (page, options = {}) => {
+      const { scroll = true } = options;
+
       if (state.filteredItems.length === 0) {
         hideVisibleItems();
         pagination?.classList.remove("pagination--visible");
@@ -122,24 +124,28 @@
       history.replaceState(null, "", `#page=${state.currentPage}`);
       renderPageNumbers();
 
-      // scroll to pagination for better ux
-      pagination?.scrollIntoView({ behavior: "smooth", block: "start" });
+      // scroll only when explicitly requested
+      if (scroll) {
+        pagination?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     };
 
     // expose render api to outer scope
     state.renderPage = render;
 
+    // previous page handler
     prevBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!prevBtn.classList.contains("pagination__link--disabled")) {
-        render(state.currentPage - 1);
+        render(state.currentPage - 1, { scroll: true });
       }
     });
 
+    // next page handler
     nextBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!nextBtn.classList.contains("pagination__link--disabled")) {
-        render(state.currentPage + 1);
+        render(state.currentPage + 1, { scroll: true });
       }
     });
   };
