@@ -18,6 +18,9 @@
     color: var(--color-text);
     border: 0.14rem solid var(--nav-line);
     border-radius: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:focus {
       box-shadow: none;
@@ -29,18 +32,6 @@
     color: var(--color-text);
     font-weight: bold;
     border-radius: 0.1rem;
-  }
-}
-
-/* "no results found" message is initially hidden */
-.search__no-results--hidden {
-  display: none;
-}
-
-/* remove focus-visible outline on search input when using a mouse or trackpad */
-@media (pointer: fine) {
-  .search__input:focus-visible {
-    outline: none;
   }
 }
 

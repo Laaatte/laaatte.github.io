@@ -1,6 +1,5 @@
 ---
 title: Markdown 테스트
-category: Post
 content: post
 author: NotHumanity
 date: 2022-01-13

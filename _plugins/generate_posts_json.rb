@@ -6,27 +6,21 @@ require "json"
 require "fileutils"
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  # collect current posts only (deleted posts are excluded automatically)
   posts = site.posts.docs.map do |post|
     {
+      "url"   => post.url,
+      "category" => post.data["category"].to_s.strip.empty? ? "Uncategorized" : post.data["category"],
       "title" => post.data["title"],
-      "date"  => post.date.strftime("%Y-%m-%d"),
-      "url"   => post.url
+      "desc"  => post.data["desc"] || "",
+      "date"  => post.date.strftime("%Y-%m-%d")
     }
   end
 
-  # define output directory under assets for predictable caching
   output_dir = File.join(site.dest, "assets", "data")
-
-  # ensure directory exists before writing file
   FileUtils.mkdir_p(output_dir)
 
-  # final output path: _site/assets/data/posts.json
   output_path = File.join(output_dir, "posts.json")
-
-  # write json file fresh on every build
   File.write(output_path, JSON.pretty_generate(posts))
 
-  # log generated file path for build visibility
   puts "posts.json generated -> #{output_path}"
 end

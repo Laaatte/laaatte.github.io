@@ -1,12 +1,41 @@
-/* base */
+/* ==================================================
+  base
+  --------------------------------------------------
+  global variables, reset, and default element styles
+  must be loaded first
+  ================================================== */
 @use "base/root";
-/* layout */
+
+/* ==================================================
+  layout
+  --------------------------------------------------
+  global page structure and major layout blocks
+  ================================================== */
 @use "layout/nav";
 @use "layout/footer";
 @use "layout/home";
-/* components */
+
+/* ==================================================
+  components
+  --------------------------------------------------
+  self-contained ui components
+  no global overrides allowed here
+  ================================================== */
 @use "components/article";
 @use "components/category";
 @use "components/post";
-/* syntax highlight */
+
+/* ==================================================
+  syntax highlighting
+  --------------------------------------------------
+  code block styles (prism / rouge / custom theme)
+  ================================================== */
 @use "syntax/base16.solarized.custom";
+
+/* ==================================================
+  overrides
+  --------------------------------------------------
+  intentional cascade overrides and exceptions
+  must be loaded last
+  ================================================== */
+@use "overrides/overrides";
