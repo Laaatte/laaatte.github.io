@@ -33,10 +33,6 @@ kramdown:
 # url structure
 permalink: /:title
 
-# include extra output files
-include:
-  - posts.json  # include posts.json file for json output
-
 # collections (tabs, categories)
 collections:
   tabs:
