@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 
-    <title>NotHumanity</title>
-    <link>https://nothumanity.github.io</link>
+    <title>Laaatte</title>
+    <link>https://laaatte.github.io</link>
     <description>jekyll blog</description>
 
-    <atom:link href="https://nothumanity.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://laaatte.github.io/feed.xml" rel="self" type="application/rss+xml" />
 
     <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
 
-    <pubDate>2026-01-03T04:05:14+00:00</pubDate>
-    <lastBuildDate>2026-01-03T04:05:14+00:00</lastBuildDate>
+    <pubDate>2026-03-25T23:29:59+00:00</pubDate>
+    <lastBuildDate>2026-03-25T23:29:59+00:00</lastBuildDate>
 
     
     <author>
       <name></name>
-      <url>https://github.com/NotHumanity</url>
+      <url>https://github.com/Laaatte</url>
     </author>
 
     
       <item>
 
         <title>Markdown 테스트7</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy-8</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy-8</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy-8</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy-8</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -114,7 +114,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -165,7 +165,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -178,8 +178,8 @@
       <item>
 
         <title>Markdown 테스트8</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy-9</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy-9</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy-9</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy-9</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -269,7 +269,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -320,7 +320,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -333,8 +333,8 @@
       <item>
 
         <title>Markdown 테스트9</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy-10</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy-10</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy-10</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy-10</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -424,7 +424,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -475,7 +475,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -488,8 +488,8 @@
       <item>
 
         <title>Markdown 테스트0</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy-11</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy-11</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy-11</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy-11</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -579,7 +579,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -630,7 +630,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -643,8 +643,8 @@
       <item>
 
         <title>Markdown 테스트11</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy-12</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy-12</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy-12</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy-12</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -734,7 +734,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -785,7 +785,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -798,8 +798,8 @@
       <item>
 
         <title>Markdown 테스트12</title>
-        <link>https://nothumanity.github.io/posts/markdown-test-copy</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test-copy</guid>
+        <link>https://laaatte.github.io/posts/markdown-test-copy</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test-copy</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -889,7 +889,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -940,7 +940,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -953,8 +953,8 @@
       <item>
 
         <title>Markdown 테스트</title>
-        <link>https://nothumanity.github.io/posts/markdown-test</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/markdown-test</guid>
+        <link>https://laaatte.github.io/posts/markdown-test</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/markdown-test</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -1044,7 +1044,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -1095,7 +1095,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -1108,8 +1108,8 @@
       <item>
 
         <title>Markdown 테스트2</title>
-        <link>https://nothumanity.github.io/posts/dev-test</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/dev-test</guid>
+        <link>https://laaatte.github.io/posts/dev-test</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/dev-test</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -1199,7 +1199,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -1250,7 +1250,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -1263,8 +1263,8 @@
       <item>
 
         <title>Markdown 테스트2</title>
-        <link>https://nothumanity.github.io/posts/dev-test-copy</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/dev-test-copy</guid>
+        <link>https://laaatte.github.io/posts/dev-test-copy</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/dev-test-copy</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -1354,7 +1354,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -1405,7 +1405,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
@@ -1416,8 +1416,8 @@
       <item>
 
         <title>Markdown 테스트2</title>
-        <link>https://nothumanity.github.io/posts/dev-test-copy-3</link>
-        <guid isPermaLink="true">https://nothumanity.github.io/posts/dev-test-copy-3</guid>
+        <link>https://laaatte.github.io/posts/dev-test-copy-3</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/dev-test-copy-3</guid>
 
         <description>
 &lt;blockquote&gt;
@@ -1507,7 +1507,7 @@
 &lt;hr /&gt;
 &lt;h3 id=&quot;테스트-1&quot;&gt;테스트&lt;/h3&gt;
 
-&lt;h4 id=&quot;nothumanity&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/NotHumanity&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NotHumanity&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;laaatte&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/Laaatte&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laaatte&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;asd&lt;/strong&gt; asd&lt;/p&gt;
 
@@ -1558,7 +1558,7 @@
 
         
           
-            <author>NotHumanity</author>
+            <author>Laaatte</author>
           
         
 
