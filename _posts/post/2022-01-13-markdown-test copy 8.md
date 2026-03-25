@@ -3,7 +3,7 @@ title: Markdown 테스트7
 desc: 마크다운 테스트 입니다.
 category: Food
 content: post
-author: NotHumanity
+author: Laaatte
 date: 2022-01-19
 ---
 {% assign author = site.data.author-data %}

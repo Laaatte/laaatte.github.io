@@ -3,7 +3,7 @@ title: Markdown 테스트2
 desc: devvv
 
 content: post
-author: NotHumanity
+author: Laaatte
 date: 2022-01-11
 ---
 {% assign author = site.data.author-data %}

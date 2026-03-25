@@ -13,7 +13,7 @@ updates:
 
     # optional: automatically assign reviewers to prs
     reviewers:
-      - "nothumanity"
+      - "Laaatte"
 
     # optional: allow dependabot to update direct dependencies only
     allow:

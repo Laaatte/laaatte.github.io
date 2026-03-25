@@ -3,7 +3,7 @@ title: Markdown 테스트
 desc: 마크다운 테스트 입니다.
 category: Post
 content: post
-author: NotHumanity
+author: Laaatte
 date: 2022-01-13
 ---
 {% assign author = site.data.author-data %}
