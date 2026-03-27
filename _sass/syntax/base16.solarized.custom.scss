@@ -6,18 +6,20 @@
 
   -- rework notes --
   reduced saturation from original solarized palette
-  unified with site theme (paper background, pastel blue, neutral gray)
+  unified with site theme (milk gray background, muted blue, neutral gray)
   dark mode derived by role-preserving palette swap
   avoided pure black / pure white for long-form readability
 */
+
 /* =========================
    light mode (default)
    ========================= */
+
 /* blockquote */
 blockquote {
   max-width: max-content;
-  background-color: #f5f4f2;
-  border-left: 0.23rem solid #b18783;
+  background-color: #f3f3f1;
+  border-left: 0.23rem solid #9d8f8d;
   margin: 0.4rem 0;
   padding: 0.2rem 0.4rem;
 
@@ -34,14 +36,14 @@ table {
   border-collapse: collapse;
 
   th {
-    background-color: #e4dfd9;
-    border: 1px solid #c9c6c3;
+    background-color: #ececea;
+    border: 1px solid #d3d3d6;
     padding: 0.4rem;
   }
 
   td {
-    background-color: #f7f5f3;
-    border: 1px solid #d6d3d1;
+    background-color: #f8f8f6;
+    border: 1px solid #dddddf;
     padding: 0.4rem;
   }
 }
@@ -49,7 +51,7 @@ table {
 /* inline code */
 .language-plaintext {
   max-width: max-content;
-  background-color: #e8eee8;
+  background-color: #eef1ee;
   border-radius: 0.2rem;
   padding: 0.2rem 0.35rem;
   margin: 0.2rem 0;
@@ -60,8 +62,8 @@ table {
 /* code block */
 .highlight pre {
   max-width: max-content;
-  background-color: #f7f5f3;
-  border: 1px solid #dcd8d2;
+  background-color: #f8f8f6;
+  border: 1px solid #dddddf;
   border-radius: 0.2rem;
   padding: 0.3rem 0.5rem;
   margin: 0;
@@ -73,7 +75,7 @@ table {
 /* base text */
 .highlight,
 .highlight .w {
-  color: #586e75;
+  color: #5f666b;
 }
 
 /* comments */
@@ -86,7 +88,7 @@ table {
   .cpf,
   .c1,
   .cs {
-    color: #8a8889;
+    color: #8d8d90;
   }
 
   /* keywords */
@@ -97,7 +99,7 @@ table {
   .kv,
   .na,
   .sa {
-    color: #6a96c8;
+    color: #6f93bd;
   }
 
   /* types / constants */
@@ -109,7 +111,7 @@ table {
   .nn,
   .nc,
   .no {
-    color: #b58900;
+    color: #b09a63;
   }
 
   /* strings / numbers */
@@ -139,7 +141,7 @@ table {
   .ow,
   .p,
   .pi {
-    color: #93a1a1;
+    color: #98a0a6;
   }
 
   /* additions / deletions */
@@ -148,34 +150,36 @@ table {
   }
 
   .gd {
-    color: #b18783;
+    color: #a78480;
   }
 
   /* headings */
   .gh {
-    color: #6a96c8;
-    background-color: #f0efea;
+    color: #6f93bd;
+    background-color: #efefec;
     font-weight: bold;
   }
 
   /* error */
   .err {
-    color: #2b2b2b;
-    background-color: #dc322f;
+    color: #2c2c2c;
+    background-color: #c18f8b;
   }
 }
 
 /* =========================
    dark mode override
    ========================= */
+
 [data-theme="dark"] {
   blockquote {
-    background-color: #1c1e21;
+    background-color: #1b1d20;
+    border-left-color: #8f8180;
   }
 
   table {
     th {
-      background-color: #202226;
+      background-color: #202327;
       border-color: #2f3236;
     }
 
@@ -186,19 +190,19 @@ table {
   }
 
   .language-plaintext {
-    background-color: #202326;
-    color: #e4e4df;
+    background-color: #202327;
+    color: #e2e2de;
   }
 
   .highlight pre {
     background-color: #181a1d;
     border-color: #2a2d31;
-    color: #e4e4df;
+    color: #e2e2de;
   }
 
   .highlight,
   .highlight .w {
-    color: #e4e4df;
+    color: #e2e2de;
   }
 
   .highlight {
@@ -211,7 +215,7 @@ table {
     .cpf,
     .c1,
     .cs {
-      color: #9b9da1;
+      color: #9fa1a6;
     }
 
     /* keywords */
@@ -229,8 +233,12 @@ table {
     .kc,
     .kt,
     .kd,
-    .cp {
-      color: #cfae70;
+    .cp,
+    .nt,
+    .nn,
+    .nc,
+    .no {
+      color: #c2ab73;
     }
 
     /* strings / numbers */
@@ -249,7 +257,9 @@ table {
     .mh,
     .mi,
     .il,
-    .mo {
+    .mo,
+    .mx,
+    .ss {
       color: #8fa57a;
     }
 
@@ -258,7 +268,7 @@ table {
     .ow,
     .p,
     .pi {
-      color: #9ca3af;
+      color: #a4abb2;
     }
 
     /* additions / deletions */
@@ -273,12 +283,12 @@ table {
     /* headings */
     .gh {
       color: #8aaedf;
-      background-color: #202226;
+      background-color: #202327;
     }
 
     /* error */
     .err {
-      color: #1c1e21;
+      color: #1b1d20;
       background-color: #c18f8b;
     }
   }
