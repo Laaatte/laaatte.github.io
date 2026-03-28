@@ -15,21 +15,21 @@
   },
   {
     "url": "/posts/dev-test-copy-2",
-    "category": "Uncategorized",
+    "category": "Misc",
     "title": "Markdown 테스트2",
     "desc": "devvv",
     "date": "2022-01-11"
   },
   {
     "url": "/posts/dev-test-copy-3",
-    "category": "Uncategorized",
+    "category": "Misc",
     "title": "Markdown 테스트2",
     "desc": "devvv",
     "date": "2022-01-11"
   },
   {
     "url": "/posts/dev-test-copy",
-    "category": "Uncategorized",
+    "category": "Misc",
     "title": "Markdown 테스트2",
     "desc": "devvv",
     "date": "2022-01-11"
@@ -85,7 +85,7 @@
   },
   {
     "url": "/posts/markdown-test-copy-8",
-    "category": "Uncategorized",
+    "category": "Misc",
     "title": "Markdown 테스트7",
     "desc": "마크다운 테스트 입니다.",
     "date": "2022-01-19"
