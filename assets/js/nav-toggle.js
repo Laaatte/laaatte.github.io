@@ -19,31 +19,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // close mobile menu
+  const closeMenu = () => {
+    collapse.classList.remove("nav__collapse--open");
+    toggle.setAttribute("aria-expanded", "false");
+    setLinksFocusable(false);
+  };
+
   // apply correct state based on current mode
   const applyMode = () => {
-    const desktop = mq.matches;
-
-    if (desktop) {
+    if (mq.matches) {
       // desktop: menu is always open
       collapse.classList.add("nav__collapse--open");
       toggle.setAttribute("aria-expanded", "false");
-
-      // desktop: links stay focusable
-      setLinksFocusable(true);
-
-      // desktop: hide toggle button
       toggle.style.display = "none";
-    } else {
-      // mobile: menu starts closed
-      collapse.classList.remove("nav__collapse--open");
-      toggle.setAttribute("aria-expanded", "false");
-
-      // mobile: disable tab navigation while closed
-      setLinksFocusable(false);
-
-      // mobile: show toggle button
-      toggle.style.display = "block";
+      setLinksFocusable(true);
+      return;
     }
+
+    // mobile: menu starts closed
+    closeMenu();
+    toggle.style.display = "block";
   };
 
   // run once
@@ -58,8 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isOpen = collapse.classList.toggle("nav__collapse--open");
     toggle.setAttribute("aria-expanded", isOpen);
-
-    // update link tabindex state
     setLinksFocusable(isOpen);
   });
 
@@ -67,25 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", e => {
     if (mq.matches) return;
     if (e.key !== "Escape") return;
+    if (!collapse.classList.contains("nav__collapse--open")) return;
 
-    if (collapse.classList.contains("nav__collapse--open")) {
-      collapse.classList.remove("nav__collapse--open");
-      toggle.setAttribute("aria-expanded", "false");
-      setLinksFocusable(false);
-    }
+    closeMenu();
   });
 
   // close menu on outside click (mobile only)
   document.addEventListener("click", e => {
     if (mq.matches) return;
     if (!collapse.classList.contains("nav__collapse--open")) return;
+    if (collapse.contains(e.target) || toggle.contains(e.target)) return;
 
-    // ignore clicks inside toggle or menu
-    if (collapse.contains(e.target)) return;
-    if (toggle.contains(e.target)) return;
-
-    collapse.classList.remove("nav__collapse--open");
-    toggle.setAttribute("aria-expanded", "false");
-    setLinksFocusable(false);
+    closeMenu();
   });
 });

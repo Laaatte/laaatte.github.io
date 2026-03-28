@@ -3,7 +3,6 @@
   // initialize category pagination with shared state
   const initCategoryPagination = state => {
     const { items, perPage, pagination, pageNumbers, prevBtn, nextBtn } = state;
-
     let visibleItems = [];
 
     // hide all items on initial load
@@ -29,12 +28,27 @@
       }
     };
 
+    // reveal post list after rendering
+    const revealDependent = () => {
+      document.querySelector(".post-list.js-dependent")?.style.setProperty("visibility", "visible");
+    };
+
+    // create pagination dots
+    const createDots = fragment => {
+      const dots = document.createElement("span");
+      dots.textContent = "...";
+      dots.className = "dots";
+      dots.setAttribute("aria-hidden", "true");
+      fragment.appendChild(dots);
+    };
+
     // render page number links
     const renderPageNumbers = () => {
       if (!pageNumbers) return;
 
       pageNumbers.textContent = "";
       const fragment = document.createDocumentFragment();
+      const { currentPage, maxPage } = state;
 
       // create single page link
       const addLink = (num, active = false) => {
@@ -52,13 +66,11 @@
 
         a.addEventListener("click", e => {
           e.preventDefault();
-          render(num, { scroll: true });
+          renderPage(num, { scroll: true });
         });
 
         fragment.appendChild(a);
       };
-
-      const { currentPage, maxPage } = state;
 
       if (maxPage <= 5) {
         for (let i = 1; i <= maxPage; i++) {
@@ -71,11 +83,7 @@
       addLink(1, currentPage === 1);
 
       if (currentPage > 3) {
-        const dots = document.createElement("span");
-        dots.textContent = "...";
-        dots.className = "dots";
-        dots.setAttribute("aria-hidden", "true");
-        fragment.appendChild(dots);
+        createDots(fragment);
       }
 
       const start = Math.max(2, currentPage - 1);
@@ -86,11 +94,7 @@
       }
 
       if (currentPage < maxPage - 2) {
-        const dots = document.createElement("span");
-        dots.textContent = "...";
-        dots.className = "dots";
-        dots.setAttribute("aria-hidden", "true");
-        fragment.appendChild(dots);
+        createDots(fragment);
       }
 
       addLink(maxPage, currentPage === maxPage);
@@ -98,12 +102,13 @@
     };
 
     // render selected page
-    const render = (page, options = {}) => {
+    const renderPage = (page, options = {}) => {
       const { scroll = true } = options;
 
       if (state.filteredItems.length === 0) {
         hideVisibleItems();
         pagination?.classList.remove("pagination--visible");
+        revealDependent();
         return;
       }
 
@@ -115,11 +120,14 @@
 
       showItems(state.filteredItems.slice(start, end));
 
-      const atFirstPage = state.currentPage === 1;
-      const atLastPage = state.currentPage === state.maxPage;
-
-      prevBtn?.classList.toggle("pagination__link--disabled", atFirstPage);
-      nextBtn?.classList.toggle("pagination__link--disabled", atLastPage);
+      prevBtn?.classList.toggle(
+        "pagination__link--disabled",
+        state.currentPage === 1
+      );
+      nextBtn?.classList.toggle(
+        "pagination__link--disabled",
+        state.currentPage === state.maxPage
+      );
 
       history.replaceState(null, "", `#page=${state.currentPage}`);
       renderPageNumbers();
@@ -128,16 +136,18 @@
       if (scroll) {
         pagination?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+
+      revealDependent();
     };
 
     // expose render api to outer scope
-    state.renderPage = render;
+    state.renderPage = renderPage;
 
     // previous page handler
     prevBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!prevBtn.classList.contains("pagination__link--disabled")) {
-        render(state.currentPage - 1, { scroll: true });
+        renderPage(state.currentPage - 1, { scroll: true });
       }
     });
 
@@ -145,16 +155,11 @@
     nextBtn?.addEventListener("click", e => {
       e.preventDefault();
       if (!nextBtn.classList.contains("pagination__link--disabled")) {
-        render(state.currentPage + 1, { scroll: true });
+        renderPage(state.currentPage + 1, { scroll: true });
       }
     });
   };
 
   // expose initializer globally
   window.initCategoryPagination = initCategoryPagination;
-
-  // reveal js-dependent content after rendering
-  document.querySelectorAll(".js-dependent").forEach(el => {
-    el.style.visibility = "visible";
-  });
 })();

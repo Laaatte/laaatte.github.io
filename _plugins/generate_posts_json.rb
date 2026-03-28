@@ -31,15 +31,15 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
     category =
       if raw_category.nil?
-        "Uncategorized"
+        "Misc"
       elsif normalized.empty?
-        "Uncategorized"
+        "Misc"
       elsif normalized.include?(",")
-        "Uncategorized"
+        "Misc"
       elsif !allowed_category.match?(normalized)
-        "Uncategorized"
+        "Misc"
       elsif !category_map.key?(normalized)
-        "Uncategorized"
+        "Misc"
       else
         category_map[normalized]
       end
