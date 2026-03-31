@@ -64,7 +64,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/dark/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1774932732">
 
   <!-- color mode btn script -->
   <script>
@@ -97,12 +97,18 @@
 <body>
   <!-- site header with brand link -->
 <header class="header layout-container" aria-label="site header">
-  <div class="header__left">
-    <a class="header__brand" href="/">Laaatte</a>
-    <a class="header__link" href="/contact" >Contact</a>
+  <!-- header content -->
+  <div class="header__item">
+    <div class="header__left">
+      <a class="header__brand" href="/">Laaatte</a>
+      <a class="header__link" href="/contact" >Contact</a>
+    </div>
+
+    <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
   </div>
 
-  <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+  <!-- header separator line -->
+  <div class="header__line"></div>
 </header>
 
 <!-- color__mode-btn script -->
@@ -112,10 +118,12 @@
     <article class="article layout-container">
 
   
+  <div class="article__item">
     <!-- back button for post pages -->
-    <a class="article__back-link" href="javascript:history.back()">← Back</a>
+    <a class="article__back-link" href="javascript:history.back()">←</a>
     <!-- post title heading -->
     <h1 class="article__title">Dev</h1>
+  </div>
   
 
   <!-- main article content -->
@@ -123,51 +131,52 @@
     
 
 
-<div class="cat">
+<div class="category">
   
-    <section class="cat__section lt" aria-labelledby="lt-title">
-  <h2 id="lt-title" class="lt__title">Latest</h2>
+    <section class="category__section category-latest" aria-labelledby="latest-title">
+  <h2 id="latest-title" class="category__title">Latest</h2>
 
-  <ul class="lt__list">
+  <ul class="category__list">
     
-    <li class="lt__item">
-      <a class="lt__link" href="/posts/dev-test">
-        <span class="lt__name">Markdown 테스트 - </span>
-        <time class="lt__date" datetime="2022-01-11T00:00:00+00:00">Jan 11, 2022</time>
+    <li class="category-latest__item">
+      <a class="category__link" href="/posts/dev-test">
+        <span class="category__name">Markdown 테스트 - </span>
+        <time class="category__meta" datetime="2022-01-11T00:00:00+00:00">Jan 11, 2022</time>
       </a>
     </li>
     
   </ul>
 </section>
-    <section class="cat__section arc" aria-labelledby="arc-title">
-  <h2 id="arc-title" class="arc__title">Archive</h2>
+
+<section class="category__section category-archive" aria-labelledby="archive-title">
+  <h2 id="archive-title" class="category__title">Archive</h2>
 
   
-  <ul class="arc__year-list">
+  <ul class="category__list category-archive__year-list">
     
-    <li class="arc__year-item">
-      <details class="arc__year-details">
-        <summary class="arc__year-summary">
-          <span class="arc__year">2022 - </span>
-          <span class="arc__count">1</span>
+    <li class="category-archive__year-item">
+      <details class="category-archive__year-details">
+        <summary class="category-archive__year-summary">
+          <span class="category-archive__year">2022 - </span>
+          <span class="category__meta">1</span>
         </summary>
 
         
-        <ul class="arc__month-list">
+        <ul class="category__list category-archive__month-list">
           
-          <li class="arc__month-item">
-            <details class="arc__month-details">
-              <summary class="arc__month-summary">
-                <span class="arc__month">Jan - </span>
-                <span class="arc__count">1</span>
+          <li class="category-archive__month-item">
+            <details class="category-archive__month-details">
+              <summary class="category-archive__month-summary">
+                <span class="category-archive__month">Jan - </span>
+                <span class="category__meta">1</span>
               </summary>
 
-              <ul class="arc__post-list">
+              <ul class="category__list category-archive__post-list">
                 
-                <li class="arc__post-item">
-                  <a class="arc__post-link" href="/posts/dev-test">
-                    <span class="arc__post-title">Markdown 테스트 - </span>
-                    <time class="arc__post-date" datetime="2022-01-11T00:00:00+00:00">Jan 11</time>
+                <li class="category-archive__post-item">
+                  <a class="category__link" href="/posts/dev-test">
+                    <span class="category__name">Markdown 테스트 - </span>
+                    <time class="category__meta" datetime="2022-01-11T00:00:00+00:00">Jan 11</time>
                   </a>
                 </li>
                 

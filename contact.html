@@ -64,7 +64,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/dark/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1774932732">
 
   <!-- color mode btn script -->
   <script>
@@ -97,12 +97,18 @@
 <body>
   <!-- site header with brand link -->
 <header class="header layout-container" aria-label="site header">
-  <div class="header__left">
-    <a class="header__brand" href="/">Laaatte</a>
-    <a class="header__link" href="/contact" >Contact</a>
+  <!-- header content -->
+  <div class="header__item">
+    <div class="header__left">
+      <a class="header__brand" href="/">Laaatte</a>
+      <a class="header__link" href="/contact" aria-current="page" >Contact</a>
+    </div>
+
+    <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
   </div>
 
-  <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+  <!-- header separator line -->
+  <div class="header__line"></div>
 </header>
 
 <!-- color__mode-btn script -->
