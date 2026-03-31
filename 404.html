@@ -50,7 +50,7 @@
   <meta name="twitter:title" content="Laaatte">
   <meta name="twitter:description" content="jekyll blog">
   <meta name="twitter:image" content="https://laaatte.github.io/assets/og-image.png">
-  
+
   <!-- favicon -->
   <!-- light mode -->
   <link rel="icon" href="/assets/favicon/light/favicon-light.svg" media="(prefers-color-scheme: light)">
@@ -63,9 +63,6 @@
   <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- nav toggle script -->
-  <script src="/assets/js/nav-toggle.js" defer></script>
-
   <!-- color mode btn script -->
   <script>
     (function () {
@@ -77,9 +74,6 @@
       } catch (e) { }
     })();
   </script>
-  
-  <!-- global posts.json loader loads once and provides a shared promise for all category scripts -->
-   <script src="/assets/js/posts-store.js" data-posts-url="/assets/data/posts.json" defer></script>
 
   <!-- google analytics include -->
   <!-- google analytics script loader -->
@@ -99,37 +93,14 @@
 
 <body>
   <!-- site header with brand link -->
-<header class="header">
-  <a class="nav__brand" href="/">Laaatte</a>
-</header>
-
-<!-- global navigation bar -->
-<nav class="nav layout-container" role="navigation" aria-label="site navigation">
-
-  <!-- mobile menu toggle button -->
-  <div class="nav__toggle">
-    <button type="button" id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
-  </div>
-
-  <!-- collapsible navigation panel -->
-  <div id="nav-collapse" class="nav__collapse">
-    <!-- navigation list -->
-    <ul class="nav__list">
-      
-        
-          <li><a class="nav__link" href="/tabs/category" >Category</a></li>
-        
-      
-        
-          <li><a class="nav__link" href="/tabs/contact" >Contact</a></li>
-        
-      
-    </ul>
+<header class="header layout-container" aria-label="site header">
+  <div class="header__left">
+    <a class="header__brand" href="/">Laaatte</a>
+    <a class="header__link" href="/contact/" >Contact</a>
   </div>
 
   <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
-
-</nav>
+</header>
 
 <!-- color__mode-btn script -->
 <script src="/assets/js/color-mode-btn.js" defer></script>

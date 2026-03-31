@@ -53,7 +53,7 @@
   <meta name="twitter:description" content="
 ">
   <meta name="twitter:image" content="https://laaatte.github.io/assets/og-image.png">
-  
+
   <!-- favicon -->
   <!-- light mode -->
   <link rel="icon" href="/assets/favicon/light/favicon-light.svg" media="(prefers-color-scheme: light)">
@@ -66,9 +66,6 @@
   <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- nav toggle script -->
-  <script src="/assets/js/nav-toggle.js" defer></script>
-
   <!-- color mode btn script -->
   <script>
     (function () {
@@ -80,9 +77,6 @@
       } catch (e) { }
     })();
   </script>
-  
-  <!-- global posts.json loader loads once and provides a shared promise for all category scripts -->
-   <script src="/assets/js/posts-store.js" data-posts-url="/assets/data/posts.json" defer></script>
 
   <!-- google analytics include -->
   <!-- google analytics script loader -->
@@ -102,37 +96,14 @@
 
 <body>
   <!-- site header with brand link -->
-<header class="header">
-  <a class="nav__brand" href="/">Laaatte</a>
-</header>
-
-<!-- global navigation bar -->
-<nav class="nav layout-container" role="navigation" aria-label="site navigation">
-
-  <!-- mobile menu toggle button -->
-  <div class="nav__toggle">
-    <button type="button" id="dropDownMenuOpen" class="nav__toggle-btn" aria-controls="nav-collapse" aria-expanded="false" aria-label="toggle navigation menu">Menu</button>
-  </div>
-
-  <!-- collapsible navigation panel -->
-  <div id="nav-collapse" class="nav__collapse">
-    <!-- navigation list -->
-    <ul class="nav__list">
-      
-        
-          <li><a class="nav__link" href="/tabs/category" >Category</a></li>
-        
-      
-        
-          <li><a class="nav__link" href="/tabs/contact" >Contact</a></li>
-        
-      
-    </ul>
+<header class="header layout-container" aria-label="site header">
+  <div class="header__left">
+    <a class="header__brand" href="/">Laaatte</a>
+    <a class="header__link" href="/contact/" >Contact</a>
   </div>
 
   <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
-
-</nav>
+</header>
 
 <!-- color__mode-btn script -->
 <script src="/assets/js/color-mode-btn.js" defer></script>
@@ -144,7 +115,7 @@
     <!-- back button for post pages -->
     <a class="article__back-link" href="javascript:history.back()">← Back</a>
     <!-- post title heading -->
-    <h1 class="article__header">Post</h1>
+    <h1 class="article__title">Post</h1>
   
 
   <!-- main article content -->
@@ -152,38 +123,11 @@
     
 
 
-<!-- search input for category posts -->
-<div id="category-search-wrapper" class="search is-hidden">
-  <label for="category-search" class="visually-hidden">search posts in Post</label>
-  <input id="category-search" type="text" class="search__input" placeholder="search Post..." autocomplete="off">
+<div class="cat">
+  
+    <p class="cat__empty">No posts found.</p>
+  
 </div>
-
-<!--
-  post list container
-  - populated dynamically by category/init.js
-  - uses posts.json for data source
-  - filtered by data-category attribute
-  - supports client-side search and pagination
--->
-<ul id="post-list" class="post-list js-dependent" data-category="Post"></ul>
-
-<!-- no results message -->
-<p id="search__no-results" class="search__no-results is-hidden" aria-live="polite">No results found.</p>
-
-<!-- pagination navigation -->
-<div class="pagination" role="navigation" aria-label="pagination">
-  <!-- prev button -->
-  <button type="button" id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
-  <!-- page numbers injected by js -->
-  <div id="page-numbers" class="pagination__numbers"></div>
-  <!-- next button -->
-  <button type="button" id="next" class="pagination__btn" aria-label="go to next page">Next</button>
-</div>
-
-<!-- category page entry and feature modules -->
-<script src="/assets/js/category/pagination.js" defer></script>
-<script src="/assets/js/category/search.js" defer></script>
-<script src="/assets/js/category/init.js" defer></script>
   </section>
 
 </article>
