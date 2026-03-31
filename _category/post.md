@@ -1,4 +1,7 @@
 ---
 title: Post
-page_type: category, post
+cat_key: post
+page_type:
+    - category
+    - post
 ---

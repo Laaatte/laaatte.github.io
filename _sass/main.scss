@@ -11,7 +11,7 @@
   --------------------------------------------------
   global page structure and major layout blocks
   ================================================== */
-@use "layout/nav";
+@use "layout/header";
 @use "layout/footer";
 @use "layout/home";
 
@@ -23,7 +23,6 @@
   ================================================== */
 @use "components/article";
 @use "components/category";
-@use "components/post";
 
 /* ==================================================
   syntax highlighting

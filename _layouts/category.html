@@ -1,38 +1,14 @@
 ---
 layout: page
 ---
-{% assign category_name = page.title %}
-{% assign category_posts = site.categories[category_name] %}
+{% assign cat_key = page.cat_key %}
+{% assign cat_posts = site.categories[cat_key] | default: empty %}
 
-<!-- search input for category posts -->
-<div id="category-search-wrapper" class="search is-hidden">
-  <label for="category-search" class="visually-hidden">search posts in {{ category_name }}</label>
-  <input id="category-search" type="text" class="search__input" placeholder="search {{ category_name }}..." autocomplete="off">
+<div class="cat">
+  {% if cat_posts.size > 0 %}
+    {% include cat-lt.html posts=cat_posts %}
+    {% include cat-arc.html posts=cat_posts %}
+  {% else %}
+    <p class="cat__empty">No posts found.</p>
+  {% endif %}
 </div>
-
-<!--
-  post list container
-  - populated dynamically by category/init.js
-  - uses posts.json for data source
-  - filtered by data-category attribute
-  - supports client-side search and pagination
--->
-<ul id="post-list" class="post-list js-dependent" data-category="{{ category_name }}"></ul>
-
-<!-- no results message -->
-<p id="search__no-results" class="search__no-results is-hidden" aria-live="polite">No results found.</p>
-
-<!-- pagination navigation -->
-<div class="pagination" role="navigation" aria-label="pagination">
-  <!-- prev button -->
-  <button type="button" id="prev" class="pagination__btn" aria-label="go to previous page">Prev</button>
-  <!-- page numbers injected by js -->
-  <div id="page-numbers" class="pagination__numbers"></div>
-  <!-- next button -->
-  <button type="button" id="next" class="pagination__btn" aria-label="go to next page">Next</button>
-</div>
-
-<!-- category page entry and feature modules -->
-<script src="{{ '/assets/js/category/pagination.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/category/search.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/category/init.js' | relative_url }}" defer></script>

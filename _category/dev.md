@@ -1,4 +1,7 @@
 ---
 title: Dev
-page_type: category, post
+cat_key: dev
+page_type:
+    - category
+    - post
 ---

@@ -1,24 +1,32 @@
 ---
 layout: page
 ---
-<!-- section group -->
-<section>
+<!-- about -->
+<div class="about" aria-labelledby="about-ko-title">
+  <h2 id="about-ko-title" class="about__title">About</h2>
+  <p class="about__text">어째서 라아아아떼인가? 그것은 마아아앗있기 때문이다.</p>
+</div>
 
-  <!-- about section -->
-  <section class="about" aria-labelledby="about-ko-title">
-    <h2 id="about-ko-title" class="about__title">소개</h2>
-    <p class="about__text">어째서 라아아아떼인가? 그것은 마아아앗있기 때문이다.</p>
-  </section>
+<!-- archive -->
+<div class="archive" aria-labelledby="archive-title">
+  <h2 id="archive-title" class="archive__title">Archive</h2>
 
-  <!-- tech stack section -->
-  <section class="tech-stack" aria-labelledby="stack-ko-title">
-    <h2 id="stack-ko-title" class="tech-stack__title">사용한 것들</h2>
-    <ul class="tech-stack__list">
-      <li class="tech-stack__item">정적 사이트 생성기 Jekyll</li>
-      <li class="tech-stack__item">무료 호스팅 GitHub Pages</li>
-      <li class="tech-stack__item">페이지네이션, 검색 기능 JavaScript</li>
-      <li class="tech-stack__item">jekyll-pagination대신 posts.json을 생성하는 Ruby</li>
-    </ul>
-  </section>
+  <ul class="archive__list">
+    {% assign sorted_category = site.category | sort: "title" %}
 
-</section>
+    {% for cat_page in sorted_category %}
+    {% assign posts_in_category = site.categories[cat_page.cat_key] | default: empty %}
+    {% assign post_count = posts_in_category | size %}
+
+      {% if cat_page.page_type contains "category" and post_count > 0 %}
+      <li class="archive__item">
+        <a class="archive__link" href="{{ cat_page.url | relative_url }}" data-category="{{ cat_page.cat_key }}">
+          <span class="archive__name">{{ cat_page.title }}</span>
+          <span class="archive__count">{{ post_count }}</span>
+        </a>
+      </li>
+      {% endif %}
+      
+    {% endfor %}
+  </ul>
+</div>

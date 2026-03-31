@@ -1,0 +1,12 @@
+<!-- site header with brand link -->
+<header class="header layout-container" aria-label="site header">
+  <div class="header__left">
+    <a class="header__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="header__link" href="{{ '/contact/' | relative_url }}" {% if page.url=='/contact/' %}aria-current="page" {% endif %}>Contact</a>
+  </div>
+
+  <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+</header>
+
+<!-- color__mode-btn script -->
+<script src="{{ '/assets/js/color-mode-btn.js' | relative_url }}" defer></script>

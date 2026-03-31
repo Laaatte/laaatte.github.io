@@ -33,9 +33,9 @@ kramdown:
 # url structure
 permalink: /:title
 
-# collections (tabs, categories)
+# collections (info, categories)
 collections:
-  tabs:
+  info:
     output: true
     sort_by: order
   category:
@@ -51,10 +51,10 @@ defaults:
       page_type: post
 
   - scope:
-      type: tabs
+      type: info
     values:
       layout: page
-      permalink: /:collection/:name
+      permalink: /:name
 
   - scope:
       type: category

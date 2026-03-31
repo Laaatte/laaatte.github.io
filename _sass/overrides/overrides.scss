@@ -8,19 +8,3 @@
   outline: 0.125rem solid var(--color-link);
   outline-offset: 0.19rem;
 }
-
-/* a11y exception: suppress focus indicator on search input */
-.search__input:focus-visible {
-  outline: none;
-  outline-offset: 0;
-}
-
-/* utility: force element to be visually hidden */
-.is-hidden {
-  display: none;
-}
-
-/* hide js-dependent content until ready */
-.js-dependent {
-  visibility: hidden;
-}
