@@ -4,10 +4,12 @@ layout: default
 <article class="article layout-container">
 
   {% if page.title != null and page.page_type contains "post" %}
+  <div class="article__item">
     <!-- back button for post pages -->
-    <a class="article__back-link" href="{{ page.back_url | default: 'javascript:history.back()' }}">← Back</a>
+    <a class="article__back-link" href="{{ page.back_url | default: 'javascript:history.back()' }}">←</a>
     <!-- post title heading -->
     <h1 class="article__title">{{ page.title }}</h1>
+  </div>
   {% endif %}
 
   <!-- main article content -->

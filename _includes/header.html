@@ -1,11 +1,17 @@
 <!-- site header with brand link -->
 <header class="header layout-container" aria-label="site header">
-  <div class="header__left">
-    <a class="header__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <a class="header__link" href="{{ '/contact' | relative_url }}" {% if page.url=='/contact/' %}aria-current="page" {% endif %}>Contact</a>
+  <!-- header content -->
+  <div class="header__item">
+    <div class="header__left">
+      <a class="header__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="header__link" href="{{ '/contact' | relative_url }}" {% if page.url=='/contact' %}aria-current="page" {% endif %}>Contact</a>
+    </div>
+
+    <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
   </div>
 
-  <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
+  <!-- header separator line -->
+  <div class="header__line"></div>
 </header>
 
 <!-- color__mode-btn script -->

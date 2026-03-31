@@ -1,0 +1,57 @@
+<section class="category__section category-latest" aria-labelledby="latest-title">
+  <h2 id="latest-title" class="category__title">Latest</h2>
+
+  <ul class="category__list">
+    {% for post in include.posts limit: 5 %}
+    <li class="category-latest__item">
+      <a class="category__link" href="{{ post.url | relative_url }}">
+        <span class="category__name">{{ post.title }} - </span>
+        <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="category__section category-archive" aria-labelledby="archive-title">
+  <h2 id="archive-title" class="category__title">Archive</h2>
+
+  {% assign posts_by_year = include.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  <ul class="category__list category-archive__year-list">
+    {% for year_group in posts_by_year %}
+    <li class="category-archive__year-item">
+      <details class="category-archive__year-details">
+        <summary class="category-archive__year-summary">
+          <span class="category-archive__year">{{ year_group.name }} - </span>
+          <span class="category__meta">{{ year_group.items | size }}</span>
+        </summary>
+
+        {% assign posts_by_month = year_group.items | group_by_exp: "post", "post.date | date: '%m'" %}
+        <ul class="category__list category-archive__month-list">
+          {% for month_group in posts_by_month %}
+          <li class="category-archive__month-item">
+            <details class="category-archive__month-details">
+              <summary class="category-archive__month-summary">
+                <span class="category-archive__month">{{ month_group.items[0].date | date: "%b" }} - </span>
+                <span class="category__meta">{{ month_group.items | size }}</span>
+              </summary>
+
+              <ul class="category__list category-archive__post-list">
+                {% for post in month_group.items %}
+                <li class="category-archive__post-item">
+                  <a class="category__link" href="{{ post.url | relative_url }}">
+                    <span class="category__name">{{ post.title }} - </span>
+                    <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

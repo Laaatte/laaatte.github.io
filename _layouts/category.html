@@ -1,14 +1,13 @@
 ---
 layout: page
 ---
-{% assign cat_key = page.cat_key %}
-{% assign cat_posts = site.categories[cat_key] | default: empty %}
+{% assign category_key = page.category_key %}
+{% assign category_posts = site.categories[category_key] | default: empty %}
 
-<div class="cat">
-  {% if cat_posts.size > 0 %}
-    {% include cat-lt.html posts=cat_posts %}
-    {% include cat-arc.html posts=cat_posts %}
+<div class="category">
+  {% if category_posts.size > 0 %}
+    {% include category-content.html posts=category_posts %}
   {% else %}
-    <p class="cat__empty">No posts found.</p>
+    <p class="category__empty">No posts found.</p>
   {% endif %}
 </div>
