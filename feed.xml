@@ -4,21 +4,43 @@
 
     <title>Laaatte</title>
     <link>https://laaatte.github.io</link>
-    <description>jekyll blog</description>
+    <description>GitHub Blog</description>
 
     <atom:link href="https://laaatte.github.io/feed.xml" rel="self" type="application/rss+xml" />
 
     <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
 
-    <pubDate>2026-03-31T04:52:12+00:00</pubDate>
-    <lastBuildDate>2026-03-31T04:52:12+00:00</lastBuildDate>
+    <pubDate>2026-04-05T01:16:15+00:00</pubDate>
+    <lastBuildDate>2026-04-05T01:16:15+00:00</lastBuildDate>
 
     
     <author>
-      <name></name>
+      <name>Laaatte</name>
       <url>https://github.com/Laaatte</url>
     </author>
 
+    
+      <item>
+
+        <title>카페 라떼</title>
+        <link>https://laaatte.github.io/posts/caffe-latte</link>
+        <guid isPermaLink="true">https://laaatte.github.io/posts/caffe-latte</guid>
+
+        <description>&lt;p&gt;맛있는 카페라떼&lt;/p&gt;
+</description>
+
+        <pubDate>2026-04-01T00:00:00+00:00</pubDate>
+        <lastBuildDate>2026-04-01T00:00:00+00:00</lastBuildDate>
+
+        
+          <author>Laaatte</author>
+        
+
+        
+          <category>lattecolection</category>
+        
+
+      </item>
     
       <item>
 
@@ -164,9 +186,7 @@
         <lastBuildDate>2022-01-11T00:00:00+00:00</lastBuildDate>
 
         
-          
-            <author>Laaatte</author>
-          
+          <author>Laaatte</author>
         
 
         
