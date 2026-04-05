@@ -6,8 +6,8 @@
     {% for post in latest_posts limit: 5 %}
     <li class="category-latest__item">
       <a class="category__link" href="{{ post.url | relative_url }}">
-        <span class="category__name">{{ post.title }} - </span>
-        <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <span class="category__name">{{ post.title }} · </span>
+        <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       </a>
     </li>
     {% endfor %}
@@ -23,8 +23,8 @@
     <li class="category-archive__year-item">
       <details class="category-archive__year-details">
         <summary class="category-archive__year-summary">
-          <span class="category-archive__year">{{ year_group.name }} - </span>
-          <span class="category__meta">{{ year_group.items | size }}</span>
+          <span class="category-archive__year">{{ year_group.name }}</span>
+          <span class="category__meta">({{ year_group.items | size }})</span>
         </summary>
 
         {% assign posts_by_month = year_group.items | group_by_exp: "post", "post.date | date: '%m'" %}
@@ -33,16 +33,16 @@
           <li class="category-archive__month-item">
             <details class="category-archive__month-details">
               <summary class="category-archive__month-summary">
-                <span class="category-archive__month">{{ month_group.items[0].date | date: "%b" }} - </span>
-                <span class="category__meta">{{ month_group.items | size }}</span>
+                <span class="category-archive__month">{{ month_group.items[0].date | date: "%m" }}</span>
+                <span class="category__meta">({{ month_group.items | size }})</span>
               </summary>
 
               <ul class="category__list category-archive__post-list">
                 {% for post in month_group.items %}
                 <li class="category-archive__post-item">
                   <a class="category__link" href="{{ post.url | relative_url }}">
-                    <span class="category__name">{{ post.title }} - </span>
-                    <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
+                    <span class="category__name">{{ post.title }} · </span>
+                    <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d" }}</time>
                   </a>
                 </li>
                 {% endfor %}

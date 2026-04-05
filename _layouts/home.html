@@ -22,7 +22,7 @@ layout: page
       <li class="archive__item">
         <a class="archive__link" href="{{ category_page.url | relative_url }}">
           <span class="archive__name">{{ category_page.title }}</span>
-          <span class="archive__count">{{ post_count }}</span>
+          <span class="archive__count">({{ post_count }})</span>
         </a>
       </li>
       {% endif %}
