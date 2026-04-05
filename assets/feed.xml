@@ -19,7 +19,7 @@ permalink: /feed.xml
 
     {% assign author_data = site.data.author-data %}
     <author>
-      <name>{{ author_data.name_en | xml_escape }}</name>
+      <name>{{ author_data.github_username | xml_escape }}</name>
       <url>{{ author_data.github_link | xml_escape }}</url>
     </author>
 
@@ -36,9 +36,7 @@ permalink: /feed.xml
         <lastBuildDate>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastBuildDate>
 
         {% if post.author %}
-          {% for name in post.author %}
-            <author>{{ name | xml_escape }}</author>
-          {% endfor %}
+          <author>{{ post.author | xml_escape }}</author>
         {% endif %}
 
         {% for category in post.categories %}

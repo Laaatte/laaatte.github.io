@@ -22,7 +22,6 @@
   &__brand {
     color: var(--color-text);
     font-size: 2rem;
-    padding: 0.25rem 0;
     text-decoration: none;
     font-weight: 500;
   }
@@ -67,7 +66,7 @@
 }
 
 /* mobile layout */
-@media (max-width: 480px) {
+@media (max-width: 540px) {
   .header {
     &__item {
       flex-direction: column;
@@ -85,6 +84,7 @@
     &__brand,
     &__link {
       text-align: center;
+      margin-bottom: 0.1rem;
     }
   }
 

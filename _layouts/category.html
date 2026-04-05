@@ -1,13 +1,12 @@
 ---
 layout: page
 ---
-{% assign category_key = page.category_key %}
-{% assign category_posts = site.categories[category_key] | default: empty %}
+{% assign category_posts = site.categories[page.category_key] | default: empty %}
 
 <div class="category">
   {% if category_posts.size > 0 %}
     {% include category-content.html posts=category_posts %}
   {% else %}
-    <p class="category__empty">No posts found.</p>
+    <p>No posts found.</p>
   {% endif %}
 </div>

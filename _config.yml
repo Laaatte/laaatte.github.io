@@ -4,12 +4,12 @@
 # site info
 url: https://laaatte.github.io
 title: Laaatte
-description: jekyll blog
+description: GitHub Blog
 lang: ko
 timezone: asia/seoul
 
 # open graph
-og_type: website
+og_type: Website
 og_locale: ko_kr
 og_image: /assets/og-image.png
 
@@ -48,7 +48,7 @@ defaults:
     values:
       layout: page
       permalink: /:collection/:title
-      page_type: post
+      show_article_header: true
 
   - scope:
       type: info
@@ -61,3 +61,4 @@ defaults:
     values:
       layout: category
       permalink: /:collection/:name
+      show_article_header: true

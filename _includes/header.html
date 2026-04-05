@@ -4,7 +4,7 @@
   <div class="header__item">
     <div class="header__left">
       <a class="header__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <a class="header__link" href="{{ '/contact' | relative_url }}" {% if page.url=='/contact' %}aria-current="page" {% endif %}>Contact</a>
+      <a class="header__link" href="{{ '/contact' | relative_url }}" {% if page.url == '/contact' %}aria-current="page"{% endif %}>Contact</a>
     </div>
 
     <button type="button" class="color__mode-btn" aria-label="toggle color mode" aria-pressed="false"></button>
