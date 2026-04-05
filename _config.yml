@@ -8,6 +8,9 @@ description: GitHub Blog
 lang: ko
 timezone: asia/seoul
 
+# assets version (css, favicon)
+assets_version: 2604051
+
 # open graph
 og_type: Website
 og_locale: ko_kr

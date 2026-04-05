@@ -52,10 +52,10 @@
   <meta name="twitter:image" content="{{ page.og_image | default: site.og_image | absolute_url }}">
 
   <!-- favicon -->
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon/favicon.svg' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon/favicon.svg' | relative_url }}?v={{ site.assets_version }}">
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.github.build_revision | default: site.time }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.assets_version }}">
 
   <!-- color mode btn script -->
   <script>
