@@ -1,0 +1,64 @@
+.gacha {
+  &__title {
+    margin-bottom: 1.75rem;
+
+    h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      color: var(--color-text);
+    }
+
+    p {
+      margin: 0.4rem 0;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+  }
+
+  &__action {
+    margin-bottom: 1.5rem;
+  }
+
+  &__action_btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 0.12rem solid var(--color-text);
+    background: transparent;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--mode-btn-light);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__item {
+    min-height: 5.5rem;
+    padding: 1.25rem 1rem;
+    border: 0.12rem solid var(--footer-line);
+    background: var(--color-bg);
+  }
+
+  &__result {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--footer-text);
+  }
+}

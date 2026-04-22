@@ -1,0 +1,15 @@
+- name: 라떼(우유)
+  slug: latte-milk
+  description: 근본 그자체
+
+- name: 카페 라떼
+  slug: caffe-latte
+  description: 쌉쌀하고 부드러운 맛
+
+- name: 바닐라 라떼
+  slug: vanilla-latte
+  description: 달달한 라떼
+
+- name: 수정과 라떼
+  slug: sujeonggwa-latte
+  description: 맛있는거 + 맛있는거

@@ -19,10 +19,10 @@
   components
   --------------------------------------------------
   self-contained ui components
-  no global overrides allowed here
   ================================================== */
 @use "components/article";
 @use "components/category";
+@use "components/lattegacha";
 
 /* ==================================================
   syntax highlighting
