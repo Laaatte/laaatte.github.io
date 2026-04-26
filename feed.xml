@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Laaatte</title>
-    <link>https://laaatte.github.io/</link>
+    <link>https://laaatte.com/</link>
     <description>GitHub Blog</description>
-    <atom:link href="https://laaatte.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://laaatte.com/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Jekyll</generator>
-    <lastBuildDate>2026-04-26T04:39:06+00:00</lastBuildDate>
+    <lastBuildDate>2026-04-26T06:53:15+00:00</lastBuildDate>
     
   
   <item>
     <title>카페 라떼</title>
-    <link>https://laaatte.github.io/posts/caffe-latte</link>
-    <guid isPermaLink="true">https://laaatte.github.io/posts/caffe-latte</guid>
+    <link>https://laaatte.com/posts/caffe-latte</link>
+    <guid isPermaLink="true">https://laaatte.com/posts/caffe-latte</guid>
     <description>맛있는 카페라떼
 </description>
     <pubDate>2026-04-01T00:00:00+00:00</pubDate>
@@ -23,8 +23,8 @@
   
   <item>
     <title>Markdown 테스트</title>
-    <link>https://laaatte.github.io/posts/dev-test</link>
-    <guid isPermaLink="true">https://laaatte.github.io/posts/dev-test</guid>
+    <link>https://laaatte.com/posts/dev-test</link>
+    <guid isPermaLink="true">https://laaatte.com/posts/dev-test</guid>
     <description>
 
   마크다운 테스트

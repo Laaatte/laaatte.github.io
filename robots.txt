@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://laaatte.github.io/sitemap.xml
+Sitemap: https://laaatte.com/sitemap.xml
