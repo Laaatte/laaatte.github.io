@@ -1,48 +1,66 @@
 // use Math.random for simple gacha randomness (not cryptographically secure)
 // load latte data from json script
 const raw = document.getElementById("latte-data")?.textContent || "[]";
-const lattes = JSON.parse(raw);
+
+let lattes = [];
+try {
+  lattes = JSON.parse(raw);
+} catch (err) {
+  lattes = [];
+}
+
+// ensure lattes is always an array
+if (!Array.isArray(lattes)) {
+  lattes = [];
+}
 
 // cache dom elements for gacha ui
 const gachaBtn = document.querySelector(".gacha__action_btn");
 const gachaResult = document.querySelector(".gacha__result");
 const gachaDesc = document.querySelector(".gacha__desc");
 
+// manage spin configuration
+const initialDelay = 40;
+const delayStep = 10;
+const maxSpinCount = 20;
+
 // manage spin state and final result
-let gachaDelay = 40;
+let gachaDelay = initialDelay;
 let gachaCount = 0;
 let finalPick = null;
 
 // run spin animation with increasing delay
 function gachaSpin() {
   setTimeout(() => {
-    // pick random latte for spin display
     const spinIndex = Math.floor(Math.random() * lattes.length);
     const spinPick = lattes[spinIndex];
 
+    // update ui during spin
     gachaResult.classList.add("spinning");
     gachaResult.textContent = spinPick.name + " ...";
     gachaDesc.classList.add("spinning");
     gachaDesc.textContent = "고민 중 ...";
 
     // slow down spin over time
-    gachaDelay += 10;
+    gachaDelay += delayStep;
 
     // track spin iterations
     gachaCount += 1;
 
     // continue or finish spin
-    if (gachaCount < 20) {
+    if (gachaCount < maxSpinCount) {
       gachaSpin();
     } else {
-      // initialize after completion
+      // finalize result
       gachaResult.classList.remove("spinning");
       gachaResult.textContent = finalPick.name;
       gachaDesc.classList.remove("spinning");
       gachaDesc.textContent = finalPick.description;
       gachaBtn.textContent = "한번 더 뽑기";
       gachaBtn.disabled = false;
-      gachaDelay = 40;
+
+      // reset state
+      gachaDelay = initialDelay;
       gachaCount = 0;
     }
   }, gachaDelay);
@@ -51,7 +69,7 @@ function gachaSpin() {
 // handle click to start gacha flow
 gachaBtn.addEventListener("click", () => {
   // prevent execution if data is invalid or empty
-  if (!Array.isArray(lattes) || lattes.length === 0) {
+  if (lattes.length === 0) {
     gachaResult.textContent = "준비 중 ...";
     gachaDesc.textContent = "아직 라떼가 준비되지 않았습니다 ...";
     return;
@@ -61,7 +79,7 @@ gachaBtn.addEventListener("click", () => {
   gachaBtn.disabled = true;
 
   // reset spin state before starting
-  gachaDelay = 40;
+  gachaDelay = initialDelay;
   gachaCount = 0;
 
   // update button text during spin
