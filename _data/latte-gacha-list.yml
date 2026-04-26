@@ -13,3 +13,7 @@
 - name: 수정과 라떼
   slug: sujeonggwa-latte
   description: 맛있는거 + 맛있는거
+
+- name: 바나나 라떼
+  slug: banana-latte
+  description: 노랑맛

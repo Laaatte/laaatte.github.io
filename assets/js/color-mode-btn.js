@@ -1,17 +1,15 @@
 // assets/js/color-mode-btn.js
-(function () {
-  // key used to persist theme preference
-  const STORAGE_KEY = "theme";
+// key used to persist theme preference
+const STORAGE_KEY = "theme";
 
-  // root element where data-theme is applied
-  const root = document.documentElement;
+// root element where data-theme is applied
+const root = document.documentElement;
 
-  // color mode toggle button
-  const button = document.querySelector(".color__mode-btn");
+// color mode toggle button
+const colorModeButton = document.querySelector(".color__mode-btn");
 
-  // exit early if button does not exist
-  if (!button) return;
-
+// run only if button exists
+if (colorModeButton) {
   // safe storage helpers
   const safeGet = key => {
     try {
@@ -38,7 +36,7 @@
 
     root.setAttribute("data-theme", theme);
     safeSet(STORAGE_KEY, theme);
-    button.setAttribute("aria-pressed", String(isDark));
+    colorModeButton.setAttribute("aria-pressed", String(isDark));
   };
 
   // determine initial theme
@@ -61,7 +59,7 @@
   });
 
   // toggle theme on button click
-  button.addEventListener("click", () => {
+  colorModeButton.addEventListener("click", () => {
     applyTheme(root.getAttribute("data-theme") !== "dark");
   });
-})();
+}

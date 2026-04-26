@@ -1,7 +1,7 @@
 ---
 title: 카페 라떼
 desc: 카페 라떼
-category: lattecolection
+category: lattecollection
 author: Laaatte
 date: 2026-04-01
 ---

@@ -5,46 +5,24 @@ permalink: /feed.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-
     <title>{{ site.title | default: site.name | xml_escape }}</title>
-    <link>{{ site.url | xml_escape }}</link>
+    <link>{{ "/" | absolute_url | xml_escape }}</link>
     <description>{{ site.description | xml_escape }}</description>
-
     <atom:link href="{{ page.url | absolute_url | xml_escape }}" rel="self" type="application/rss+xml" />
-
-    <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
-
-    <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
+    <generator>Jekyll</generator>
     <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
-
-    {% assign author_data = site.data.author-data %}
-    <author>
-      <name>{{ author_data.github_username | xml_escape }}</name>
-      <url>{{ author_data.github_link | xml_escape }}</url>
-    </author>
-
-    {% for post in site.posts limit:10 %}
-      <item>
-
-        <title>{{ post.title | xml_escape }}</title>
-        <link>{{ post.url | absolute_url | xml_escape }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
-
-        <description>{{ post.content | xml_escape }}</description>
-
-        <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-        <lastBuildDate>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastBuildDate>
-
-        {% if post.author %}
-          <author>{{ post.author | xml_escape }}</author>
-        {% endif %}
-
-        {% for category in post.categories %}
-          <category>{{ category | xml_escape }}</category>
-        {% endfor %}
-
-      </item>
+    
+  {% for post in site.posts limit:10 %}
+  <item>
+    <title>{{ post.title | xml_escape }}</title>
+    <link>{{ post.url | absolute_url | xml_escape }}</link>
+    <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
+    <description>{{ post.excerpt | strip_html | xml_escape }}</description>
+    <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+    {% for category in post.categories %}
+      <category>{{ category | xml_escape }}</category>
     {% endfor %}
-
+  </item>
+  {% endfor %}
   </channel>
 </rss>

@@ -34,6 +34,10 @@
       background: var(--mode-btn-light);
     }
 
+    [data-theme="dark"] &:hover {
+      background: var(--mode-btn-dark);
+    }
+
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
