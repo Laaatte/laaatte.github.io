@@ -1,9 +1,20 @@
-# Laaatte
+# laaatte.com
 
-Personal blog built with Jekyll and GitHub Pages.  
-This site was created with the help of ChatGPT.
+라떼를 테마로 만든 개인 GitHub Pages 사이트입니다.
 
-This site follows web standards and is supported by modern browsers.  
-Some security and caching settings follow the default policies of the static hosting environment.
 
-MIT License
+## 사이트
+
+https://laaatte.com
+
+
+## 기능
+
+* Latte Gacha (랜덤 라떼 뽑기)
+
+
+## 기술
+
+* GitHub Pages
+* Jekyll
+* HTML / CSS / JavaScript

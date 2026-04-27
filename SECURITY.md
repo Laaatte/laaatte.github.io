@@ -1,15 +1,7 @@
-# Security Policy
+# 보안 정책
 
-## Supported Versions
+이 프로젝트는 개인 프로젝트입니다.
 
-This project is actively maintained on the latest version only.
+## 취약점 제보
 
-| Version | Supported |
-| ------- | --------- |
-| latest  | yes       |
-
-## Reporting a Vulnerability
-
-If you discover a potential security issue, please report it by opening an issue on GitHub.
-
-I will review reports as soon as possible and respond accordingly.
+문제가 발견되면 GitHub Issue로 알려주세요.
