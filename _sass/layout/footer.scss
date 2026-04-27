@@ -13,8 +13,6 @@
     text-align: center;
     font-size: 0.8rem;
     padding: 0.8rem;
-    line-height: 1.4;
-    letter-spacing: 0.02rem;
 
     ul {
       columns: 1;
@@ -36,7 +34,7 @@
 @media (min-width: 540px) {
   .footer__item {
     ul {
-      columns: 3;
+      columns: 2;
     }
   }
 }

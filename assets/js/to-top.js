@@ -9,7 +9,7 @@ if (toTopButton) {
     const windowHeight = window.innerHeight;
     const fullHeight = document.body.offsetHeight;
 
-    if (scrollTop + windowHeight > fullHeight - 120) {
+    if (scrollTop + windowHeight > fullHeight - 200) {
       toTopButton.classList.add("show");
     } else {
       toTopButton.classList.remove("show");
