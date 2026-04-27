@@ -5,7 +5,7 @@
 
 ## 사이트
 
-__[Laaatte.com](https://laaatte.com){:target="_blank"}__
+[Laaatte.com](https://laaatte.com)
 
 
 ## 기능
