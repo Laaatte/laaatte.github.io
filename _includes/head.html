@@ -7,7 +7,7 @@
 
   <!-- seo meta description -->
   {% assign meta_desc = page.desc | default: page.description | default: site.description %}
-  {% assign meta_desc = meta_desc | strip_html | strip_newlines | truncate: 150 %}
+  {% assign meta_desc = meta_desc | strip_html | strip_newlines | strip | truncate: 150 %}
   <meta name="description" content="{{ meta_desc }}">
 
   <!-- privacy and security meta -->

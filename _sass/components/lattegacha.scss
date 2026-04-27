@@ -1,23 +1,10 @@
 .gacha {
   &__title {
-    margin-bottom: 1.75rem;
-
-    h3 {
-      margin-bottom: 0.75rem;
-      font-size: 1.4rem;
-      line-height: 1.4;
-      color: var(--color-text);
-    }
-
-    p {
-      margin: 0.4rem 0;
-      line-height: 1.7;
-      color: var(--color-text);
-    }
+    margin-bottom: 1.6rem;
   }
 
   &__action {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
   }
 
   &__action_btn {
