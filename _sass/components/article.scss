@@ -49,3 +49,29 @@
     }
   }
 }
+
+.to-top {
+  display: none;
+  margin: 2rem auto 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 35%;
+  border: none;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+
+  &.show {
+    display: block;
+    opacity: 0.6;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

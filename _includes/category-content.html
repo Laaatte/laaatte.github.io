@@ -1,10 +1,10 @@
-<section class="category__section category-latest" aria-labelledby="latest-title">
-  <h2 id="latest-title" class="category__title">Latest</h2>
+<section class="category__section category-recent" aria-labelledby="recent-title">
+  <h2 id="recent-title" class="category__title">Recent</h2>
 
   <ul class="category__list">
-    {% assign latest_posts = include.posts | sort: "date" | reverse %}
-    {% for post in latest_posts limit: 5 %}
-    <li class="category-latest__item">
+    {% assign recent_posts = include.posts | sort: "date" | reverse %}
+    {% for post in recent_posts limit: 5 %}
+    <li class="category-recent__item">
       <a class="category__link" href="{{ post.url | relative_url }}">
         <span class="category__name">{{ post.title }} · </span>
         <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>

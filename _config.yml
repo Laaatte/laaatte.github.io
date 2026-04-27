@@ -52,6 +52,7 @@ defaults:
       layout: page
       permalink: /:collection/:title
       show_article_header: true
+      show_to_top: true
 
   - scope:
       type: info

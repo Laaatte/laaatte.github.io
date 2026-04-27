@@ -9,6 +9,19 @@ layout: page
 
 <a class="archive__link" href="{{ '/lattegacha' | relative_url }}">- 라떼 가챠 -</a>
 
+<!-- recent -->
+<div class="recent">
+  <h2>Recent</h2>
+  
+  <ul>
+    {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
 <!-- archive -->
 <div class="archive" aria-labelledby="archive-title">
   <h2 id="archive-title" class="archive__title">Archive</h2>
@@ -20,15 +33,15 @@ layout: page
     {% assign posts_in_category = site.categories[category_page.category_key] | default: empty %}
     {% assign post_count = posts_in_category | size %}
 
-      {% if post_count > 0 %}
-      <li class="archive__item">
-        <a class="archive__link" href="{{ category_page.url | relative_url }}">
-          <span class="archive__name">{{ category_page.title }}</span>
-          <span class="archive__count">({{ post_count }})</span>
-        </a>
-      </li>
-      {% endif %}
-      
+    {% if post_count > 0 %}
+    <li class="archive__item">
+      <a class="archive__link" href="{{ category_page.url | relative_url }}">
+        <span class="archive__name">{{ category_page.title }}</span>
+        <span class="archive__count">({{ post_count }})</span>
+      </a>
+    </li>
+    {% endif %}
+
     {% endfor %}
   </ul>
 </div>
