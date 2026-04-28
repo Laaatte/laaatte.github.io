@@ -6,7 +6,7 @@
     <description>GitHub Blog</description>
     <atom:link href="https://laaatte.com/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Jekyll</generator>
-    <lastBuildDate>2026-04-27T05:55:40+00:00</lastBuildDate>
+    <lastBuildDate>2026-04-28T04:39:02+00:00</lastBuildDate>
     
   
   <item>
@@ -17,7 +17,7 @@
 </description>
     <pubDate>2026-04-27T00:00:00+00:00</pubDate>
     
-      <category>dev</category>
+    <category>dev</category>
     
   </item>
   
@@ -29,7 +29,7 @@
 </description>
     <pubDate>2026-04-01T00:00:00+00:00</pubDate>
     
-      <category>lattecollection</category>
+    <category>lattecollection</category>
     
   </item>
   
@@ -44,7 +44,7 @@
 </description>
     <pubDate>2022-01-11T00:00:00+00:00</pubDate>
     
-      <category>dev</category>
+    <category>dev</category>
     
   </item>
   

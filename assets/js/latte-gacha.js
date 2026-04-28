@@ -15,7 +15,7 @@ if (!Array.isArray(lattes)) {
 }
 
 // cache dom elements for gacha ui
-const gachaBtn = document.querySelector(".gacha__action_btn");
+const gachaBtn = document.querySelector(".gacha__button");
 const gachaResult = document.querySelector(".gacha__result");
 const gachaDesc = document.querySelector(".gacha__desc");
 
@@ -36,9 +36,7 @@ function gachaSpin() {
     const spinPick = lattes[spinIndex];
 
     // update ui during spin
-    gachaResult.classList.add("spinning");
     gachaResult.textContent = spinPick.name + " ...";
-    gachaDesc.classList.add("spinning");
     gachaDesc.textContent = "고민 중 ...";
 
     // slow down spin over time
@@ -52,9 +50,7 @@ function gachaSpin() {
       gachaSpin();
     } else {
       // finalize result
-      gachaResult.classList.remove("spinning");
       gachaResult.textContent = finalPick.name;
-      gachaDesc.classList.remove("spinning");
       gachaDesc.textContent = finalPick.description;
       gachaBtn.textContent = "한번 더 뽑기";
       gachaBtn.disabled = false;
