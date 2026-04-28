@@ -1,6 +1,7 @@
 # laaatte.com
 
-라떼를 테마로 만든 개인 GitHub Pages 사이트입니다.
+라떼를 테마로 만든 개인 GitHub Pages 사이트입니다.  
+ChatGPT랑 같이 만들었습니다.
 
 
 ## 사이트
