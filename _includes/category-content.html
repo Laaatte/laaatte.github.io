@@ -1,48 +1,48 @@
-<section class="category__section category-recent" aria-labelledby="recent-title">
-  <h2 id="recent-title" class="category__title">Recent</h2>
+<section>
+  <h2>Recent</h2>
 
-  <ul class="category__list">
+  <ul>
     {% assign recent_posts = include.posts | sort: "date" | reverse %}
     {% for post in recent_posts limit: 5 %}
-    <li class="category-recent__item">
-      <a class="category__link" href="{{ post.url | relative_url }}">
-        <span class="category__name">{{ post.title }} · </span>
-        <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+    <li class="post-list__item">
+      <a class="text-link" href="{{ post.url | relative_url }}">
+        <span>{{ post.title }} · </span>
+        <time class="text-link__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       </a>
     </li>
     {% endfor %}
   </ul>
 </section>
 
-<section class="category__section category-archive" aria-labelledby="archive-title">
-  <h2 id="archive-title" class="category__title">Archive</h2>
+<section class="category-archive">
+  <h2>Archive</h2>
 
   {% assign posts_by_year = include.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-  <ul class="category__list category-archive__year-list">
+  <ul class="category-archive__year-list">
     {% for year_group in posts_by_year %}
     <li class="category-archive__year-item">
       <details class="category-archive__year-details">
         <summary class="category-archive__year-summary">
           <span class="category-archive__year">{{ year_group.name }}</span>
-          <span class="category__meta">({{ year_group.items | size }})</span>
+          <span class="text-link__meta">({{ year_group.items | size }})</span>
         </summary>
 
         {% assign posts_by_month = year_group.items | group_by_exp: "post", "post.date | date: '%m'" %}
-        <ul class="category__list category-archive__month-list">
+        <ul class="category-archive__month-list">
           {% for month_group in posts_by_month %}
           <li class="category-archive__month-item">
             <details class="category-archive__month-details">
               <summary class="category-archive__month-summary">
                 <span class="category-archive__month">{{ month_group.items[0].date | date: "%m" }}</span>
-                <span class="category__meta">({{ month_group.items | size }})</span>
+                <span class="text-link__meta">({{ month_group.items | size }})</span>
               </summary>
 
-              <ul class="category__list category-archive__post-list">
+              <ul class="category-archive__post-list">
                 {% for post in month_group.items %}
                 <li class="category-archive__post-item">
-                  <a class="category__link" href="{{ post.url | relative_url }}">
-                    <span class="category__name">{{ post.title }} · </span>
-                    <time class="category__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d" }}</time>
+                  <a class="text-link" href="{{ post.url | relative_url }}">
+                    <span>{{ post.title }} · </span>
+                    <time class="text-link__meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d" }}</time>
                   </a>
                 </li>
                 {% endfor %}

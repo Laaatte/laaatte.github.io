@@ -1,0 +1,25 @@
+.text-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.text-link__meta {
+  color: var(--color-text);
+  opacity: 0.65;
+  font-size: 0.9rem;
+}
+
+/* post list item */
+.post-list {
+  &__item+&__item {
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+  }
+}

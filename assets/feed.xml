@@ -20,7 +20,7 @@ permalink: /feed.xml
     <description>{{ post.excerpt | strip_html | xml_escape }}</description>
     <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
     {% for category in post.categories %}
-      <category>{{ category | xml_escape }}</category>
+    <category>{{ category | xml_escape }}</category>
     {% endfor %}
   </item>
   {% endfor %}

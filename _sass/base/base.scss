@@ -1,0 +1,81 @@
+/* typography and rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(141, 141, 144, 0.22) transparent;
+
+  /* scrollbar webkit */
+  &::-webkit-scrollbar {
+    width: 0.38rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(141, 141, 144, 0.22);
+    border-radius: 0.2rem;
+
+    &:hover {
+      background: rgba(141, 141, 144, 0.34);
+    }
+  }
+}
+
+/* layout reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* base */
+body {
+  margin: 5% auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* form inherit fix */
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* elements */
+img {
+  margin: 1.2rem 0;
+  max-width: 90%;
+  height: auto;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 1.6rem;
+}
+
+h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

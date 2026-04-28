@@ -28,9 +28,9 @@
   <!-- page title -->
   <title>
     {% if page.title != null %}
-      {{ page.title }} | {{ site.title }}
+    {{ page.title }} | {{ site.title }}
     {% else %}
-      {{ site.title }}
+    {{ site.title }}
     {% endif %}
   </title>
 
@@ -71,6 +71,6 @@
 
   <!-- google analytics include -->
   {% if site.google_analytics %}
-   {% include google-analytics.html %}
+  {% include google-analytics.html %}
   {% endif %}
 </head>

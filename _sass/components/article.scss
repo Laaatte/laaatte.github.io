@@ -17,7 +17,6 @@
     font-weight: 500;
     color: var(--color-text);
     opacity: 0.5;
-    text-decoration: none;
     transition: opacity 0.2s ease;
 
     &:hover {
@@ -36,9 +35,13 @@
 
   &__content {
     font-size: 1.02rem;
-    line-height: 1.75;
     word-break: keep-all;
     overflow-wrap: anywhere;
+
+    h2 {
+      margin-top: 1.6rem;
+      margin-bottom: 1rem;
+    }
 
     a {
       transition: opacity 0.2s ease;

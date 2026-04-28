@@ -5,21 +5,23 @@
   must be loaded first
   ================================================== */
 @use "base/root";
+@use "base/base";
 
 /* ==================================================
   layout
   --------------------------------------------------
   global page structure and major layout blocks
   ================================================== */
+@use "layout/container";
 @use "layout/header";
 @use "layout/footer";
-@use "layout/home";
 
 /* ==================================================
   components
   --------------------------------------------------
   self-contained ui components
   ================================================== */
+@use "components/common";
 @use "components/article";
 @use "components/category";
 @use "components/lattegacha";
