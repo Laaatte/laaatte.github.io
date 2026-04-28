@@ -1,12 +1,17 @@
+/* gacha component */
 .gacha {
+
+  /* section title spacing */
   &__title {
     margin-bottom: 1.6rem;
   }
 
+  /* action area (button wrapper) */
   &__action {
     margin-bottom: 1.4rem;
   }
 
+  /* primary action button */
   &__button {
     display: inline-block;
     padding: 0.4rem 1rem;
@@ -21,16 +26,19 @@
       background: var(--mode-btn-light);
     }
 
+    /* dark mode hover override */
     [data-theme="dark"] &:hover {
       background: var(--mode-btn-dark);
     }
 
+    /* disabled state */
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
   }
 
+  /* result container */
   &__item {
     min-height: 5.5rem;
     padding: 1.25rem 1rem;
@@ -38,6 +46,7 @@
     background: var(--color-bg);
   }
 
+  /* main result text */
   &__result {
     margin: 0 0 0.5rem;
     font-size: 1.25rem;
@@ -46,6 +55,7 @@
     color: var(--color-text);
   }
 
+  /* description text */
   &__desc {
     margin: 0;
     font-size: 1rem;

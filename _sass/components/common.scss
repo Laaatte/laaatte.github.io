@@ -1,3 +1,4 @@
+/* shared text link */
 .text-link {
   display: inline-flex;
   align-items: baseline;
@@ -10,16 +11,24 @@
   }
 }
 
+/* muted inline metadata */
 .text-link__meta {
   color: var(--color-text);
   opacity: 0.65;
   font-size: 0.9rem;
 }
 
-/* post list item */
+/* shared post list spacing */
 .post-list {
-  &__item+&__item {
+  &__item + &__item {
     margin-top: 0.2rem;
     margin-bottom: 0.4rem;
   }
+}
+
+/* unstyled list reset */
+.unstyled-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

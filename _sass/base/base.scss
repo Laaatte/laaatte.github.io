@@ -1,4 +1,4 @@
-/* typography and rendering */
+/* document rendering */
 html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -8,7 +8,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgba(141, 141, 144, 0.22) transparent;
 
-  /* scrollbar webkit */
+  /* custom scrollbar for webkit browsers */
   &::-webkit-scrollbar {
     width: 0.38rem;
   }
@@ -27,14 +27,14 @@ html {
   }
 }
 
-/* layout reset */
+/* global box sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* base */
+/* base page styles */
 body {
   margin: 5% auto;
   background: var(--color-bg);
@@ -45,37 +45,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* form inherit fix */
+/* inherit font in form controls */
 button,
 input,
 textarea {
   font-family: inherit;
 }
 
-/* elements */
+/* responsive media */
 img {
   margin: 1.2rem 0;
   max-width: 90%;
   height: auto;
 }
 
+/* default links */
 a {
   color: var(--color-link);
   text-decoration: none;
 }
 
+/* base paragraphs */
 p {
   margin-bottom: 1.6rem;
 }
 
+/* base subheadings */
 h3 {
   margin-top: 1.8rem;
   margin-bottom: 0.8rem;
-}
-
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }

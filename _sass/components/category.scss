@@ -1,35 +1,25 @@
 /* archive */
-.category-archive {
+.archive {
+  /* hide default marker */
   summary {
     &::-webkit-details-marker {
       display: none;
     }
   }
 
-  &__year-item + &__year-item {
-    margin-top: 0.45rem;
-  }
-
-  &__month-item + &__month-item {
+  /* vertical spacing between items */
+  &__item + &__item {
     margin-top: 0.35rem;
   }
 
-  &__post-item + &__post-item {
-    margin-top: 0.3rem;
-  }
-
-  &__month-list {
-    margin-top: 0.45rem;
+  /* nested list spacing */
+  &__list &__list {
+    margin-top: 0.4rem;
     padding-left: 1rem;
   }
 
-  &__post-list {
-    margin-top: 0.35rem;
-    padding-left: 1rem;
-  }
-
-  &__year-summary,
-  &__month-summary {
+  /* summary (toggle row) */
+  &__summary {
     display: inline-flex;
     align-items: baseline;
     gap: 0.4rem;
@@ -48,12 +38,13 @@
     }
   }
 
-  &__year-details[open]>&__year-summary::before,
-  &__month-details[open]>&__month-summary::before {
+  /* open state */
+  &__details[open] > &__summary::before {
     content: "−";
     margin-right: 0.24rem;
   }
 
+  /* text styling */
   &__year {
     color: var(--color-text);
   }
