@@ -9,7 +9,7 @@ lang: ko
 timezone: asia/seoul
 
 # assets version (css, favicon)
-assets_version: 2604051
+assets_version: 260430
 
 # open graph
 og_type: Website

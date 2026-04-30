@@ -1,16 +1,20 @@
 // assets/js/color-mode-btn.js
-// key used to persist theme preference
+// key used to persist theme preference in localStorage
 const STORAGE_KEY = "theme";
 
-// root element where data-theme is applied
+// explicit theme values to avoid magic strings
+const DARK_THEME = "dark";
+const LIGHT_THEME = "light";
+
+// root element where data-theme attribute controls css variables
 const root = document.documentElement;
 
-// color mode toggle button
+// color mode toggle button (may not exist on all pages)
 const colorModeButton = document.querySelector(".color__mode-btn");
 
-// run only if button exists
+// run script only when toggle button exists
 if (colorModeButton) {
-  // safe storage helpers
+  // safely read from localStorage (handles private mode / disabled storage)
   const safeGet = key => {
     try {
       return localStorage.getItem(key);
@@ -19,6 +23,7 @@ if (colorModeButton) {
     }
   };
 
+  // safely write to localStorage (ignore quota/security errors)
   const safeSet = (key, value) => {
     try {
       localStorage.setItem(key, value);
@@ -27,39 +32,69 @@ if (colorModeButton) {
     }
   };
 
-  // check whether user already chose a theme
-  const hasStoredTheme = () => safeGet(STORAGE_KEY) !== null;
+  // return stored theme only if it is a valid value
+  // prevents unexpected values from breaking theme logic
+  const getStoredTheme = () => {
+    const stored = safeGet(STORAGE_KEY);
 
-  // apply theme state to dom, storage, and accessibility attributes
-  const applyTheme = isDark => {
-    const theme = isDark ? "dark" : "light";
+    if (stored === DARK_THEME || stored === LIGHT_THEME) {
+      return stored;
+    }
 
+    return null;
+  };
+
+  // apply theme to DOM and accessibility state
+  // optionally persist only when user explicitly toggles
+  const applyTheme = (theme, shouldSave = false) => {
+    const isDark = theme === DARK_THEME;
+
+    // update css theme via data attribute
     root.setAttribute("data-theme", theme);
-    safeSet(STORAGE_KEY, theme);
+
+    // reflect state for accessibility (toggle button pressed state)
     colorModeButton.setAttribute("aria-pressed", String(isDark));
+
+    // persist only on explicit user action (not on initial load/system sync)
+    if (shouldSave) {
+      safeSet(STORAGE_KEY, theme);
+    }
+  };
+
+  // detect system color scheme preference
+  const getSystemTheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? DARK_THEME : LIGHT_THEME;
   };
 
   // determine initial theme
-  // priority: localStorage > system preference
+  // priority: user preference (localStorage) > system preference
   const getInitialTheme = () => {
-    const stored = safeGet(STORAGE_KEY);
-    if (stored !== null) return stored === "dark";
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return getStoredTheme() ?? getSystemTheme();
   };
 
-  // sync initial theme state on page load
+  // apply initial theme without saving
+  // (so system preference can still be followed if user hasn't chosen)
   applyTheme(getInitialTheme());
 
-  // follow system theme only when user has not chosen explicitly
+  // listen for system theme changes
+  // only apply when user has NOT explicitly selected a theme
   const media = window.matchMedia("(prefers-color-scheme: dark)");
+
   media.addEventListener("change", event => {
-    if (hasStoredTheme()) return;
-    applyTheme(event.matches);
+    // if user has chosen a theme, do not override it
+    if (getStoredTheme() !== null) {
+      return;
+    }
+
+    applyTheme(event.matches ? DARK_THEME : LIGHT_THEME);
   });
 
   // toggle theme on button click
+  // this is considered explicit user intent → persist to localStorage
   colorModeButton.addEventListener("click", () => {
-    applyTheme(root.getAttribute("data-theme") !== "dark");
+    const currentTheme = root.getAttribute("data-theme");
+    const nextTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+
+    applyTheme(nextTheme, true);
   });
 }
