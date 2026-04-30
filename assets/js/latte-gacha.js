@@ -1,8 +1,8 @@
 // use Math.random for simple gacha randomness (not cryptographically secure)
-// load latte data from json script
 const raw = document.getElementById("latte-data")?.textContent || "[]";
 
 let lattes = [];
+
 try {
   lattes = JSON.parse(raw);
 } catch (err) {
@@ -15,76 +15,82 @@ if (!Array.isArray(lattes)) {
 }
 
 // cache dom elements for gacha ui
-const gachaBtn = document.querySelector(".gacha__button");
+const gachaButton = document.querySelector(".gacha__button");
 const gachaResult = document.querySelector(".gacha__result");
-const gachaDesc = document.querySelector(".gacha__desc");
+const gachaDescription = document.querySelector(".gacha__desc");
 
-// manage spin configuration
-const initialDelay = 40;
-const delayStep = 10;
-const maxSpinCount = 20;
+// run only when all required elements exist
+if (gachaButton && gachaResult && gachaDescription) {
+  // manage spin configuration
+  const initialDelay = 40;
+  const delayStep = 10;
+  const maxSpinCount = 20;
 
-// manage spin state and final result
-let gachaDelay = initialDelay;
-let gachaCount = 0;
-let finalPick = null;
+  // manage spin state and final result
+  let gachaDelay = initialDelay;
+  let gachaCount = 0;
+  let finalPick = null;
 
-// run spin animation with increasing delay
-function gachaSpin() {
-  setTimeout(() => {
-    const spinIndex = Math.floor(Math.random() * lattes.length);
-    const spinPick = lattes[spinIndex];
+  // pick a random latte from the list
+  const pickRandomLatte = () => {
+    const index = Math.floor(Math.random() * lattes.length);
+    return lattes[index];
+  };
 
-    // update ui during spin
-    gachaResult.textContent = spinPick.name + " ...";
-    gachaDesc.textContent = "고민 중 ...";
+  // reset spin state before each run
+  const resetSpinState = () => {
+    gachaDelay = initialDelay;
+    gachaCount = 0;
+  };
 
-    // slow down spin over time
-    gachaDelay += delayStep;
+  // run spin animation with increasing delay
+  const gachaSpin = () => {
+    setTimeout(() => {
+      const spinPick = pickRandomLatte();
 
-    // track spin iterations
-    gachaCount += 1;
+      // update ui during spin
+      gachaResult.textContent = `${spinPick.name} ...`;
+      gachaDescription.textContent = "고민 중 ...";
 
-    // continue or finish spin
-    if (gachaCount < maxSpinCount) {
-      gachaSpin();
-    } else {
+      // slow down spin over time
+      gachaDelay += delayStep;
+      gachaCount += 1;
+
+      if (gachaCount < maxSpinCount) {
+        gachaSpin();
+        return;
+      }
+
       // finalize result
       gachaResult.textContent = finalPick.name;
-      gachaDesc.textContent = finalPick.description;
-      gachaBtn.textContent = "한번 더 뽑기";
-      gachaBtn.disabled = false;
+      gachaDescription.textContent = finalPick.description;
+      gachaButton.textContent = "한번 더 뽑기";
+      gachaButton.disabled = false;
 
-      // reset state
-      gachaDelay = initialDelay;
-      gachaCount = 0;
+      resetSpinState();
+    }, gachaDelay);
+  };
+
+  // handle click to start gacha flow
+  gachaButton.addEventListener("click", () => {
+    // prevent execution if data is invalid or empty
+    if (lattes.length === 0) {
+      gachaResult.textContent = "준비 중 ...";
+      gachaDescription.textContent = "아직 라떼가 준비되지 않았습니다 ...";
+      return;
     }
-  }, gachaDelay);
+
+    // disable button to avoid multiple triggers
+    gachaButton.disabled = true;
+
+    resetSpinState();
+
+    // update button text during spin
+    gachaButton.textContent = "라떼 내리는 중...";
+
+    // preselect final result before animation
+    finalPick = pickRandomLatte();
+
+    gachaSpin();
+  });
 }
-
-// handle click to start gacha flow
-gachaBtn.addEventListener("click", () => {
-  // prevent execution if data is invalid or empty
-  if (lattes.length === 0) {
-    gachaResult.textContent = "준비 중 ...";
-    gachaDesc.textContent = "아직 라떼가 준비되지 않았습니다 ...";
-    return;
-  }
-
-  // disable button to avoid multiple triggers
-  gachaBtn.disabled = true;
-
-  // reset spin state before starting
-  gachaDelay = initialDelay;
-  gachaCount = 0;
-
-  // update button text during spin
-  gachaBtn.textContent = "라떼 내리는 중...";
-
-  // preselect final result before animation
-  const finalIndex = Math.floor(Math.random() * lattes.length);
-  finalPick = lattes[finalIndex];
-
-  // start spin animation
-  gachaSpin();
-});
