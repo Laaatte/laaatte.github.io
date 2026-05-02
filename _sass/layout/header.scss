@@ -70,7 +70,7 @@
   height: 0.8rem;
   padding: 0;
   border: 0.12rem solid var(--header-line);
-  border-radius: 0.15rem;
+  border-radius: 0.14rem;
   background: linear-gradient(to right, var(--mode-btn-dark) 50%, var(--mode-btn-light) 50%);
   background-size: 200% 100%;
   background-position: left;
@@ -120,7 +120,7 @@
       grid-column: 3;
       grid-row: 1;
       justify-self: end;
-      align-self: start;
+      align-self: center;
     }
 
     /* center text on small screens */
