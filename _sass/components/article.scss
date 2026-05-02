@@ -1,6 +1,6 @@
 /* article container */
 .article {
-  max-width: min(900px, 95vw);
+  max-width: min(880px, 92vw);
   margin: 2.5rem auto;
   padding: 0.2rem;
 
@@ -39,8 +39,6 @@
   &__content {
     font-size: 1.022rem;
     font-weight: 400;;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
 
     h2 {
       margin-top: 1.6rem;

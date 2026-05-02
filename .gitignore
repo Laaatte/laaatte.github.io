@@ -1,12 +1,16 @@
 # gitignore configuration
 .git
 
-# jekyll
+# local development and security scan tools
+.tmp
+.gitleaks.toml
+
+# jekyll build and cache files
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
 
-# rbenv
+# local ruby version files
 .ruby-version

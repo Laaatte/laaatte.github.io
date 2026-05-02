@@ -51,6 +51,7 @@ if (gachaButton && gachaResult && gachaDescription) {
   const showEmptyMessage = () => {
     gachaResult.textContent = "준비 중 ...";
     gachaDescription.textContent = "아직 라떼가 준비되지 않았습니다 ...";
+    gachaButton.textContent = "뽑기";
     gachaButton.disabled = false;
   };
 
