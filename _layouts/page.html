@@ -6,7 +6,7 @@ layout: default
   {% if page.title != null and page.show_article_header %}
   <div class="article__item">
     <!-- back button for pages with article header -->
-    <a class="article__back-link" href="{{ page.back_url | default: '/' | relative_url }}" onclick="if (history.length > 1) { history.back(); return false; }">←</a>
+    <a class="article__back-link" href="{{ page.back_url | default: '/' | relative_url }}" aria-label="Go back" onclick="if (history.length > 1) { history.back(); return false; }">←</a>
     <!-- post title heading -->
     <h1 class="article__title">{{ page.title }}</h1>
   </div>
@@ -18,7 +18,7 @@ layout: default
   </section>
 
   {% if page.show_to_top %}
-  <button class="to-top" type="button" aria-label="맨 위로 이동">↑</button>
+  <button class="to-top" type="button" aria-label="Back to top">↑</button>
   <script src="{{ '/assets/js/to-top.js' | relative_url }}" defer></script>
   {% endif %}
 
