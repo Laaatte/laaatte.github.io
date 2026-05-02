@@ -33,6 +33,10 @@ if (gachaButton && gachaResult && gachaDescription) {
 
   // pick a random latte from the list
   const pickRandomLatte = () => {
+    if (lattes.length === 0) {
+      return null;
+    }
+
     const index = Math.floor(Math.random() * lattes.length);
     return lattes[index];
   };
@@ -43,10 +47,27 @@ if (gachaButton && gachaResult && gachaDescription) {
     gachaCount = 0;
   };
 
+  // show fallback message when latte data is unavailable
+  const showEmptyMessage = () => {
+    gachaResult.textContent = "준비 중 ...";
+    gachaDescription.textContent = "아직 라떼가 준비되지 않았습니다 ...";
+    gachaButton.disabled = false;
+  };
+
   // run spin animation with increasing delay
   const gachaSpin = () => {
+    if (lattes.length === 0 || finalPick === null) {
+      showEmptyMessage();
+      return;
+    }
+
     setTimeout(() => {
       const spinPick = pickRandomLatte();
+
+      if (spinPick === null) {
+        showEmptyMessage();
+        return;
+      }
 
       // update ui during spin
       gachaResult.textContent = `${spinPick.name} ...`;
@@ -75,8 +96,7 @@ if (gachaButton && gachaResult && gachaDescription) {
   gachaButton.addEventListener("click", () => {
     // prevent execution if data is invalid or empty
     if (lattes.length === 0) {
-      gachaResult.textContent = "준비 중 ...";
-      gachaDescription.textContent = "아직 라떼가 준비되지 않았습니다 ...";
+      showEmptyMessage();
       return;
     }
 
@@ -90,6 +110,11 @@ if (gachaButton && gachaResult && gachaDescription) {
 
     // preselect final result before animation
     finalPick = pickRandomLatte();
+
+    if (finalPick === null) {
+      showEmptyMessage();
+      return;
+    }
 
     gachaSpin();
   });

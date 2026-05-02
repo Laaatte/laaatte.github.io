@@ -3,21 +3,21 @@ const toTopButton = document.querySelector(".to-top");
 
 // if button exists, attach events
 if (toTopButton) {
-  const root = document.documentElement;
+  const documentElement = document.documentElement;
   const showOffset = 240;
 
   let ticking = false;
 
   // check if page has enough height to scroll
   const isScrollable = () => {
-    return root.scrollHeight > window.innerHeight;
+    return documentElement.scrollHeight > window.innerHeight;
   };
 
   // show button near bottom of page
   const updateButtonVisibility = () => {
     const scrollTop = window.scrollY;
     const windowHeight = window.innerHeight;
-    const fullHeight = root.scrollHeight;
+    const fullHeight = documentElement.scrollHeight;
 
     const shouldShow = isScrollable() && scrollTop + windowHeight > fullHeight - showOffset;
 

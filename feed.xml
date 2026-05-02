@@ -6,7 +6,7 @@
     <description>GitHub Blog</description>
     <atom:link href="https://laaatte.com/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Jekyll</generator>
-    <lastBuildDate>2026-04-30T00:49:57+00:00</lastBuildDate>
+    <lastBuildDate>2026-05-02T12:23:24+09:00</lastBuildDate>
     
   
   <item>
@@ -15,7 +15,7 @@
     <guid isPermaLink="true">https://laaatte.com/posts/custom-domain</guid>
     <description>왜 커스텀 도메인을 사용했는가?
 </description>
-    <pubDate>2026-04-27T00:00:00+00:00</pubDate>
+    <pubDate>2026-04-27T00:00:00+09:00</pubDate>
     
     <category>dev</category>
     
@@ -27,7 +27,7 @@
     <guid isPermaLink="true">https://laaatte.com/posts/caffe-latte</guid>
     <description>맛있는 카페라떼
 </description>
-    <pubDate>2026-04-01T00:00:00+00:00</pubDate>
+    <pubDate>2026-04-01T00:00:00+09:00</pubDate>
     
     <category>lattecollection</category>
     
@@ -42,7 +42,7 @@
   마크다운 테스트
 
 </description>
-    <pubDate>2022-01-11T00:00:00+00:00</pubDate>
+    <pubDate>2022-01-11T00:00:00+09:00</pubDate>
     
     <category>dev</category>
     

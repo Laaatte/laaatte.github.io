@@ -7,7 +7,7 @@ const DARK_THEME = "dark";
 const LIGHT_THEME = "light";
 
 // root element where data-theme attribute controls css variables
-const root = document.documentElement;
+const documentElement = document.documentElement;
 
 // color mode toggle button (may not exist on all pages)
 const colorModeButton = document.querySelector(".color__mode-btn");
@@ -50,7 +50,7 @@ if (colorModeButton) {
     const isDark = theme === DARK_THEME;
 
     // update css theme via data attribute
-    root.setAttribute("data-theme", theme);
+    documentElement.setAttribute("data-theme", theme);
 
     // reflect state for accessibility (toggle button pressed state)
     colorModeButton.setAttribute("aria-pressed", String(isDark));
@@ -92,7 +92,7 @@ if (colorModeButton) {
   // toggle theme on button click
   // this is considered explicit user intent → persist to localStorage
   colorModeButton.addEventListener("click", () => {
-    const currentTheme = root.getAttribute("data-theme");
+    const currentTheme = documentElement.getAttribute("data-theme");
     const nextTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
 
     applyTheme(nextTheme, true);
