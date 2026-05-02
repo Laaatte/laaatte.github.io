@@ -6,13 +6,13 @@ url: https://laaatte.com
 title: Laaatte
 description: GitHub Blog
 lang: ko
-timezone: asia/seoul
+timezone: Asia/Seoul
 
 # assets version (css, favicon)
 assets_version: 260430
 
 # open graph
-og_type: Website
+og_type: website
 og_locale: ko_kr
 og_image: /assets/og-image.png
 
