@@ -4,40 +4,21 @@ const toTopButton = document.querySelector(".to-top");
 // if button exists, attach events
 if (toTopButton) {
   const documentElement = document.documentElement;
-  const showOffset = 240;
-
-  let ticking = false;
 
   // check if page has enough height to scroll
   const isScrollable = () => {
     return documentElement.scrollHeight > window.innerHeight;
   };
 
-  // show button near bottom of page
+  // show button only when the page can scroll
   const updateButtonVisibility = () => {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const fullHeight = documentElement.scrollHeight;
-
-    const shouldShow = isScrollable() && scrollTop + windowHeight > fullHeight - showOffset;
+    const shouldShow = isScrollable();
 
     toTopButton.classList.toggle("show", shouldShow);
-
-    ticking = false;
+    toTopButton.tabIndex = shouldShow ? 0 : -1;
   };
 
-  // limit scroll handler work with requestAnimationFrame
-  const requestButtonUpdate = () => {
-    if (ticking) {
-      return;
-    }
-
-    ticking = true;
-    window.requestAnimationFrame(updateButtonVisibility);
-  };
-
-  window.addEventListener("scroll", requestButtonUpdate, { passive: true });
-  window.addEventListener("resize", requestButtonUpdate);
+  window.addEventListener("resize", updateButtonVisibility);
 
   // scroll to top on click
   toTopButton.addEventListener("click", () => {
