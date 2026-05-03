@@ -8,7 +8,7 @@ description: GitHub Blog
 lang: ko
 timezone: Asia/Seoul
 
-# assets version (css, favicon)
+# assets cache version
 assets_version: 260430
 
 # open graph
@@ -33,10 +33,14 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+# build includes
+include:
+  - .well-known
+
 # url structure
 permalink: /:title
 
-# collections (info, categories)
+# collections
 collections:
   info:
     output: true
@@ -44,7 +48,7 @@ collections:
   category:
     output: true
 
-# default front matter
+# front matter defaults
 defaults:
   - scope:
       type: posts

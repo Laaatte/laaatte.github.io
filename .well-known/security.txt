@@ -1,0 +1,5 @@
+Contact: https://github.com/Laaatte/laaatte.github.io/issues
+Expires: 2027-05-03T00:00:00Z
+Preferred-Languages: ko, en
+Canonical: https://laaatte.com/.well-known/security.txt
+Policy: https://github.com/Laaatte/laaatte.github.io/security/policy
