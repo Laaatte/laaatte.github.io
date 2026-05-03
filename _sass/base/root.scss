@@ -2,6 +2,8 @@
 
 /* light mode palette */
 :root {
+  color-scheme: light;
+
   /* base colors */
   --color-bg: #f7f7f5;
   --color-text: #2c2c2c;
@@ -19,6 +21,8 @@
 
 /* dark mode overrides */
 [data-theme="dark"] {
+  color-scheme: dark;
+
   /* base colors */
   --color-bg: #16181a;
   --color-text: #e2e2de;

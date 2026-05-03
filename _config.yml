@@ -42,7 +42,7 @@ permalink: /:title
 
 # collections
 collections:
-  info:
+  standalone:
     output: true
     sort_by: order
   category:
@@ -59,7 +59,7 @@ defaults:
       show_to_top: true
 
   - scope:
-      type: info
+      type: standalone
     values:
       layout: page
       permalink: /:name
