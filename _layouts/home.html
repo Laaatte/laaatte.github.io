@@ -26,16 +26,16 @@ layout: page
   <h2>Archive</h2>
 
   <ul class="unstyled-list">
-    {% assign sorted_category = site.category | sort: "title" %}
+    {% assign sorted_archives = site.archives | sort: "title" %}
 
-    {% for category_page in sorted_category %}
-    {% assign posts_in_category = site.categories[category_page.category_key] | default: empty %}
-    {% assign post_count = posts_in_category | size %}
+    {% for archive_page in sorted_archives %}
+    {% assign archive_posts = site.posts | where: "archive", archive_page.archive_key | default: empty %}
+    {% assign post_count = archive_posts | size %}
 
     {% if post_count > 0 %}
     <li class="post-list__item">
-      <a class="text-link" href="{{ category_page.url | relative_url }}">
-        <span>{{ category_page.title }}</span>
+      <a class="text-link" href="{{ archive_page.url | relative_url }}">
+        <span>{{ archive_page.title }}</span>
         <span class="text-link__meta">({{ post_count }})</span>
       </a>
     </li>

@@ -1,4 +1,4 @@
 ---
 title: 개발
-category_key: dev
+archive_key: dev
 ---

@@ -19,9 +19,9 @@ permalink: /feed.xml
     <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
     <description>{{ post.excerpt | strip_html | xml_escape }}</description>
     <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-    {% for category in post.categories %}
-    <category>{{ category | xml_escape }}</category>
-    {% endfor %}
+    {% if post.archive %}
+    <category>{{ post.archive | xml_escape }}</category>
+    {% endif %}
   </item>
   {% endfor %}
   </channel>

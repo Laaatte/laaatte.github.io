@@ -1,0 +1,10 @@
+---
+layout: page
+---
+{% assign archive_posts = site.posts | where: "archive", page.archive_key | default: empty %}
+
+{% if archive_posts.size > 0 %}
+{% include archive-content.html posts=archive_posts %}
+{% else %}
+<p>No posts found.</p>
+{% endif %}

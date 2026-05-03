@@ -45,7 +45,7 @@ collections:
   standalone:
     output: true
     sort_by: order
-  category:
+  archives:
     output: true
 
 # front matter defaults
@@ -65,8 +65,8 @@ defaults:
       permalink: /:name
 
   - scope:
-      type: category
+      type: archives
     values:
-      layout: category
+      layout: archive
       permalink: /:collection/:name
       show_article_header: true

@@ -1,7 +1,7 @@
 ---
 title: Cloudflare 도메인 + GitHub Pages 연동
 desc: 깃허브 페이지 커스텀 도메인 추가
-category: dev
+archive: dev
 author: Laaatte
 date: 2026-04-27
 ---
