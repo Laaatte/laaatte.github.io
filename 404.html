@@ -25,7 +25,8 @@
     default-src 'self';
     script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
     connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https://www.google-analytics.com;
     object-src 'none';
     base-uri 'self';
@@ -58,6 +59,13 @@
 
   <!-- favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg?v=260430">
+
+  <!-- font preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- web font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css?v=260430">
